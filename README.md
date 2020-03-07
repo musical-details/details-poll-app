@@ -1,1 +1,0 @@
-# details-poll-app
