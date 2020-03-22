@@ -4,12 +4,14 @@
   border-top: 8px solid #f53260;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
+  top: 0;
+  //overflow-y: scroll;
   text-align: center;
   background-color: #111;
   font-family: "Jaldi", sans-serif;
   display: flex;
-  justify-content: center;
+  flex-flow: column;
+  align-content: center;
 
   .background {
     position: absolute;
@@ -59,6 +61,7 @@
   position: relative;
   z-index: 100;
   margin-top: 65px;
+  
   font-size: 22px;
   color: #ddd;
   img.logo {
@@ -82,4 +85,41 @@
     border-radius: 25px;
     font-size: 15px;
   }
+
+  .svg-wrapper {
+    path {      
+      stroke: #fff;
+      fill: #fff;
+      stroke-dasharray: 1000;
+      opacity: 10;
+      animation: animate_logo 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes animate_logo {
+      0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 1000;
+      }
+
+      30% {
+        opacity: 10;
+        fill: none;
+        stroke-dashoffset: 1000;
+      }
+
+      90% {
+        fill: rgba(255,255,255,0);
+      }
+
+      100% {
+        opacity: 10;
+        fill: rgba(255,255,255,1);
+        stroke-dashoffset: 0;
+      }
+
+    }
+
+  }
+
 }

@@ -1,0 +1,25 @@
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      x="0"
+      y="0"
+      version="1"
+      viewBox="0 0 650 450"
+      xmlSpace="preserve"
+    >
+      <defs>
+        <circle id="a" cx="260.8" cy="249" r="50.1"></circle>
+      </defs>
+      <clipPath>
+        <use overflow="visible" xlinkHref="#a"></use>
+      </clipPath>
+      <circle
+        cx="260.8"
+        cy="249"
+        r="68.9"
+        fill="none"
+        stroke="#FFF"
+        strokeMiterlimit="10"
+        strokeWidth="0.861"
+      ></circle>
+    </svg>
