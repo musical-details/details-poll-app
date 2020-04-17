@@ -1,0 +1,34 @@
+.genre-wrapper {
+  width: 25%;
+  height: 85px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  outline: none;
+
+  &.selected {
+    .genre {
+      background-color: #ec3862;
+      opacity: 1;
+      color: black;
+    }
+  }
+
+  .genre {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    transition: 0.3s ease-out;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", cursive;
+    font-size: 20px;
+    color: #999;
+    outline: none;
+  }
+}

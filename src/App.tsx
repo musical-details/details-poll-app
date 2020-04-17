@@ -7,10 +7,17 @@ import { scrollToRef, disableScroll } from "./utils";
 
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
+import GenreOption from "./components/genre-option/genre-option";
 
 export type MusicApplication = {
   name: string;
   logo: string;
+};
+
+export type MusicGenre = {
+  name: string;
+  color: string;
+  icon: string;
 };
 
 type AppProps = {};
@@ -20,6 +27,7 @@ type AppState = {
   currentSection: number;
   selectedApplications: Array<MusicApplication>;
   bestApplication: MusicApplication | undefined;
+  selectedGenres: Array<MusicGenre>;
   bestApplicationRating: {
     songSelection: number | null;
     searchEngine: number | null;
@@ -38,6 +46,7 @@ class App extends React.Component<AppProps, AppState> {
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
+    selectedGenres: [],
     bestApplicationRating: {
       songSelection: null,
       searchEngine: null,
@@ -99,6 +108,20 @@ class App extends React.Component<AppProps, AppState> {
       selectedApplications: this.state.selectedApplications.filter(
         (selectedApplication: MusicApplication) =>
           selectedApplication !== unselectedApplication
+      ),
+    });
+  };
+
+  handleGenreOptionSelect = (selectedGenre: MusicGenre) => {
+    this.setState({
+      selectedGenres: [...this.state.selectedGenres, selectedGenre],
+    });
+  };
+
+  handleGenreOptionUnselect = (unselectedGenre: MusicGenre) => {
+    this.setState({
+      selectedGenres: this.state.selectedGenres.filter(
+        (selectedGenre: MusicGenre) => selectedGenre !== unselectedGenre
       ),
     });
   };
@@ -204,9 +227,20 @@ class App extends React.Component<AppProps, AppState> {
               </div>
               <div className="genres">
                 {musicGenres.map((musicGenre: any) => (
-                  <div className="genre">{musicGenre.name}</div>
+                  <GenreOption
+                    genre={musicGenre}
+                    onSelect={this.handleGenreOptionSelect}
+                    onUnselect={this.handleGenreOptionUnselect}
+                  />
                 ))}
               </div>
+              <button
+                className="main"
+                style={{ marginTop: "15px" }}
+                onClick={this.handleNextSectionButtonClick}
+              >
+                Next!
+              </button>
             </div>
           </section>
           <section className="C" ref={this.sectionRefs[4]}>
@@ -339,12 +373,7 @@ class App extends React.Component<AppProps, AppState> {
               <div className="knob-area">
                 <div>Lorem ipsum</div>
               </div>
-              <button
-                className="main"
-                onClick={this.handleNextSectionButtonClick}
-              >
-                Next!
-              </button>
+              <button className="main">Done!</button>
             </div>
           </section>
         </div>

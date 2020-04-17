@@ -237,20 +237,5 @@ button.main {
 .genres {
   display: flex;
   flex-wrap: wrap;
-  .genre-wrapper {
-    width: 20%;
-    height: 65px;
-    padding: 5px;
-    box-sizing: border-box;
-
-    .genre {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: red;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+  justify-content: center;
 }

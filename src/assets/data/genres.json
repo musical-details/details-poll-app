@@ -10,7 +10,7 @@
     "icon": ""
   },
   {
-    "name": "Oldschool Rap",
+    "name": "Rap",
     "color": "",
     "icon": ""
   },
@@ -74,16 +74,7 @@
     "color": "",
     "icon": ""
   },
-  {
-    "name": "Funk/Soul/Blues",
-    "color": "",
-    "icon": ""
-  },
-  {
-    "name": "Jazz",
-    "color": "",
-    "icon": ""
-  },
+
   {
     "name": "Ambient",
     "color": "",
@@ -101,6 +92,31 @@
   },
   {
     "name": "Classic",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "name": "Funk",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "name": "Soul",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "name": "Blues",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "name": "Jazz",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "name": "Other",
     "color": "",
     "icon": ""
   }
