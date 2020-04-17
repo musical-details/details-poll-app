@@ -1,29 +1,30 @@
 .App {
   width: 100%;
-  height: 100vh;
   border-top: 8px solid #f53260;
+  color: #aaa;
   box-sizing: border-box;
   position: relative;
   top: 0;
-  //overflow-y: scroll;
   text-align: center;
   background-color: #111;
   font-family: "Jaldi", sans-serif;
-  display: flex;
-  flex-flow: column;
-  align-content: center;
 
   .background {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url("./assets/rzezba-bg.png");
     background-position: 0 0;
-    opacity: 0.2;
     filter: grayscale(0.5);
     animation: 120s animate_background infinite;
+  }
+
+  .content {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
   }
 
   @keyframes floating {
@@ -58,12 +59,17 @@
 }
 
 .App-header {
+  width: 100%;
+  height: 100vh;
   position: relative;
   z-index: 100;
-  margin-top: 65px;
-  
   font-size: 22px;
   color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
   img.logo {
     opacity: 0.75;
     width: 150px;
@@ -74,20 +80,8 @@
     color: #ff3c6a;
   }
 
-  button {
-    margin: 25px;
-    background: #ff3c6a;
-    color: white;
-    text-transform: uppercase;
-    border: 5px solid #f03460;
-    width: 250px;
-    height: 50px;
-    border-radius: 25px;
-    font-size: 15px;
-  }
-
   .svg-wrapper {
-    path {      
+    path {
       stroke: #fff;
       fill: #fff;
       stroke-dasharray: 1000;
@@ -109,17 +103,154 @@
       }
 
       90% {
-        fill: rgba(255,255,255,0);
+        fill: rgba(255, 255, 255, 0);
       }
 
       100% {
         opacity: 10;
-        fill: rgba(255,255,255,1);
+        fill: rgba(255, 255, 255, 1);
         stroke-dashoffset: 0;
       }
-
     }
+  }
+}
 
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > div {
+    width: 100%;
   }
 
+  &.A,
+  &.B {
+    & > div {
+      width: 80%;
+    }
+
+    .question-bar {
+      margin-bottom: 25px;
+    }
+    .main {
+      margin: 0;
+      margin-top: 50px;
+    }
+  }
+
+  &.B {
+  }
+
+  &.C {
+  }
+
+  &.D,
+  &.F {
+    background: #ec3862;
+    color: black;
+  }
+}
+
+.knob-area {
+  display: flex;
+  justify-content: center;
+}
+
+.question-bar {
+  color: #ff3c6a;
+  font-size: 28px;
+}
+
+.preview-bar {
+  position: absolute;
+  top: 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 40px;
+  background: #111;
+  color: #ff3c6a;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.preview-text {
+  padding: 15px;
+}
+
+button.main {
+  outline: none;
+  margin: 80px;
+  background: #ff3c6a;
+  color: white;
+  text-transform: uppercase;
+  border: 5px solid #f03460;
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+.notification-box {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  opacity: 0.8;
+
+  .notification {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    display: flex;
+    background-color: #0b0b0b;
+
+    .icon {
+      width: 80px;
+      height: 100%;
+      background: #ff3c6a;
+      color: black;
+      font-size: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      width: calc(100% - 80px);
+      height: 100%;
+      font-family: "Bebas Neue", cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+    }
+  }
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  .genre-wrapper {
+    width: 20%;
+    height: 65px;
+    padding: 5px;
+    box-sizing: border-box;
+
+    .genre {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
