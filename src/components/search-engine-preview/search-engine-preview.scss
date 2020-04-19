@@ -72,33 +72,30 @@
             top: 50%;
             left: 50%;
           }
-        }
 
-        .search-button-wrapper {
-          width: 100%;
-          position: absolute;
-          left: 0;
-          bottom: 25px;
+          .logo-wrapper {
+            width: 100%;
+            height: 90px;
+            padding: 10px;
+            box-sizing: border-box;
 
-          .search-button {
-            font-family: "Bebas Neue";
-            outline: none;
-            width: 80%;
-            height: 32px;
-            background: linear-gradient(-45deg, #fc4c32, #d72375);
-            color: white;
-            font-size: 15px;
-            border-radius: 16px;
-            border: none;
-            letter-spacing: 4px;
+            .logo {
+              width: 100%;
+              height: 100%;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+
+              background-image: url("../../assets/images/logo-details-search-gradient.png");
+            }
           }
         }
 
         .tempo-input,
         .vocal-input {
           width: 48%;
-          height: 100px;
-          float: left;
+          height: 85px;
+          display: inline-block;
           font-size: 15px;
 
           & > div {
@@ -107,6 +104,12 @@
               text-align: center;
             }
           }
+        }
+
+        .vocal-input::after {
+          content: "";
+          display: block;
+          clear: both;
         }
 
         .tempo-input {
@@ -211,5 +214,19 @@
         }
       }
     }
+  }
+}
+
+.tempo-vocal-box {
+  display: flex;
+}
+.card-part {
+  margin-bottom: 10px;
+  .card-header {
+    text-align: left;
+    font-family: "Bebas Neue";
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    color: #999;
   }
 }

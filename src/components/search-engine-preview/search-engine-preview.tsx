@@ -2,9 +2,10 @@ import React from "react";
 import "./search-engine-preview.scss";
 import "./sound-description.scss";
 import "./speedometer.scss";
-import SearchInput from "./search-input";
+import SearchInput, { SearchButton } from "./search-input";
 import Speedometer from "./speedometer";
 import PhonePointer from "../phone-pointer/phone-pointer";
+import Card from "./card";
 
 type SoundDescriptionProps = {
   slot?: { name: string; level: number };
@@ -58,7 +59,7 @@ class SearchEnginePreview extends React.Component<
   SearchEnginePreviewProps,
   SearchEnginePreviewState
 > {
-  inputsCount: number = 7;
+  inputsCount: number = 9;
   inputsRef: Array<React.RefObject<HTMLDivElement>> = [];
 
   state: SearchEnginePreviewState = {
@@ -87,6 +88,8 @@ class SearchEnginePreview extends React.Component<
     }, 2500);
   }
 
+  isHover = (inputId: number) => inputId === this.state.currentHoverElement;
+
   render() {
     const { currentHoverElement } = this.state;
     return (
@@ -107,9 +110,12 @@ class SearchEnginePreview extends React.Component<
                     className="start-pointer-position"
                     ref={this.inputsRef[0]}
                   ></div>
+                  <div className="logo-wrapper">
+                    <div className="logo"></div>
+                  </div>
                   <SearchInput
                     inputId={1}
-                    isHover={true}
+                    isHover={this.isHover(1)}
                     className="select-genre"
                     placeholder="Title or author"
                     icon="star"
@@ -118,7 +124,7 @@ class SearchEnginePreview extends React.Component<
 
                   <SearchInput
                     inputId={2}
-                    isHover={false}
+                    isHover={this.isHover(2)}
                     className="select-genre"
                     placeholder="Select genre..."
                     icon="bookmark"
@@ -131,7 +137,7 @@ class SearchEnginePreview extends React.Component<
 
                   <SearchInput
                     inputId={3}
-                    isHover={false}
+                    isHover={this.isHover(3)}
                     className="select-mood"
                     placeholder="Select mood..."
                     icon="emo-laugh"
@@ -145,7 +151,7 @@ class SearchEnginePreview extends React.Component<
 
                   <SearchInput
                     inputId={4}
-                    isHover={false}
+                    isHover={this.isHover(4)}
                     className="select-genre"
                     placeholder="Select important sounds..."
                     icon="music"
@@ -162,10 +168,10 @@ class SearchEnginePreview extends React.Component<
                     ]}
                     inputRef={this.inputsRef[4]}
                   />
-                  <div>
+                  <div className="tempo-vocal-box">
                     <SearchInput
                       inputId={5}
-                      isHover={false}
+                      isHover={this.isHover(5)}
                       className="tempo-input mini"
                       placeholder="Set Tempo..."
                       inputRef={this.inputsRef[5]}
@@ -176,7 +182,7 @@ class SearchEnginePreview extends React.Component<
                     </SearchInput>
                     <SearchInput
                       inputId={6}
-                      isHover={false}
+                      isHover={this.isHover(6)}
                       className="vocal-input mini"
                       placeholder="Set Vocal..."
                       inputRef={this.inputsRef[6]}
@@ -191,11 +197,37 @@ class SearchEnginePreview extends React.Component<
                       </div>
                     </SearchInput>
                   </div>
-
+                  <SearchInput
+                    inputId={7}
+                    isHover={this.isHover(7)}
+                    inputRef={this.inputsRef[7]}
+                  >
+                    Test
+                  </SearchInput>
                   <div className="search-button-wrapper">
-                    <button className="search-button">Find!</button>
+                    <SearchButton
+                      inputId={8}
+                      isHover={this.isHover(8)}
+                      inputRef={this.inputsRef[8]}
+                    >
+                      Find!
+                    </SearchButton>
                   </div>
                 </div>
+                <Card title="Select genre">
+                  <div className="card-part">
+                    <div className="card-header">What kind of music?</div>
+                    <div></div>
+                  </div>
+                  <div className="card-part">
+                    <div className="card-header">What genre?</div>
+                    <div></div>
+                  </div>
+                  <div className="card-part">
+                    <div className="card-header">What sub-genre?</div>
+                    <div></div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>

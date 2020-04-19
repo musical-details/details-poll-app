@@ -13,11 +13,17 @@ $search-input-height: 50px;
   padding: 0 15px;
   box-sizing: border-box;
   margin-bottom: 8px;
-  transition: 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+  transition-delay: 0.4s;
   text-align: left;
 
   &:focus {
     outline: none;
+  }
+
+  &._hover,
+  &:hover {
+    background: #2f2f2f;
   }
 
   &.mini {
@@ -26,6 +32,7 @@ $search-input-height: 50px;
       height: $search-input-height * 0.8;
     }
   }
+
   .icon {
     position: absolute;
     width: $search-input-height;
@@ -127,5 +134,34 @@ $search-input-height: 50px;
   .options {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+.search-button-wrapper {
+  width: 100%;
+
+  .search-button-box {
+    position: relative;
+    .search-button {
+      font-family: "Bebas Neue";
+      outline: none;
+      width: 80%;
+      height: 32px;
+      background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+      color: white;
+      font-size: 15px;
+      border-radius: 16px;
+      border: none;
+      letter-spacing: 4px;
+      transition: 0.5s ease-out;
+      transition-delay: 0.4s;
+      opacity: 0.8;
+
+      &._hover,
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
   }
 }

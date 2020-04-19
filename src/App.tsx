@@ -325,11 +325,7 @@ class App extends React.Component<AppProps, AppState> {
               </button>
             </div>
           </section>
-          <section
-            className="F"
-            ref={this.sectionRefs[7]}
-            onClick={this.handleNextSectionButtonClick}
-          >
+          <section className="F" ref={this.sectionRefs[7]}>
             <div className="preview-bar">
               <div>
                 <span>Rozbudowana </span>

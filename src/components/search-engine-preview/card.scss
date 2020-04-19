@@ -1,0 +1,58 @@
+.card {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  padding: 12px 25px;
+  box-sizing: border-box;
+  background: rgba(32, 32, 32, 0.96);
+  border-radius: 25px/50px;
+  animation: showWindow 1s 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.15, 1.2);
+
+  @keyframes showWindow {
+    0% {
+      bottom: -100%;
+    }
+    100% {
+      bottom: -20%;
+    }
+  }
+
+  .close-box {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .title-box {
+    width: 100%;
+    text-align: left;
+    border-bottom: 2px solid #444;
+
+    span {
+      font-family: "Bebas Neue";
+      font-size: 25px;
+      color: #cecece;
+      letter-spacing: 2px;
+    }
+  }
+
+  .content-box {
+    margin-top: 5px;
+  }
+}

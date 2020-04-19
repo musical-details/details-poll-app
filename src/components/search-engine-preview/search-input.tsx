@@ -48,7 +48,7 @@ class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
             <i className={`icon-${icon}`}></i>
           </div>
         )}
-        <div className="placeholder">{placeholder}</div>
+        {placeholder && <div className="placeholder">{placeholder}</div>}
         <div className="values">
           {values?.map((value: SearchInputValue) => (
             <div
@@ -63,6 +63,38 @@ class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
           ))}
         </div>
         <div className="extend">{children}</div>
+      </div>
+    );
+  }
+}
+
+type SearchButtonProps = {
+  inputId: number;
+  isHover: boolean;
+  inputRef?: React.RefObject<HTMLDivElement>;
+  className?: string;
+  style?: {};
+};
+type SearchButtonState = {};
+
+export class SearchButton extends React.Component<
+  SearchButtonProps,
+  SearchButtonState
+> {
+  constructor(props: SearchButtonProps) {
+    super(props);
+  }
+
+  render() {
+    const { inputRef, className, style, isHover } = this.props;
+    return (
+      <div className="search-button-box" ref={inputRef}>
+        <button
+          className={`search-button ${className} ${isHover ? `_hover` : ``}`}
+          style={style}
+        >
+          {this.props.children}
+        </button>
       </div>
     );
   }
