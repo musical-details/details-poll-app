@@ -61,7 +61,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 0,
+    currentSection: 7,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,

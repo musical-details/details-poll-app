@@ -131,8 +131,8 @@ class SearchEnginePreview extends React.Component<
                     placeholder="Select genre..."
                     icon="bookmark"
                     values={[
-                      { backgroundColor: "#0097ff", name: "House" },
-                      { backgroundColor: "#56b0ef", name: "Techno" },
+                      { backgroundColor: "#2f2f2f", name: "House" },
+                      { backgroundColor: "#2f2f2f", name: "Techno" },
                     ]}
                     inputRef={this.inputsRef[2]}
                   />
@@ -158,13 +158,13 @@ class SearchEnginePreview extends React.Component<
                     placeholder="Select important sounds..."
                     icon="music"
                     values={[
-                      { backgroundColor: "#0097ff", name: "Groove Bass" },
+                      { backgroundColor: "#2f2f2f", name: "Groove Bass" },
                       {
-                        backgroundColor: "rgb(220, 224, 88)",
+                        backgroundColor: "#2f2f2f",
                         name: "Pure Piano",
                       },
                       {
-                        backgroundColor: "rgb(255, 86, 231)",
+                        backgroundColor: "#2f2f2f",
                         name: "Electronic Drums",
                       },
                     ]}

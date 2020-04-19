@@ -1,4 +1,4 @@
-$search-input-height: 50px;
+$search-input-height: 45px;
 
 .search-input {
   position: relative;
@@ -10,7 +10,7 @@ $search-input-height: 50px;
   border: none;
   border-radius: 8px/12px;
   align-items: center;
-  padding: 0 15px;
+  padding: 7px 15px;
   box-sizing: border-box;
   margin-bottom: 8px;
   transition: background-color 0.5s ease-out;
@@ -23,7 +23,7 @@ $search-input-height: 50px;
 
   &._hover,
   &:hover {
-    background: #2f2f2f;
+    background: #1b1b1b;
   }
 
   &.mini {
@@ -68,17 +68,19 @@ $search-input-height: 50px;
 
     .value {
       flex-grow: 1;
-      background: #0a0a0a;
+      background: #000000;
       border-radius: 8px;
-      padding: 0 8px;
+      padding: 4px 4px;
       margin-right: 3px;
       margin-bottom: 5px;
-      color: black;
+      display: inline-block;
+
+      color: #959595;
       font-weight: bold;
       text-transform: uppercase;
-      font-family: "Bebas Neue", cursive;
-      font-size: 15px;
-      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.25px;
 
       &.dark {
         font-weight: normal;
