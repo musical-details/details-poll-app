@@ -1,18 +1,36 @@
 import React, { useEffect, ChangeEvent } from "react";
-import logo from "./assets/details-main-logo.svg";
+import logo from "./assets/svg/details-main-logo.svg";
+import headphones from "./assets/svg/heaphones-icon.svg";
+
 import "./App.scss";
+import "./app-background.scss";
+import "./notification-box.scss";
+import "./ornaments-style.scss";
+
 import Knob from "./components/knob-component/knob-component";
 import TileOption from "./components/tile-option/tile-option";
 import { scrollToRef, disableScroll } from "./utils";
+import SVG from "react-inlinesvg";
 
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
 import GenreOption from "./components/genre-option/genre-option";
 import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
 
+import ornamentsPathsLeft from "./assets/data/ornaments-paths-left.json";
+import ornamentsPathsCenter from "./assets/data/ornaments-paths-center.json";
+import ornamentsPathsRight from "./assets/data/ornaments-paths-right.json";
+
+import ornament3 from "./assets/svg/ornament-circle-dots.svg";
+
 export type MusicApplication = {
   name: string;
   logo: string;
+};
+
+type Ornament = {
+  path: string;
+  section: number;
 };
 
 export type MusicGenre = {
@@ -137,34 +155,68 @@ class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <div className="App">
-        <div className="background"></div>
+        <div className="background">
+          <div className="sculpture-box">
+            <div className="sculpture"></div>
+            <div className="censored-eyes"></div>
+          </div>
+          <div className="ornaments">
+            <div className="ornaments-wrapper left">
+              {ornamentsPathsLeft.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+
+            <div className="ornaments-wrapper right">
+              {ornamentsPathsRight.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+            <div className="ornaments-wrapper center">
+              {ornamentsPathsCenter.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="content">
           <section className="App-header" ref={this.sectionRefs[0]}>
-            <div className="notification-box">
-              <div className="notification">
-                <div className="icon">
-                  <i className="icon-headphones"></i>
-                </div>
-                <div className="text">Put on your headphones!</div>
-              </div>
-            </div>
             <div>
-              <img className="logo" src={logo} />
-              <div>
-                new <strong>alternative</strong> in music world...
+              <div className="motto">
+                <div>
+                  new <span>alternative</span> <br /> in music world
+                </div>
+              </div>
+              <img className="logo" src={logo} alt="details-logo" />
+              <div className="notification-box">
+                <div className="notification">
+                  <img className="icon" src={headphones} />
+                  <div className="text">
+                    Załóż słuchawki <br /> dla lepszego efektu
+                  </div>
+                </div>
               </div>
               <div>
                 <button
                   className="main"
                   onClick={this.handleNextSectionButtonClick}
                 >
-                  Create it with us
+                  start
                 </button>
               </div>
+              <div className="ornament right top"></div>
             </div>
           </section>
           <section className="A" ref={this.sectionRefs[1]}>
             <div>
+              <div className="question-count">1/8</div>
               <div className="question-bar">
                 <div>
                   <span>Gdzie słuchasz muzyki?</span>
@@ -201,6 +253,7 @@ class App extends React.Component<AppProps, AppState> {
           </section>
           <section className="B" ref={this.sectionRefs[2]}>
             <div>
+              <div className="question-count">2/8</div>
               <div className="question-bar">
                 <div>
                   <span>Która z wybranych aplikacji jest najlepsza?</span>
@@ -221,6 +274,7 @@ class App extends React.Component<AppProps, AppState> {
           </section>
           <section className="B" ref={this.sectionRefs[3]}>
             <div>
+              <div className="question-count">3/8</div>
               <div className="question-bar">
                 <div>
                   <span>Jakich gatunków muzycznych słuchasz?</span>
@@ -246,6 +300,7 @@ class App extends React.Component<AppProps, AppState> {
           </section>
           <section className="C" ref={this.sectionRefs[4]}>
             <div>
+              <div className="question-count">4/8</div>
               <div className="question-bar">
                 <div>
                   <span>
@@ -299,6 +354,7 @@ class App extends React.Component<AppProps, AppState> {
           </section>
           <section className="E" ref={this.sectionRefs[6]}>
             <div>
+              <div className="question-count">5/8</div>
               <div className="question-bar">
                 <div>
                   <span>
@@ -344,7 +400,16 @@ class App extends React.Component<AppProps, AppState> {
                 </div>
               </div>
               <div className="knob-area">
-                <div>Tylko słucham</div>
+                <div>
+                  <Knob
+                    size={100}
+                    numTicks={40}
+                    degrees={270}
+                    min={1}
+                    max={100}
+                    value={0}
+                  />
+                </div>
               </div>
               <div className="question-bar">
                 <div>

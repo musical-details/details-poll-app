@@ -1,38 +1,38 @@
 [
   {
     "name": "Spotify",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1200px-Spotify_logo_without_text.svg.png"
+    "logo": "../logotypes/spotify-icon.png"
   },
   {
     "name": "SoundCloud",
-    "logo": "https://images.vexels.com/media/users/3/137412/isolated/preview/1802b9d8ce3c819eebe90a86bbb61077-soundcloud-icon-logo-by-vexels.png"
+    "logo": "../logotypes/soundcloud-icon.png"
   },
   {
     "name": "Apple Music",
-    "logo": "https://i7.pngguru.com/preview/888/36/928/apple-music-music-download-app-store-apple.jpg"
+    "logo": "../logotypes/apple-music-icon.png"
   },
   {
     "name": "YouTube",
-    "logo": "https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png"
+    "logo": "../logotypes/youtube-icon.png"
   },
   {
     "name": "YT Music",
-    "logo": "https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png"
+    "logo": "../logotypes/ytmusic-icon.png"
   },
   {
     "name": "Deezer",
-    "logo": "https://i7.pngguru.com/preview/917/854/382/deezer-music-download-streaming-media-free-music-you-may-also-like.jpg"
+    "logo": "../logotypes/deezer-icon.png"
   },
   {
     "name": "Tidal",
-    "logo": "https://www.kindpng.com/picc/m/133-1333895_tidal-logo-png-black-tidal-logo-transparent-png.png"
+    "logo": "../logotypes/tidal-icon.png"
   },
   {
     "name": "MixCloud",
-    "logo": "https://www.pngitem.com/pimgs/m/354-3542846_mixcloud-white-logo-transparent-background-hd-png-download.png"
+    "logo": "../logotypes/mixcloud-icon.png"
   },
   {
     "name": "VK",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VK.com-logo.svg/1200px-VK.com-logo.svg.png"
+    "logo": "../logotypes/vk-icon.png"
   }
 ]

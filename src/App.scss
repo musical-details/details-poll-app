@@ -1,26 +1,32 @@
 .App {
   width: 100%;
-  border-top: 8px solid #f53260;
+  //border-top: 8px solid #f53260;
   color: #aaa;
   box-sizing: border-box;
   position: relative;
   top: 0;
   text-align: center;
   background-color: #111;
-  font-family: "Jaldi", sans-serif;
+  font-family: Montserrat;
 
-  .background {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: url("./assets/rzezba-bg.png");
-    background-position: 0 0;
-    filter: grayscale(0.5);
-    animation: 120s animate_background infinite;
+  .motto {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 10px;
+    line-height: 1.7;
+    text-align: left;
+
+    & span {
+      color: #f53260;
+    }
   }
-
   .content {
     position: absolute;
     z-index: 100;
@@ -29,7 +35,6 @@
 
   @keyframes floating {
     0% {
-      opacity: 0.75;
       transform: translatey(0px);
     }
     50% {
@@ -37,23 +42,7 @@
       transform: translatey(-8px);
     }
     100% {
-      opacity: 0.75;
       transform: translatey(0px);
-    }
-  }
-
-  @keyframes animate_background {
-    0% {
-      background-position: 0 0;
-      opacity: 0.1;
-      filter: grayscale(0.5);
-    }
-    40% {
-      background-position: -120px 180px;
-    }
-    70% {
-      opacity: 0.1;
-      filter: grayscale(0.8);
     }
   }
 }
@@ -71,47 +60,37 @@
   flex-wrap: wrap;
 
   img.logo {
-    opacity: 0.75;
-    width: 150px;
-    animation: floating 6s ease-in-out infinite;
+    width: 320px;
+    color: white;
+    padding: 70px 0 140px 0;
+    //animation: floating 6s ease-in-out infinite;
   }
 
   strong {
     color: #ff3c6a;
   }
+}
 
-  .svg-wrapper {
-    path {
-      stroke: #fff;
-      fill: #fff;
-      stroke-dasharray: 1000;
-      opacity: 10;
-      animation: animate_logo 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+button.main {
+  width: 250px;
+  height: 50px;
+  margin: 120px 80px 80px 80px;
+  border-radius: 25px;
 
-    @keyframes animate_logo {
-      0% {
-        opacity: 0;
-        fill: none;
-        stroke-dashoffset: 1000;
-      }
+  outline: none;
+  border: none;
 
-      30% {
-        opacity: 10;
-        fill: none;
-        stroke-dashoffset: 1000;
-      }
+  background: linear-gradient(90deg, #bc209b, #f94922);
+  font-family: Montserrat;
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: white;
+  text-transform: uppercase;
 
-      90% {
-        fill: rgba(255, 255, 255, 0);
-      }
-
-      100% {
-        opacity: 10;
-        fill: rgba(255, 255, 255, 1);
-        stroke-dashoffset: 0;
-      }
-    }
+  &:hover {
+    filter: brightness(0.85);
+    transition: 0.2s linear;
+    cursor: pointer;
   }
 }
 
@@ -133,10 +112,6 @@ section {
     & > div {
       width: 80%;
     }
-
-    .question-bar {
-      margin-bottom: 25px;
-    }
     .main {
       margin: 0;
       margin-top: 50px;
@@ -147,6 +122,9 @@ section {
   }
 
   &.C {
+    & > div {
+      width: 80%;
+    }
   }
 
   &.D,
@@ -163,8 +141,22 @@ section {
 }
 
 .question-bar {
-  color: #ff3c6a;
-  font-size: 28px;
+  margin-bottom: 25px;
+  font-family: Bebas Neue;
+  font-size: 35px;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 10px;
+  line-height: 1.1;
+}
+
+.question-count {
+  font-family: Bebas Neue light;
+  color: #ffffff;
+  text-align: justify;
+  font-size: 30px;
+  letter-spacing: 12px;
+  padding-left: 10px;
 }
 
 .preview-bar {
@@ -199,59 +191,6 @@ section {
 
 .preview-text {
   padding: 15px;
-}
-
-button.main {
-  outline: none;
-  margin: 80px;
-  background: #ff3c6a;
-  color: white;
-  text-transform: uppercase;
-  border: 5px solid #f03460;
-  width: 250px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 15px;
-}
-
-.notification-box {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  padding: 0 20px;
-  box-sizing: border-box;
-  opacity: 0.8;
-
-  .notification {
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    display: flex;
-    background-color: #0b0b0b;
-
-    .icon {
-      width: 80px;
-      height: 100%;
-      background: #ff3c6a;
-      color: black;
-      font-size: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .text {
-      width: calc(100% - 80px);
-      height: 100%;
-      font-family: "Bebas Neue", cursive;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 25px;
-    }
-  }
 }
 
 .genres {
