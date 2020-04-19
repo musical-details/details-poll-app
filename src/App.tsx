@@ -8,6 +8,7 @@ import { scrollToRef, disableScroll } from "./utils";
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
 import GenreOption from "./components/genre-option/genre-option";
+import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
 
 export type MusicApplication = {
   name: string;
@@ -42,7 +43,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 0,
+    currentSection: 7,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -330,21 +331,13 @@ class App extends React.Component<AppProps, AppState> {
             onClick={this.handleNextSectionButtonClick}
           >
             <div className="preview-bar">
-              <div>Rozbudowana wyszukiwarka utworów</div>
-            </div>
-            <div className="preview-text">
-              Chcemy umożliwić Ci rozbudowane narzędzia wyszukiwania. Jak bardzo
-              mogłoby się to Tobie przydać?
+              <div>
+                <span>Rozbudowana </span>
+                <span>wyszukiwarka utworów</span>
+              </div>
             </div>
             <div>
-              <Knob
-                size={100}
-                numTicks={40}
-                degrees={270}
-                min={1}
-                max={100}
-                value={0}
-              />
+              <SearchEnginePreview />
             </div>
           </section>
           <section className="G" ref={this.sectionRefs[8]}>

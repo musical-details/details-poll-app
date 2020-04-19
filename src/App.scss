@@ -122,6 +122,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   & > div {
     width: 100%;
@@ -150,7 +151,8 @@ section {
 
   &.D,
   &.F {
-    background: #ec3862;
+    background: linear-gradient(0deg, #f84824, #b74fa1);
+    animation: 10s animate_background2 infinite;
     color: black;
   }
 }
@@ -170,11 +172,29 @@ section {
   top: 0;
   font-family: "Bebas Neue", cursive;
   font-size: 40px;
-  background: #111;
+  background: rgba(17, 17, 17, 0.1);
   color: #ff3c6a;
-  padding: 15px;
+  padding: 15px 35px;
   box-sizing: border-box;
   margin-top: 20px;
+
+  & > div {
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: left;
+    color: white;
+    // background: -webkit-linear-gradient(#b4285c, #d8393e);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+
+    & > span {
+      display: block;
+      &:nth-child(2) {
+        font-size: 25px;
+        font-weight: 500;
+      }
+    }
+  }
 }
 
 .preview-text {

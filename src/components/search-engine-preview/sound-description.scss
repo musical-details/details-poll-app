@@ -1,0 +1,45 @@
+.sound-description {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .bar {
+    width: 40%;
+    height: 90%;
+    position: relative;
+
+    & > div {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .block {
+      width: 15px;
+      height: 10px;
+      padding: 0 0;
+      box-sizing: border-box;
+
+      .inner {
+        width: 100%;
+        height: 100%;
+        background: #d24c6b;
+      }
+    }
+  }
+
+  .name {
+    width: 100%;
+    height: 90%;
+    line-height: 15px;
+    position: relative;
+
+    & > div {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      font-size: 10px;
+    }
+  }
+}

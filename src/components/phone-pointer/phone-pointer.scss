@@ -1,0 +1,40 @@
+.phone-pointer {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 100;
+  transform: translate(120px, 120px);
+
+  transition: transform 0.9s ease-out;
+
+  .inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(170, 170, 170, 0.3);
+    box-shadow: inset 0 0 1px 0 rgba(170, 170, 170, 0.3);
+    box-sizing: border-box;
+    animation: move-inner-pointer 2.5s infinite;
+    transform: translate(0px, 0px);
+  }
+
+  @keyframes move-inner-pointer {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    20% {
+      transform: translate(1px, 0px);
+    }
+    25% {
+      transform: translate(1px, -1px);
+    }
+    50% {
+      transform: translate(-1px, -1px);
+    }
+    75% {
+      transform: translate(1px, 1px);
+    }
+  }
+}
