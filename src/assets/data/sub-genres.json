@@ -34,5 +34,21 @@
   {
     "parent": "house",
     "name": "fidget house"
+  },
+  {
+    "parent": "house",
+    "name": "electro house"
+  },
+  {
+    "parent": "house",
+    "name": "funky house"
+  },
+  {
+    "parent": "house",
+    "name": "acid house"
+  },
+  {
+    "parent": "house",
+    "name": "french house"
   }
 ]

@@ -2,6 +2,7 @@ import React from "react";
 import "./card.scss";
 
 type CardProps = {
+  hidden: boolean;
   title?: string;
 };
 type CardState = {};
@@ -12,18 +13,21 @@ export class Card extends React.Component<CardProps, CardState> {
   }
 
   render() {
+    const { hidden } = this.props;
     return (
-      <div className="card">
-        <div className="close-box">
-          <div>
-            <i className="icon-cancel"></i>
+      !hidden && (
+        <div className="card">
+          <div className="close-box">
+            <div>
+              <i className="icon-cancel"></i>
+            </div>
           </div>
+          <div className="title-box">
+            <span>{this.props.title}</span>
+          </div>
+          <div className="content-box">{this.props.children}</div>
         </div>
-        <div className="title-box">
-          <span>{this.props.title}</span>
-        </div>
-        <div className="content-box">{this.props.children}</div>
-      </div>
+      )
     );
   }
 }
