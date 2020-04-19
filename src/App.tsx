@@ -61,7 +61,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 7,
+    currentSection: 0,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -381,7 +381,11 @@ class App extends React.Component<AppProps, AppState> {
               </button>
             </div>
           </section>
-          <section className="F" ref={this.sectionRefs[7]}>
+          <section
+            className="F"
+            ref={this.sectionRefs[7]}
+            onClick={this.handleNextSectionButtonClick}
+          >
             <div className="preview-bar">
               <div>
                 <span>Rozbudowana </span>

@@ -217,7 +217,7 @@ class SearchEnginePreview extends React.Component<
                   </div>
                 </div>
                 <CardGenres hidden={true} />
-                <CardMoods hidden={false} />
+                <CardMoods hidden={true} />
               </div>
             </div>
           </div>
