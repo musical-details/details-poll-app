@@ -5,7 +5,9 @@ import "./speedometer.scss";
 import SearchInput, { SearchButton } from "./search-input";
 import Speedometer from "./speedometer";
 import PhonePointer from "../phone-pointer/phone-pointer";
-import Card from "./card";
+import Card, { CardButton } from "./card";
+import musicGenres from "../../assets/data/genres.json";
+import musicSubgenres from "../../assets/data/sub-genres.json";
 
 type SoundDescriptionProps = {
   slot?: { name: string; level: number };
@@ -217,15 +219,33 @@ class SearchEnginePreview extends React.Component<
                 <Card title="Select genre">
                   <div className="card-part">
                     <div className="card-header">What kind of music?</div>
-                    <div></div>
+                    <div className="card-buttons">
+                      <CardButton isSelect={true}>Electronic</CardButton>
+                      <CardButton isSelect={false}>Natural</CardButton>
+                    </div>
                   </div>
                   <div className="card-part">
                     <div className="card-header">What genre?</div>
-                    <div></div>
+                    <div className="card-buttons fragment">
+                      {musicGenres.map((e) => (
+                        <CardButton
+                          isSelect={e.name == "House" ? true : false}
+                          className="mini"
+                        >
+                          {e.name}
+                        </CardButton>
+                      ))}
+                    </div>
                   </div>
                   <div className="card-part">
                     <div className="card-header">What sub-genre?</div>
-                    <div></div>
+                    <div className="card-buttons fragment _2">
+                      {musicSubgenres.map((e) => (
+                        <CardButton isSelect={false} className="mini">
+                          {e.name}
+                        </CardButton>
+                      ))}
+                    </div>
                   </div>
                 </Card>
               </div>

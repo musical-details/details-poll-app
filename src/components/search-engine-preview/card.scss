@@ -55,4 +55,26 @@
   .content-box {
     margin-top: 5px;
   }
+
+  .card-button {
+    background: #181818;
+    border-radius: 5px;
+    font-family: "Bebas Neue";
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    margin-right: 5px;
+    margin-bottom: 4px;
+
+    &._select {
+      color: white;
+      background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+    }
+
+    &.mini {
+      font-size: 15px;
+      padding: 3px 7px;
+    }
+  }
 }

@@ -28,4 +28,28 @@ export class Card extends React.Component<CardProps, CardState> {
   }
 }
 
+type CardButtonProps = {
+  isSelect: boolean;
+  className?: string;
+};
+type CardButtonState = {};
+
+export class CardButton extends React.Component<
+  CardButtonProps,
+  CardButtonState
+> {
+  constructor(props: CardButtonProps) {
+    super(props);
+  }
+
+  render() {
+    const { children, className, isSelect } = this.props;
+    return (
+      <div className={`card-button ${className} ${isSelect ? "_select" : ""}`}>
+        {children}
+      </div>
+    );
+  }
+}
+
 export default Card;

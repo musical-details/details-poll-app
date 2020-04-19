@@ -1,0 +1,38 @@
+[
+  {
+    "parent": "house",
+    "name": "deep house"
+  },
+  {
+    "parent": "house",
+    "name": "ghetto house"
+  },
+  {
+    "parent": "house",
+    "name": "bass house"
+  },
+  {
+    "parent": "house",
+    "name": "UK house"
+  },
+  {
+    "parent": "house",
+    "name": "future house"
+  },
+  {
+    "parent": "house",
+    "name": "bigroom house"
+  },
+  {
+    "parent": "house",
+    "name": "tropical house"
+  },
+  {
+    "parent": "house",
+    "name": "tech-house"
+  },
+  {
+    "parent": "house",
+    "name": "fidget house"
+  }
+]
