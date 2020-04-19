@@ -1,20 +1,35 @@
 import React, { useEffect, ChangeEvent } from "react";
 import logo from "./assets/svg/details-main-logo.svg";
 import headphones from "./assets/svg/heaphones-icon.svg";
+
 import "./App.scss";
 import "./app-background.scss";
 import "./notification-box.scss";
+import "./ornaments-style.scss";
+
 import Knob from "./components/knob-component/knob-component";
 import TileOption from "./components/tile-option/tile-option";
 import { scrollToRef, disableScroll } from "./utils";
+import SVG from "react-inlinesvg";
 
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
 import GenreOption from "./components/genre-option/genre-option";
 
+import ornamentsPathsLeft from "./assets/data/ornaments-paths-left.json";
+import ornamentsPathsCenter from "./assets/data/ornaments-paths-center.json";
+import ornamentsPathsRight from "./assets/data/ornaments-paths-right.json";
+
+import ornament3 from "./assets/svg/ornament-circle-dots.svg";
+
 export type MusicApplication = {
   name: string;
   logo: string;
+};
+
+type Ornament = {
+  path: string;
+  section: number;
 };
 
 export type MusicGenre = {
@@ -144,6 +159,30 @@ class App extends React.Component<AppProps, AppState> {
             <div className="sculpture"></div>
             <div className="censored-eyes"></div>
           </div>
+          <div className="ornaments">
+            <div className="ornaments-wrapper left">
+              {ornamentsPathsLeft.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+
+            <div className="ornaments-wrapper right">
+              {ornamentsPathsRight.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+            <div className="ornaments-wrapper center">
+              {ornamentsPathsCenter.map((ornament: Ornament) =>
+                this.state.currentSection == ornament.section ? (
+                  <SVG src={ornament.path} />
+                ) : null
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="content">
@@ -154,7 +193,7 @@ class App extends React.Component<AppProps, AppState> {
                   new <span>alternative</span> <br /> in music world
                 </div>
               </div>
-              <img className="logo" src={logo} />
+              <img className="logo" src={logo} alt="details-logo" />
               <div className="notification-box">
                 <div className="notification">
                   <img className="icon" src={headphones} />
@@ -171,6 +210,7 @@ class App extends React.Component<AppProps, AppState> {
                   start
                 </button>
               </div>
+              <div className="ornament right top"></div>
             </div>
           </section>
           <section className="A" ref={this.sectionRefs[1]}>

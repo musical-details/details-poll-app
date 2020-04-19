@@ -30,15 +30,6 @@
       animation: animate_censore 3s 2;
     }
   }
-
-  .decorations {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    right: -170px;
-    top: -110px;
-    background-image: url("./assets/shape-2.png");
-  }
 }
 
 @keyframes animate_background {
