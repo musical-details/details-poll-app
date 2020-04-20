@@ -1,218 +1,168 @@
 .search-engine-preview {
   width: 100%;
   display: flex;
-  margin-top: 140px;
+  margin-top: 70px;
   justify-content: center;
 
-  .phone-mock {
-    width: 80%;
-    height: 100%;
+  .search-app {
     position: relative;
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    box-shadow: inset 0 0 40px 1px #0b0b0b;
+    color: #aaa;
+    padding: 20px;
+    padding-top: 28px;
+    box-sizing: border-box;
+    border-radius: 20px;
 
-    .phone-area {
-      width: 308px;
-      height: 590px;
-      border-radius: 0 0 6% 6%;
-      position: relative;
-      margin-left: -10%;
+    .search-body {
+      width: 100%;
+      height: 100%;
 
-      .phone-outer {
-        position: relative;
-        z-index: 2000;
-        width: 163%;
-        margin-left: -24%;
-        height: 100%;
-        background-image: url("../../assets/images/phone-mock-7.png");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-
-      .phone-inner {
+      .start-pointer-position {
         position: absolute;
-        top: 0px;
-        left: 27px;
-        z-index: 100;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 13px 18px 11px 18px;
-        border-radius: 10px;
-        overflow: hidden;
-        font-family: "Montserrat";
+        top: 50%;
+        left: 50%;
       }
 
-      .phone-safe {
-        position: absolute;
+      .logo-wrapper {
         width: 100%;
-        height: 100%;
-        z-index: 100;
-        display: none;
-      }
-
-      .search-app {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        background-color: #111;
-        box-shadow: inset 0 0 40px 1px #0b0b0b;
-        color: #aaa;
-        padding: 20px;
-        padding-top: 28px;
+        height: 90px;
+        padding: 10px;
         box-sizing: border-box;
-        border-radius: 20px;
 
-        .search-body {
+        .logo {
           width: 100%;
           height: 100%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
 
-          .start-pointer-position {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-          }
-
-          .logo-wrapper {
-            width: 100%;
-            height: 90px;
-            padding: 10px;
-            box-sizing: border-box;
-
-            .logo {
-              width: 100%;
-              height: 100%;
-              background-repeat: no-repeat;
-              background-size: contain;
-              background-position: center;
-
-              background-image: url("../../assets/images/logo-details-search-gradient.png");
-            }
-          }
+          background-image: url("../../assets/images/logo-details-search-gradient.png");
         }
+      }
+    }
 
-        .tempo-input,
-        .vocal-input {
-          width: 48%;
-          height: 85px;
-          display: inline-block;
-          font-size: 15px;
+    .tempo-input,
+    .vocal-input {
+      width: 48%;
+      height: 85px;
+      display: inline-block;
+      font-size: 15px;
+
+      & > div {
+        & > div {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    .vocal-input::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .tempo-input {
+      margin-right: 5px;
+
+      .speed-box {
+        width: 100%;
+        height: 70px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        .speed {
+          width: 32px;
+          height: 32px;
 
           & > div {
-            & > div {
+            .border {
               width: 100%;
-              text-align: center;
+              height: 100%;
+              box-sizing: border-box;
+              border-radius: 50%;
+              background-color: #f7463d;
             }
-          }
-        }
 
-        .vocal-input::after {
-          content: "";
-          display: block;
-          clear: both;
-        }
+            .pointer-box {
+              background-color: #212121;
+              position: absolute;
+              bottom: -1px;
+              width: 90%;
+              height: 90%;
+              border-radius: 50% 50% 10% 10%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
-        .tempo-input {
-          margin-right: 5px;
-
-          .speed-box {
-            width: 100%;
-            height: 70px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-
-            .speed {
-              width: 32px;
-              height: 32px;
-
-              & > div {
-                .border {
-                  width: 100%;
-                  height: 100%;
-                  box-sizing: border-box;
-                  border-radius: 50%;
-                  background-color: #f7463d;
-                }
-
-                .pointer-box {
-                  background-color: #212121;
-                  position: absolute;
-                  bottom: -1px;
-                  width: 90%;
-                  height: 90%;
-                  border-radius: 50% 50% 10% 10%;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-
-                  .pointer {
-                    width: 3px;
-                    height: 50%;
-                    background: #f5443e;
-                    border-radius: 2px;
-                  }
-                }
+              .pointer {
+                width: 3px;
+                height: 50%;
+                background: #f5443e;
+                border-radius: 2px;
               }
             }
           }
         }
+      }
+    }
 
-        .sounds-input {
-          & > div {
-            width: 100%;
-          }
+    .sounds-input {
+      & > div {
+        width: 100%;
+      }
 
-          .sounds {
-            width: 100%;
-            height: 100px;
-            display: flex;
-            flex-wrap: wrap;
-          }
+      .sounds {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .select-mood {
+      overflow: hidden;
+      position: relative;
+      align-items: flex-start;
+
+      &._focus {
+        animation-delay: 3s;
+        animation: select-mood-expand 1s 1s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes select-mood-expand {
+        0% {
+          height: 32px;
         }
+        100% {
+          height: 118px;
+        }
+      }
 
-        .select-mood {
-          overflow: hidden;
-          position: relative;
-          align-items: flex-start;
+      .search-moods {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1px;
 
-          &._focus {
-            animation-delay: 3s;
-            animation: select-mood-expand 1s 1s;
-            animation-fill-mode: forwards;
-          }
-
-          @keyframes select-mood-expand {
-            0% {
-              height: 32px;
-            }
-            100% {
-              height: 118px;
-            }
-          }
-
-          .search-moods {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 1px;
-
-            .mood {
-              flex-grow: 1;
-              background: #0a0a0a;
-              border-radius: 8px;
-              padding: 0 8px;
-              margin-right: 3px;
-              margin-bottom: 5px;
-              color: black;
-              font-weight: bold;
-              text-transform: uppercase;
-              font-family: "Bebas Neue", cursive;
-              font-size: 15px;
-            }
-          }
+        .mood {
+          flex-grow: 1;
+          background: #0a0a0a;
+          border-radius: 8px;
+          padding: 0 8px;
+          margin-right: 3px;
+          margin-bottom: 5px;
+          color: black;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-family: "Bebas Neue", cursive;
+          font-size: 15px;
         }
       }
     }

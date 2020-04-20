@@ -10,13 +10,13 @@ export type SearchInputValue = {
 
 type SearchInputProps = {
   inputId: number;
-  isHover: boolean;
   icon?: string;
   placeholder?: string;
   className?: string;
   style?: {};
   values?: Array<any>;
   inputRef?: React.RefObject<HTMLDivElement>;
+  onClick?: () => void;
 };
 
 type SearchInputState = {};
@@ -35,13 +35,16 @@ class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
       values,
       children,
       inputRef,
-      isHover,
     } = this.props;
     return (
       <div
         ref={inputRef}
-        className={`search-input ${className} ${isHover ? `_hover` : ``}`}
+        className={`search-input ${className}`}
         style={style}
+        onClick={() => {
+          const { onClick } = this.props;
+          onClick && onClick();
+        }}
       >
         {icon !== undefined && (
           <div className="icon">
@@ -70,7 +73,6 @@ class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
 
 type SearchButtonProps = {
   inputId: number;
-  isHover: boolean;
   inputRef?: React.RefObject<HTMLDivElement>;
   className?: string;
   style?: {};
@@ -86,13 +88,10 @@ export class SearchButton extends React.Component<
   }
 
   render() {
-    const { inputRef, className, style, isHover } = this.props;
+    const { inputRef, className, style } = this.props;
     return (
       <div className="search-button-box" ref={inputRef}>
-        <button
-          className={`search-button ${className} ${isHover ? `_hover` : ``}`}
-          style={style}
-        >
+        <button className={`search-button ${className}`} style={style}>
           {this.props.children}
         </button>
       </div>

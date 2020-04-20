@@ -1,0 +1,88 @@
+.card-sounds {
+  width: 100%;
+
+  .sound-slots {
+    display: flex;
+    flex-wrap: wrap;
+
+    .slot {
+      width: 33%;
+      height: 150px;
+    }
+  }
+
+  .sound-options {
+    margin-top: 20px;
+    width: 200%;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    .option {
+      width: 60px;
+      height: 70px;
+      margin-right: 5px;
+      background: #191919;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &._selected {
+        background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+        color: white;
+      }
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+        box-sizing: border-box;
+
+        .inner {
+          width: 100%;
+          height: 100%;
+
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          &.drums {
+            background-image: url("../../assets/images/drums.png");
+          }
+
+          &.bass {
+            background-image: url("../../assets/images/guitar.png");
+          }
+
+          &.piano {
+            background-image: url("../../assets/images/piano.png");
+          }
+
+          &.voice {
+            background-image: url("../../assets/images/vocal.png");
+          }
+        }
+      }
+
+      .name {
+        width: 100%;
+        height: 20px;
+        font-size: 11px;
+        font-weight: bold;
+        font-family: Montserrat;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .sound-details {
+    width: 120%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+}

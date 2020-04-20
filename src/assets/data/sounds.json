@@ -1,0 +1,31 @@
+{
+  "bass": {
+    "details": [
+      "groove",
+      "funky",
+      "deep",
+      "acoustic",
+      "dark",
+      "lit",
+      "wave",
+      "melodic",
+      "hard",
+      "calm",
+      "warm",
+      "distorted",
+      "bounced"
+    ]
+  },
+  "drums": {
+    "details": ["natural", "electronic", "underground"]
+  },
+  "piano": {
+    "details": ["pure", "future", "dark", "strong", "ambience"]
+  },
+  "voice": {
+    "details": ["electronic", ""]
+  },
+  "synth": {
+    "details": ["electronic", ""]
+  }
+}

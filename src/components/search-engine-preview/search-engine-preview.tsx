@@ -1,6 +1,5 @@
 import React from "react";
 import "./search-engine-preview.scss";
-import "./sound-description.scss";
 import "./speedometer.scss";
 import SearchInput, { SearchButton } from "./search-input";
 import Speedometer from "./speedometer";
@@ -8,220 +7,180 @@ import PhonePointer from "../phone-pointer/phone-pointer";
 
 import CardGenres from "./card-genres";
 import CardMoods from "./card-moods";
-
-type SoundDescriptionProps = {
-  slot?: { name: string; level: number };
-};
-type SoundDescriptionState = {};
-
-class SoundDescription extends React.Component<
-  SoundDescriptionProps,
-  SoundDescriptionState
-> {
-  constructor(props: SoundDescriptionProps) {
-    super(props);
+import CardSounds from "./card-sounds";
+import Phone, { PhoneAnimationFrame } from "../phone/phone";
+/*
+const animation = [
+  {
+    position: {x: 0, y: 0},
+    duration: 100,
+    event: null
+  },
+  {
+    position: {element: refss["input_title"]},
+    duration: 400,
+    event: "touch"
+  },
+  {
+    position: {x: 0, y: 0},
+    duration: 2000,
+    event: "touch"
   }
-
-  renderBlocks = (count: number = 10): Array<JSX.Element> => {
-    let blocks: Array<JSX.Element> = [];
-    for (let i = 0; i < count; ++i) {
-      blocks.push(
-        <div className="block">
-          <div className="inner"></div>
-        </div>
-      );
-    }
-    return blocks;
-  };
-
-  render() {
-    const { slot } = this.props;
-    return (
-      <div className="sound-description">
-        <div>
-          <div className="bar">
-            <div>{this.renderBlocks()}</div>
-          </div>
-          <div className="name">
-            <div>Groove Bass</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
+];
+*/
 type SearchEnginePreviewProps = {};
 
-type SearchEnginePreviewState = {
-  currentHoverElement: number;
-};
+type SearchEnginePreviewState = {};
 
 class SearchEnginePreview extends React.Component<
   SearchEnginePreviewProps,
   SearchEnginePreviewState
 > {
-  inputsCount: number = 9;
-  inputsRef: Array<React.RefObject<HTMLDivElement>> = [];
-
-  state: SearchEnginePreviewState = {
-    currentHoverElement: 0,
+  refCount: number = 9;
+  elements: any = {
+    input_title: React.createRef(),
+    input_genres: React.createRef(),
+    input_moods: React.createRef(),
+    input_sounds: React.createRef(),
+    input_tempo: React.createRef(),
+    input_vocal: React.createRef(),
+    input_likedby: React.createRef(),
+    button_find: React.createRef(),
   };
+  state: SearchEnginePreviewState = {};
+
+  animationFrames: Array<PhoneAnimationFrame> = [];
 
   constructor(props: SearchEnginePreviewProps) {
     super(props);
-    for (let i = 0; i < this.inputsCount; ++i) {
-      this.inputsRef[i] = React.createRef();
-    }
+
+    this.animationFrames = [
+      {
+        position: { element: this.elements["input_title"] },
+        movingDuration: 100,
+        standingDuration: 300,
+        eventName: "click",
+      },
+      {
+        position: { element: this.elements["input_tempo"] },
+        movingDuration: 400,
+        standingDuration: 300,
+        eventName: "click",
+      },
+      {
+        position: { x: 0, y: 0 },
+        movingDuration: 2000,
+        standingDuration: 300,
+        eventName: null,
+      },
+    ];
   }
 
-  componentDidMount() {
-    this.animate();
-  }
-
-  animate() {
-    setInterval(() => {
-      this.setState({
-        currentHoverElement:
-          this.state.currentHoverElement < this.inputsCount - 1
-            ? this.state.currentHoverElement + 1
-            : 0,
-      });
-    }, 2500);
-  }
-
-  isHover = (inputId: number) => inputId === this.state.currentHoverElement;
+  componentDidMount() {}
 
   render() {
-    const { currentHoverElement } = this.state;
+    const { elements } = this;
     return (
       <div className="search-engine-preview">
-        <div className="phone-mock">
-          <div className="phone-area">
-            <div className="phone-outer"></div>
-            <div className="phone-safe"></div>
-            <div className="phone-inner">
-              <PhonePointer
-                moveToRef={this.inputsRef[currentHoverElement]}
-                onMoveStart={() => {}}
-                onMoveStop={() => {}}
+        <Phone animationFrames={this.animationFrames}>
+          <div className="search-app">
+            <div className="search-body">
+              <div className="start-pointer-position"></div>
+              <div className="logo-wrapper">
+                <div className="logo"></div>
+              </div>
+              <SearchInput
+                inputId={1}
+                className="select-genre"
+                placeholder="Title or author"
+                icon="star"
+                inputRef={elements["input_title"]}
               />
-              <div className="search-app">
-                <div className="search-body">
-                  <div
-                    className="start-pointer-position"
-                    ref={this.inputsRef[0]}
-                  ></div>
-                  <div className="logo-wrapper">
-                    <div className="logo"></div>
-                  </div>
-                  <SearchInput
-                    inputId={1}
-                    isHover={this.isHover(1)}
-                    className="select-genre"
-                    placeholder="Title or author"
-                    icon="star"
-                    inputRef={this.inputsRef[1]}
-                  />
 
-                  <SearchInput
-                    inputId={2}
-                    isHover={this.isHover(2)}
-                    className="select-genre"
-                    placeholder="Select genre..."
-                    icon="bookmark"
-                    values={[
-                      { backgroundColor: "#2f2f2f", name: "House" },
-                      { backgroundColor: "#2f2f2f", name: "Techno" },
-                    ]}
-                    inputRef={this.inputsRef[2]}
-                  />
+              <SearchInput
+                inputId={2}
+                className="select-genre"
+                placeholder="Select genre..."
+                icon="bookmark"
+                values={[
+                  { backgroundColor: "#2f2f2f", name: "House" },
+                  { backgroundColor: "#2f2f2f", name: "Techno" },
+                ]}
+                inputRef={elements["input_genres"]}
+              />
 
-                  <SearchInput
-                    inputId={3}
-                    isHover={this.isHover(3)}
-                    className="select-mood"
-                    placeholder="Select mood..."
-                    icon="emo-laugh"
-                    values={[
-                      { className: "dark", name: "Dark" },
-                      { className: "hard", name: "Hard" },
-                      { className: "night", name: "Night" },
-                    ]}
-                    inputRef={this.inputsRef[3]}
-                  />
+              <SearchInput
+                inputId={3}
+                className="select-mood"
+                placeholder="Select mood..."
+                icon="emo-laugh"
+                values={[
+                  { className: "dark", name: "Dark" },
+                  { className: "hard", name: "Hard" },
+                  { className: "night", name: "Night" },
+                ]}
+                inputRef={elements["input_moods"]}
+              />
 
-                  <SearchInput
-                    inputId={4}
-                    isHover={this.isHover(4)}
-                    className="select-genre"
-                    placeholder="Select important sounds..."
-                    icon="music"
-                    values={[
-                      { backgroundColor: "#2f2f2f", name: "Groove Bass" },
-                      {
-                        backgroundColor: "#2f2f2f",
-                        name: "Pure Piano",
-                      },
-                      {
-                        backgroundColor: "#2f2f2f",
-                        name: "Electronic Drums",
-                      },
-                    ]}
-                    inputRef={this.inputsRef[4]}
-                  />
-                  <div className="tempo-vocal-box">
-                    <SearchInput
-                      inputId={5}
-                      isHover={this.isHover(5)}
-                      className="tempo-input mini"
-                      placeholder="Set Tempo..."
-                      inputRef={this.inputsRef[5]}
-                    >
-                      <div className="speed-box">
-                        <Speedometer />
-                      </div>
-                    </SearchInput>
-                    <SearchInput
-                      inputId={6}
-                      isHover={this.isHover(6)}
-                      className="vocal-input mini"
-                      placeholder="Set Vocal..."
-                      inputRef={this.inputsRef[6]}
-                    >
-                      <div className="vocal-box">
-                        <div>
-                          <i className="icon-mic"></i>
-                        </div>
-                        <div>
-                          <i className="icon-mute"></i>
-                        </div>
-                      </div>
-                    </SearchInput>
+              <SearchInput
+                inputId={4}
+                className="select-genre"
+                placeholder="Select important sounds..."
+                icon="music"
+                values={[
+                  { backgroundColor: "#2f2f2f", name: "Groove Bass" },
+                  {
+                    backgroundColor: "#2f2f2f",
+                    name: "Pure Piano",
+                  },
+                  {
+                    backgroundColor: "#2f2f2f",
+                    name: "Electronic Drums",
+                  },
+                ]}
+                inputRef={elements["input_sounds"]}
+              />
+              <div className="tempo-vocal-box">
+                <SearchInput
+                  inputId={5}
+                  className="tempo-input mini"
+                  placeholder="Set Tempo..."
+                  inputRef={elements["input_tempo"]}
+                >
+                  <div className="speed-box">
+                    <Speedometer />
                   </div>
-                  <SearchInput
-                    inputId={7}
-                    isHover={this.isHover(7)}
-                    inputRef={this.inputsRef[7]}
-                  >
-                    Test
-                  </SearchInput>
-                  <div className="search-button-wrapper">
-                    <SearchButton
-                      inputId={8}
-                      isHover={this.isHover(8)}
-                      inputRef={this.inputsRef[8]}
-                    >
-                      Find!
-                    </SearchButton>
+                </SearchInput>
+                <SearchInput
+                  inputId={6}
+                  className="vocal-input mini"
+                  placeholder="Set Vocal..."
+                  inputRef={elements["input_vocal"]}
+                >
+                  <div className="vocal-box">
+                    <div>
+                      <i className="icon-mic"></i>
+                    </div>
+                    <div>
+                      <i className="icon-mute"></i>
+                    </div>
                   </div>
-                </div>
-                <CardGenres hidden={true} />
-                <CardMoods hidden={true} />
+                </SearchInput>
+              </div>
+              <SearchInput inputId={7} inputRef={elements["input_likedby"]}>
+                Test
+              </SearchInput>
+              <div className="search-button-wrapper">
+                <SearchButton inputId={8} inputRef={elements["button_find"]}>
+                  Find!
+                </SearchButton>
               </div>
             </div>
+            <CardGenres hidden={true} />
+            <CardMoods hidden={true} />
+            <CardSounds hidden={true} />
           </div>
-        </div>
+        </Phone>
       </div>
     );
   }
