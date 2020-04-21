@@ -2,9 +2,12 @@ import React from "react";
 import Card, { CardButton } from "./card";
 import musicGenres from "../../assets/data/genres.json";
 import musicSubgenres from "../../assets/data/sub-genres.json";
+import { Elements } from "../phone/phone";
 
 type CardGenresProps = {
+  elements: Elements;
   hidden: boolean;
+  onHide: () => void;
 };
 type CardGenresState = {};
 
@@ -17,14 +20,26 @@ export class CardGenres extends React.Component<
   }
 
   render() {
-    const { hidden } = this.props;
+    const { hidden, onHide, elements } = this.props;
     return (
-      <Card title="Select genre" hidden={hidden}>
+      <Card
+        title="Select genre"
+        closeRef={elements["button_close_genre_card"]}
+        hidden={hidden}
+        onHide={onHide}
+      >
         <div className="card-part">
           <div className="card-header">What kind of music?</div>
           <div className="card-buttons">
-            <CardButton isSelect={true}>Electronic</CardButton>
-            <CardButton isSelect={false}>Natural</CardButton>
+            <CardButton
+              buttonRef={elements["button_electronic"]}
+              isSelect={false}
+            >
+              Electronic
+            </CardButton>
+            <CardButton buttonRef={elements["button_natural"]} isSelect={false}>
+              Natural
+            </CardButton>
           </div>
         </div>
         <div className="card-part">
@@ -32,7 +47,8 @@ export class CardGenres extends React.Component<
           <div className="card-buttons fragment">
             {musicGenres.map((e) => (
               <CardButton
-                isSelect={e.name == "House" ? true : false}
+                buttonRef={elements[`button_${e.key}`]}
+                isSelect={false}
                 className="mini"
               >
                 {e.name}

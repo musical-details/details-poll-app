@@ -5,6 +5,7 @@ import { PhoneAnimationFrame } from "../phone/phone";
 type PhonePointerProps = {
   isRunning: boolean;
   animationFrame: PhoneAnimationFrame;
+  elementRef: React.RefObject<HTMLDivElement> | null;
   phoneInnerRef: React.RefObject<HTMLDivElement>;
   onAnimationFrameStart?: () => void;
   onAnimationFrameMoveStart?: () => void;
@@ -26,7 +27,8 @@ class PhonePointer extends React.Component<
 > {
   static readonly width: number = 30;
   static readonly height: number = 30;
-  static readonly moveDuration: number = 900;
+  static readonly defaultMoveDuration: number = 900;
+  static readonly defaultStandDuration: number = 500;
   moveEndTimeout: NodeJS.Timeout | any;
   standEndTimeout: NodeJS.Timeout | any;
   eventEndTimeout: NodeJS.Timeout | any;
@@ -84,22 +86,18 @@ class PhonePointer extends React.Component<
     });
   };
 
-  setPositionFromElement = (position: {
-    element: React.RefObject<HTMLDivElement>;
-  }): void => {
+  setPositionFromElement = (
+    element: React.RefObject<HTMLDivElement> | null
+  ): void => {
     const { phoneInnerRef } = this.props;
-    if (position.element.current === null) return;
+    if (element === null || element.current === null) return;
     if (phoneInnerRef.current === null) return;
 
-    const { offsetWidth, offsetHeight } = (position as {
-      element: React.RefObject<HTMLDivElement>;
-    }).element.current as HTMLDivElement;
+    const { offsetWidth, offsetHeight } = element.current as HTMLDivElement;
 
     const phoneInnerRect: DOMRect = (phoneInnerRef.current as HTMLDivElement).getBoundingClientRect();
 
-    const elementRect: DOMRect = ((position as {
-      element: React.RefObject<HTMLDivElement>;
-    }).element.current as HTMLDivElement).getBoundingClientRect();
+    const elementRect: DOMRect = element.current.getBoundingClientRect();
 
     const middle: { x: number; y: number } = this.getMiddle(
       elementRect.x - phoneInnerRect.x,
@@ -114,21 +112,20 @@ class PhonePointer extends React.Component<
     });
   };
 
-  addHover = (position: { element: React.RefObject<HTMLDivElement> }): void => {
-    if (position.element.current === null) return;
-    position.element.current.classList.add("_hover");
+  addHover = (element: React.RefObject<HTMLDivElement> | null): void => {
+    if (element === null || element.current === null) return;
+    element.current.classList.add("_hover");
   };
 
-  removeHover = (position: {
-    element: React.RefObject<HTMLDivElement>;
-  }): void => {
-    if (position.element.current === null) return;
-    position.element.current.classList.remove("_hover");
+  removeHover = (element: React.RefObject<HTMLDivElement> | null): void => {
+    if (element === null || element.current === null) return;
+    element.current.classList.remove("_hover");
   };
 
   move() {
     const {
       animationFrame,
+      elementRef,
       onAnimationFrameMoveStart,
       onAnimationFrameMoveEnd,
     } = this.props;
@@ -136,48 +133,53 @@ class PhonePointer extends React.Component<
     if (position.hasOwnProperty("x") && position.hasOwnProperty("y")) {
       this.setPositionFromCords(position as { x: number; y: number });
     } else if (position.hasOwnProperty("element")) {
-      const elementPosition: {
-        element: React.RefObject<HTMLDivElement>;
-      } = position as { element: React.RefObject<HTMLDivElement> };
-
-      this.setPositionFromElement(elementPosition);
-      this.addHover(elementPosition);
+      this.setPositionFromElement(elementRef);
+      this.addHover(elementRef);
     }
 
     onAnimationFrameMoveStart && onAnimationFrameMoveStart();
 
     clearTimeout(this.moveEndTimeout);
-    this.moveEndTimeout = setTimeout(() => {
-      onAnimationFrameMoveEnd && onAnimationFrameMoveEnd();
-      this.stand();
-    }, PhonePointer.moveDuration);
+    this.moveEndTimeout = setTimeout(
+      () => {
+        onAnimationFrameMoveEnd && onAnimationFrameMoveEnd();
+        this.stand();
+      },
+      animationFrame.movingDuration
+        ? animationFrame.movingDuration
+        : PhonePointer.defaultMoveDuration
+    );
   }
 
-  clickToElement = (position: {
-    element: React.RefObject<HTMLDivElement>;
-  }): void => {
+  clickToElement = (element: React.RefObject<HTMLDivElement> | null): void => {
     const { currentEvent } = this.state;
-    if (position.element.current === null) return;
-    position.element.current.click();
+    if (element === null || element.current === null) return;
+    element.current.click();
   };
 
   stand() {
     const {
       onAnimationFrameStandingStart,
       onAnimationFrameStandingEnd,
+      animationFrame,
     } = this.props;
 
     onAnimationFrameStandingStart && onAnimationFrameStandingStart();
 
     clearTimeout(this.standEndTimeout);
-    this.standEndTimeout = setTimeout(() => {
-      onAnimationFrameStandingEnd && onAnimationFrameStandingEnd();
-      this.callEvent();
-    }, PhonePointer.moveDuration);
+    this.standEndTimeout = setTimeout(
+      () => {
+        onAnimationFrameStandingEnd && onAnimationFrameStandingEnd();
+        this.callEvent();
+      },
+      animationFrame.standingDuration
+        ? animationFrame.standingDuration
+        : PhonePointer.defaultStandDuration
+    );
   }
 
   callEvent() {
-    const { onAnimationFrameEnd, animationFrame } = this.props;
+    const { onAnimationFrameEnd, animationFrame, elementRef } = this.props;
     const { position } = animationFrame;
 
     this.setState({
@@ -187,11 +189,8 @@ class PhonePointer extends React.Component<
     clearTimeout(this.eventEndTimeout);
     switch (this.state.currentEvent) {
       case "click":
-        this.clickToElement(
-          position as { element: React.RefObject<HTMLDivElement> }
-        );
-
         this.eventEndTimeout = setTimeout(() => {
+          this.clickToElement(elementRef);
           onAnimationFrameEnd && onAnimationFrameEnd();
         }, 500);
         break;
@@ -202,12 +201,17 @@ class PhonePointer extends React.Component<
   }
 
   render() {
+    const { animationFrame } = this.props;
     const { currentEvent, x, y } = this.state;
     return (
       <div
         className="phone-pointer-wrapper"
         style={{
-          transitionDuration: `${PhonePointer.moveDuration}ms`,
+          transitionDuration: `${
+            animationFrame.movingDuration
+              ? animationFrame.movingDuration
+              : PhonePointer.defaultMoveDuration
+          }ms`,
           transform: `translate(${x}px, ${y}px)`,
         }}
       >

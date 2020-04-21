@@ -1,121 +1,145 @@
 [
   {
+    "key": "pop",
     "name": "Pop",
     "color": "",
     "icon": ""
   },
   {
+    "key": "trap",
     "name": "Trap",
     "color": "",
     "icon": ""
   },
   {
+    "key": "rap",
     "name": "Rap",
     "color": "",
     "icon": ""
   },
   {
+    "key": "rock",
     "name": "Rock",
     "color": "",
     "icon": ""
   },
   {
+    "key": "hip_hop",
     "name": "Hip Hop",
     "color": "",
     "icon": ""
   },
   {
+    "key": "r_and_b",
     "name": "R&B",
     "color": "",
     "icon": ""
   },
   {
+    "key": "dubstep",
     "name": "Dubstep",
     "color": "",
     "icon": ""
   },
   {
+    "key": "house",
     "name": "House",
     "color": "",
     "icon": ""
   },
   {
+    "key": "techno",
     "name": "Techno",
     "color": "",
     "icon": ""
   },
   {
+    "key": "trance",
     "name": "Trance",
     "color": "",
     "icon": ""
   },
   {
+    "key": "disco",
     "name": "Disco",
     "color": "",
     "icon": ""
   },
   {
+    "key": "future_bass",
     "name": "Future Bass",
     "color": "",
     "icon": ""
   },
   {
+    "key": "edm",
     "name": "EDM",
     "color": "",
     "icon": ""
   },
   {
+    "key": "wave",
     "name": "Wave",
     "color": "",
     "icon": ""
   },
   {
+    "key": "metal",
     "name": "Metal",
     "color": "",
     "icon": ""
   },
 
   {
+    "key": "ambient",
     "name": "Ambient",
     "color": "",
     "icon": ""
   },
   {
+    "key": "lo_fi",
     "name": "Lo-Fi",
     "color": "",
     "icon": ""
   },
   {
+    "key": "reggae",
     "name": "Reggae",
     "color": "",
     "icon": ""
   },
   {
+    "key": "classic",
     "name": "Classic",
     "color": "",
     "icon": ""
   },
   {
+    "key": "funk",
     "name": "Funk",
     "color": "",
     "icon": ""
   },
   {
+    "key": "soul",
     "name": "Soul",
     "color": "",
     "icon": ""
   },
   {
+    "key": "blues",
     "name": "Blues",
     "color": "",
     "icon": ""
   },
   {
+    "key": "jazz",
     "name": "Jazz",
     "color": "",
     "icon": ""
   },
   {
+    "key": "other",
     "name": "Other",
     "color": "",
     "icon": ""

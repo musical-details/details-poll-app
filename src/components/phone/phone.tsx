@@ -2,10 +2,10 @@ import React from "react";
 import "./phone.scss";
 import PhonePointer from "../phone-pointer/phone-pointer";
 
+export type Elements = { [key: string]: React.RefObject<HTMLDivElement> };
+
 export type PhoneAnimationFrame = {
-  position:
-    | { x: number; y: number }
-    | { element: React.RefObject<HTMLDivElement> };
+  position: { x: number; y: number } | { element: string };
   movingDuration?: number;
   standingDuration?: number;
   eventName: null | "click";
@@ -13,6 +13,7 @@ export type PhoneAnimationFrame = {
 
 type PhoneProps = {
   animationFrames: Array<PhoneAnimationFrame>;
+  elements: Elements;
   onPointerMoveStart?: () => void;
   onPointerMoveEnd?: () => void;
 };
@@ -31,19 +32,35 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
     super(props);
   }
 
-  componentDidMount() {
-    this.runAnimation();
-  }
+  componentDidMount() {}
 
   componentDidUpdate() {}
 
-  runAnimation() {}
+  handleAnimationFrameEnd = () => {
+    const { animationFrames } = this.props;
+    const { currentFrameIndex } = this.state;
+    if (currentFrameIndex >= animationFrames.length - 1) return;
+
+    this.setState({
+      currentFrameIndex: currentFrameIndex + 1,
+    });
+  };
+
+  getElementRef = (): React.RefObject<HTMLDivElement> | null => {
+    const { animationFrames, elements } = this.props;
+    const { currentFrameIndex } = this.state;
+    const currentPosition = animationFrames[currentFrameIndex].position;
+    return currentPosition.hasOwnProperty("element")
+      ? elements[(currentPosition as { element: string }).element]
+      : null;
+  };
 
   render() {
     const {
       animationFrames,
       onPointerMoveStart,
       onPointerMoveEnd,
+      elements,
       children,
     } = this.props;
 
@@ -59,8 +76,10 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
               <div className="phone-inner-body" ref={this.phoneInnerRef}>
                 <PhonePointer
                   isRunning={true}
+                  elementRef={this.getElementRef()}
                   phoneInnerRef={this.phoneInnerRef}
                   animationFrame={animationFrames[currentFrameIndex]}
+                  onAnimationFrameEnd={this.handleAnimationFrameEnd}
                 />
                 {children}
               </div>

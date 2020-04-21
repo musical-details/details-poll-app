@@ -1,0 +1,35 @@
+{
+  "house": [
+    {
+      "position": { "element": "input_genres" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_electronic" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_close_genre_card" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    }
+  ]
+}

@@ -3,41 +3,30 @@ import "./search-engine-preview.scss";
 import "./speedometer.scss";
 import SearchInput, { SearchButton } from "./search-input";
 import Speedometer from "./speedometer";
-import PhonePointer from "../phone-pointer/phone-pointer";
+
+import musicGenres from "../../assets/data/genres.json";
+import musicSubgenres from "../../assets/data/sub-genres.json";
+import animations from "../../assets/data/@search-engine-animations.json";
 
 import CardGenres from "./card-genres";
 import CardMoods from "./card-moods";
 import CardSounds from "./card-sounds";
-import Phone, { PhoneAnimationFrame } from "../phone/phone";
-/*
-const animation = [
-  {
-    position: {x: 0, y: 0},
-    duration: 100,
-    event: null
-  },
-  {
-    position: {element: refss["input_title"]},
-    duration: 400,
-    event: "touch"
-  },
-  {
-    position: {x: 0, y: 0},
-    duration: 2000,
-    event: "touch"
-  }
-];
-*/
+import Phone, { PhoneAnimationFrame, Elements } from "../phone/phone";
+
 type SearchEnginePreviewProps = {};
 
-type SearchEnginePreviewState = {};
+type SearchEnginePreviewState = {
+  cardGenresHidden: boolean;
+  cardMoodsHidden: boolean;
+  cardSoundsHidden: boolean;
+};
 
 class SearchEnginePreview extends React.Component<
   SearchEnginePreviewProps,
   SearchEnginePreviewState
 > {
   refCount: number = 9;
-  elements: any = {
+  elements: Elements = {
     input_title: React.createRef(),
     input_genres: React.createRef(),
     input_moods: React.createRef(),
@@ -46,35 +35,31 @@ class SearchEnginePreview extends React.Component<
     input_vocal: React.createRef(),
     input_likedby: React.createRef(),
     button_find: React.createRef(),
+    button_close_genre_card: React.createRef(),
+    button_electronic: React.createRef(),
+    button_natural: React.createRef(),
   };
-  state: SearchEnginePreviewState = {};
-
-  animationFrames: Array<PhoneAnimationFrame> = [];
+  state: SearchEnginePreviewState = {
+    cardGenresHidden: true,
+    cardMoodsHidden: true,
+    cardSoundsHidden: true,
+  };
 
   constructor(props: SearchEnginePreviewProps) {
     super(props);
 
-    this.animationFrames = [
-      {
-        position: { element: this.elements["input_title"] },
-        movingDuration: 100,
-        standingDuration: 300,
-        eventName: "click",
-      },
-      {
-        position: { element: this.elements["input_tempo"] },
-        movingDuration: 400,
-        standingDuration: 300,
-        eventName: "click",
-      },
-      {
-        position: { x: 0, y: 0 },
-        movingDuration: 2000,
-        standingDuration: 300,
-        eventName: null,
-      },
-    ];
+    this.addRefs();
   }
+
+  addRefs = () => {
+    musicGenres.forEach((musicGenre) => {
+      this.elements[`button_${musicGenre.key}`] = React.createRef();
+    });
+    musicSubgenres.forEach((musicSubgenre) => {
+      this.elements[`button_${musicSubgenre.key}`] = React.createRef();
+    });
+    console.log(this.elements);
+  };
 
   componentDidMount() {}
 
@@ -82,7 +67,10 @@ class SearchEnginePreview extends React.Component<
     const { elements } = this;
     return (
       <div className="search-engine-preview">
-        <Phone animationFrames={this.animationFrames}>
+        <Phone
+          elements={this.elements}
+          animationFrames={animations.house as Array<PhoneAnimationFrame>}
+        >
           <div className="search-app">
             <div className="search-body">
               <div className="start-pointer-position"></div>
@@ -101,6 +89,11 @@ class SearchEnginePreview extends React.Component<
                 inputId={2}
                 className="select-genre"
                 placeholder="Select genre..."
+                onClick={() => {
+                  this.setState({
+                    cardGenresHidden: false,
+                  });
+                }}
                 icon="bookmark"
                 values={[
                   { backgroundColor: "#2f2f2f", name: "House" },
@@ -176,7 +169,15 @@ class SearchEnginePreview extends React.Component<
                 </SearchButton>
               </div>
             </div>
-            <CardGenres hidden={true} />
+            <CardGenres
+              elements={this.elements}
+              hidden={this.state.cardGenresHidden}
+              onHide={() => {
+                this.setState({
+                  cardGenresHidden: true,
+                });
+              }}
+            />
             <CardMoods hidden={true} />
             <CardSounds hidden={true} />
           </div>

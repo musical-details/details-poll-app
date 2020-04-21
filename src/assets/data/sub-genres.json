@@ -1,54 +1,67 @@
 [
   {
     "parent": "house",
+    "key": "deep_house",
     "name": "deep house"
   },
   {
     "parent": "house",
+    "key": "ghetto_house",
     "name": "ghetto house"
   },
   {
     "parent": "house",
+    "key": "bass_house",
     "name": "bass house"
   },
   {
     "parent": "house",
+    "key": "uk_house",
     "name": "UK house"
   },
   {
     "parent": "house",
+    "key": "fututre_house",
     "name": "future house"
   },
   {
     "parent": "house",
+    "key": "bigroom_house",
     "name": "bigroom house"
   },
   {
     "parent": "house",
+    "key": "tropical_house",
     "name": "tropical house"
   },
   {
     "parent": "house",
+    "key": "tech_house",
     "name": "tech-house"
   },
   {
     "parent": "house",
+    "key": "fidget_house",
     "name": "fidget house"
   },
   {
     "parent": "house",
+    "key": "electro_house",
     "name": "electro house"
   },
   {
     "parent": "house",
+    "key": "funky_house",
     "name": "funky house"
   },
   {
     "parent": "house",
+    "key": "acid_house",
     "name": "acid house"
   },
   {
     "parent": "house",
+    "key": "french_house",
     "name": "french house"
   }
 ]
