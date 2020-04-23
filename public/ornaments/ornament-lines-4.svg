@@ -1,0 +1,82 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="351"
+  height="510"
+  fill="none"
+  viewBox="0 0 351 510"
+  id="svg-section-4"
+>
+  <circle
+    className="bubble-4"
+    cx="41.838"
+    cy="382.638"
+    r="26.562"
+    fill="url(#paint0_linear)"
+  ></circle>
+  <path
+    className="stroke-line-draw"
+    stroke="#fff"
+    strokeMiterlimit="10"
+    strokeWidth="0.75"
+    d="M117.7 386C83.624 386 56 413.624 56 447.7c0 34.076 27.624 61.7 61.7 61.7 34.076 0 61.7-27.624 61.7-61.7 0-34.076-27.624-61.7-61.7-61.7zM202.9 6.2c-81.462 0-147.5 66.038-147.5 147.5s66.038 147.5 147.5 147.5 147.5-66.038 147.5-147.5S284.362 6.2 202.9 6.2zM29 265.5L209.1 6"
+  ></path>
+  <path
+    fill="#fff"
+    stroke="#fff"
+    strokeMiterlimit="10"
+    strokeWidth="0.75"
+    d="M27.898 259a6.9 6.9 0 100 13.8 6.9 6.9 0 000-13.8z"
+  ></path>
+  <path
+    fill="#fff"
+    d="M101.9 258a3.9 3.9 0 100 7.8 3.9 3.9 0 000-7.8z"
+  ></path>
+  <circle
+    className="bubble-1"
+    cx="91.838"
+    cy="82.638"
+    r="36.562"
+    fill="url(#paint1_linear)"
+  ></circle>
+  <circle
+    cx="159.9"
+    cy="492.9"
+    r="8.5"
+    fill="#fff"
+  ></circle>
+  <ellipse
+    cx="62"
+    cy="422"
+    fill="#fff"
+    rx="3"
+    ry="3"
+  ></ellipse>
+  <circle cx="150" cy="291" r="6" fill="#fff"></circle>
+  <circle cx="209" cy="6" r="6" fill="#fff"></circle>
+  <defs>
+    <linearGradient
+      id="paint0_linear"
+      x1="52.602"
+      x2="-21.204"
+      y1="320.073"
+      y2="410.065"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0.005" stopColor="#F15838"></stop>
+      <stop offset="0.557" stopColor="#BA2760"></stop>
+      <stop offset="1" stopColor="#414075"></stop>
+    </linearGradient>
+    <linearGradient
+      id="paint1_linear"
+      x1="115.081"
+      x2="67.081"
+      y1="54.397"
+      y2="109.397"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stopColor="#9E62FF"></stop>
+      <stop offset="0.771" stopColor="#DC1BB3"></stop>
+      <stop offset="1" stopColor="#FF5C00"></stop>
+    </linearGradient>
+  </defs>
+</svg>

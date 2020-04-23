@@ -1,0 +1,37 @@
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="379"
+      height="412"
+      fill="none"
+      viewBox="0 0 379 412"
+      id="svg-section-1"
+    >
+      <path
+        className="stroke-line-draw"
+        stroke="#fff"
+        strokeMiterlimit="10"
+        strokeWidth="0.75"
+        d="M118.266 291.723c28.936 0 52.393-23.457 52.393-52.393s-23.457-52.393-52.393-52.393c-28.935 0-52.392 23.457-52.392 52.393s23.457 52.393 52.392 52.393z"
+      ></path>
+      <path
+        className="stroke-line-draw"
+        stroke="#fff"
+        strokeMiterlimit="10"
+        strokeWidth="0.75"
+        d="M118.5 292c64.893 0 117.5-52.607 117.5-117.5S183.393 57 118.5 57C53.606 57 1 109.607 1 174.5S53.606 292 118.5 292z"
+      ></path>
+      <path
+        className="stroke-line-draw"
+        stroke="#fff"
+        strokeMiterlimit="10"
+        strokeWidth="0.75"
+        d="M171 81c22.091 0 40-17.909 40-40S193.091 1 171 1s-40 17.909-40 40 17.909 40 40 40z"
+      ></path>
+      <path
+        stroke="#fff"
+        strokeDasharray="5.01 5.01"
+        strokeMiterlimit="10"
+        strokeWidth="0.75"
+        d="M258.5 411c65.998 0 119.5-53.502 119.5-119.5 0-65.998-53.502-119.5-119.5-119.5-65.998 0-119.5 53.502-119.5 119.5 0 65.998 53.502 119.5 119.5 119.5z"
+      ></path>
+    </svg>

@@ -1,9 +1,10 @@
 .notification-box {
-  position: absolute;
+  position: relative;
   left: 0;
   width: 100%;
   height: 80px;
   padding: 0 20px;
+  margin: 7% 0;
   box-sizing: border-box;
 
   opacity: 1;
