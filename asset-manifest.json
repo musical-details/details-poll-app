@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/details-poll-app/static/css/main.f692fb95.chunk.css",
-    "main.js": "/details-poll-app/static/js/main.68e06765.chunk.js",
-    "main.js.map": "/details-poll-app/static/js/main.68e06765.chunk.js.map",
+    "main.js": "/details-poll-app/static/js/main.66f410d4.chunk.js",
+    "main.js.map": "/details-poll-app/static/js/main.66f410d4.chunk.js.map",
     "runtime-main.js": "/details-poll-app/static/js/runtime-main.e84144b1.js",
     "runtime-main.js.map": "/details-poll-app/static/js/runtime-main.e84144b1.js.map",
     "static/js/2.aa37c61b.chunk.js": "/details-poll-app/static/js/2.aa37c61b.chunk.js",
     "static/js/2.aa37c61b.chunk.js.map": "/details-poll-app/static/js/2.aa37c61b.chunk.js.map",
     "index.html": "/details-poll-app/index.html",
-    "precache-manifest.53690863829092620211488db4b5d2ed.js": "/details-poll-app/precache-manifest.53690863829092620211488db4b5d2ed.js",
+    "precache-manifest.2979cdcdbc3fb10d548c5f04cc8df26b.js": "/details-poll-app/precache-manifest.2979cdcdbc3fb10d548c5f04cc8df26b.js",
     "service-worker.js": "/details-poll-app/service-worker.js",
     "static/css/main.f692fb95.chunk.css.map": "/details-poll-app/static/css/main.f692fb95.chunk.css.map",
     "static/js/2.aa37c61b.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.aa37c61b.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.e84144b1.js",
     "static/js/2.aa37c61b.chunk.js",
     "static/css/main.f692fb95.chunk.css",
-    "static/js/main.68e06765.chunk.js"
+    "static/js/main.66f410d4.chunk.js"
   ]
 }
