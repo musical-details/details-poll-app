@@ -1,6 +1,26 @@
 {
   "house": [
     {
+      "position": { "element": "input_moods" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_mood_power" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    }
+  ],
+  "pop": [
+    {
       "position": { "element": "input_genres" },
       "movingDuration": 100,
       "standingDuration": 300,
@@ -139,10 +159,18 @@
       "eventName": "slideUp"
     },
     {
+      "position": { "element": "button_up_sound_0" },
+      "eventName": "slideUp"
+    },
+    {
       "position": { "element": "button_down_sound_1" },
       "movingDuration": 400,
       "standingDuration": 300,
       "eventName": "slideDown"
+    },
+    {
+      "position": { "element": "button_close_sounds_card" },
+      "eventName": "click"
     }
   ]
 }

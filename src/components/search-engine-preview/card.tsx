@@ -64,6 +64,7 @@ type CardButtonProps = {
   isSelect?: boolean;
   value?: any;
   className?: string;
+  style?: {};
   buttonRef?: React.RefObject<HTMLDivElement>;
   onSelect?: (value: any | undefined) => void;
   onUnselect?: (value: any | undefined) => void;
@@ -103,12 +104,13 @@ export class CardButton extends React.Component<
   };
 
   render() {
-    const { children, className, buttonRef } = this.props;
+    const { children, className, buttonRef, style } = this.props;
     const { isSelect } = this.state;
     return (
       <div
         ref={buttonRef}
         onClick={this.handleClick}
+        style={style}
         className={`card-button ${className} ${this.isSelected()}`}
       >
         {children}

@@ -16,7 +16,7 @@ type PhonePointerProps = {
   onAnimationFrameEnd?: () => void;
 };
 type PhonePointerState = {
-  previousElement: null | React.RefObject<HTMLDivElement>;
+  previousElementRef: null | React.RefObject<HTMLDivElement>;
   currentEvent: null | "click" | "slideUp" | "slideDown";
   x: number;
   y: number;
@@ -32,10 +32,11 @@ class PhonePointer extends React.Component<
   static readonly defaultStandDuration: number = 500;
   moveEndTimeout: NodeJS.Timeout | any;
   standEndTimeout: NodeJS.Timeout | any;
+  eventStartTimeout: NodeJS.Timeout | any;
   eventEndTimeout: NodeJS.Timeout | any;
 
   state: PhonePointerState = {
-    previousElement: null,
+    previousElementRef: null,
     currentEvent: null,
     x: 0,
     y: 0,
@@ -60,14 +61,25 @@ class PhonePointer extends React.Component<
   }
 
   animate() {
-    const { isRunning, onAnimationFrameStart } = this.props;
+    const { isRunning, onAnimationFrameStart, elementRef } = this.props;
     if (!isRunning) {
-      const { moveEndTimeout, standEndTimeout, eventEndTimeout } = this;
+      const {
+        moveEndTimeout,
+        standEndTimeout,
+        eventStartTimeout,
+        eventEndTimeout,
+      } = this;
       clearTimeout(moveEndTimeout);
       clearTimeout(standEndTimeout);
+      clearTimeout(eventStartTimeout);
       clearTimeout(eventEndTimeout);
       return;
     }
+    if (
+      elementRef !== null &&
+      (elementRef === undefined || elementRef.current === undefined)
+    )
+      return;
     onAnimationFrameStart && onAnimationFrameStart();
     setTimeout(() => {
       this.move();
@@ -143,11 +155,13 @@ class PhonePointer extends React.Component<
       onAnimationFrameMoveEnd,
       animationSpeed,
     } = this.props;
+    const { previousElementRef } = this.state;
     const { position } = animationFrame;
     if (position.hasOwnProperty("x") && position.hasOwnProperty("y")) {
       this.setPositionFromCords(position as { x: number; y: number });
     } else if (position.hasOwnProperty("element")) {
       this.setPositionFromElement(elementRef);
+      this.removeHover(previousElementRef);
       this.addHover(elementRef);
     }
 
@@ -185,30 +199,43 @@ class PhonePointer extends React.Component<
 
   callEvent() {
     const { onAnimationFrameEnd, animationFrame, elementRef } = this.props;
-    const { position } = animationFrame;
 
     this.setState({
       currentEvent: animationFrame.eventName,
     });
 
+    this.savePreviousElement();
+    clearTimeout(this.eventStartTimeout);
     clearTimeout(this.eventEndTimeout);
+    let eventDuration: number = 500;
     switch (this.state.currentEvent) {
       case "slideUp":
       case "slideDown":
+        eventDuration = 1000;
       case "click":
-        this.eventEndTimeout = setTimeout(() => {
+        this.eventStartTimeout = setTimeout(() => {
           this.clickToElement(elementRef);
+        }, eventDuration / 2);
+        this.eventEndTimeout = setTimeout(() => {
           onAnimationFrameEnd && onAnimationFrameEnd();
           this.setState({
             currentEvent: null,
           });
-        }, 500);
+        }, eventDuration);
         break;
       default:
         onAnimationFrameEnd && onAnimationFrameEnd();
         break;
     }
   }
+
+  savePreviousElement = () => {
+    const { elementRef } = this.props;
+    if (elementRef === null) return;
+    this.setState({
+      previousElementRef: elementRef,
+    });
+  };
 
   render() {
     const { animationFrame } = this.props;

@@ -1,0 +1,39 @@
+{
+  "red": {
+    "mainColor": "#ff4242",
+    "shadeColor": "#ff4242",
+    "moods": ["power", "love", "tension", "hard", "vintage", "dynamic"]
+  },
+  "green": {
+    "mainColor": "#76ff42",
+    "shadeColor": "#76ff42",
+    "moods": ["chill", "nature", "cheerfull", "calm", "harmony", "lively"]
+  },
+  "blue": {
+    "mainColor": "#428aff",
+    "shadeColor": "#428aff",
+    "moods": ["deep", "pure", "night", "club", "rainy", "distance", "friday"]
+  },
+  "yellow": {
+    "mainColor": "#ffce34",
+    "shadeColor": "#ffce34",
+    "moods": [
+      "nostalgic",
+      "morning",
+      "bright",
+      "holiday",
+      "exclusive",
+      "childish"
+    ]
+  },
+  "pink": {
+    "mainColor": "#e7489d",
+    "shadeColor": "#e7489d",
+    "moods": ["cyber", "futuristic", "retro", "romantic", "candy", "female"]
+  },
+  "gray": {
+    "mainColor": "#515151",
+    "shadeColor": "#515151",
+    "moods": ["dark", "underground", "war", "sadness", "elegance", "secret"]
+  }
+}

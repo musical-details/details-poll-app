@@ -6,6 +6,7 @@ import Speedometer from "./speedometer";
 
 import musicGenres from "../../assets/data/genres.json";
 import musicSubgenres from "../../assets/data/sub-genres.json";
+import musicMoods from "../../assets/data/moods.json";
 import musicSounds from "../../assets/data/sounds.json";
 
 import animations from "../../assets/data/@search-engine-animations.json";
@@ -108,6 +109,12 @@ class SearchEnginePreview extends React.Component<
       this.elements[`button_genre_${musicSubgenre.key}`] = React.createRef();
     });
 
+    Object.keys(musicMoods).forEach((musicTheme) => {
+      musicMoods[musicTheme as "red"].moods.forEach((musicMood) => {
+        this.elements[`button_mood_${musicMood}}`] = React.createRef();
+      });
+    });
+
     Object.keys(musicSounds).forEach((musicSound) => {
       this.elements[`button_sound_${musicSound}`] = React.createRef();
       musicSounds[musicSound as "bass"].details.forEach((musicSoundDetail) => {
@@ -122,9 +129,17 @@ class SearchEnginePreview extends React.Component<
 
   getInputGenresValues = () =>
     this.state.selectedGenres.map((genre: Genre) => ({
-      backgroundColor: "#222222",
+      backgroundColor: "#1c1c1c",
       name: genre.name,
     }));
+
+  getInputSoundsValues = () =>
+    this.state.selectedSounds
+      .filter((sound: Sound) => sound.name !== null)
+      .map((sound: Sound) => ({
+        backgroundColor: "#1c1c1c",
+        name: `${sound.detail !== null ? sound.detail : ""} ${sound.name}`,
+      }));
 
   render() {
     const { elements } = this;
@@ -194,17 +209,7 @@ class SearchEnginePreview extends React.Component<
                 className="select-genre"
                 placeholder="Select important sounds..."
                 icon="music"
-                values={[
-                  { backgroundColor: "#2f2f2f", name: "Groove Bass" },
-                  {
-                    backgroundColor: "#2f2f2f",
-                    name: "Pure Piano",
-                  },
-                  {
-                    backgroundColor: "#2f2f2f",
-                    name: "Electronic Drums",
-                  },
-                ]}
+                values={this.getInputSoundsValues()}
                 inputRef={elements["input_sounds"]}
                 onClick={() => {
                   this.setState({
