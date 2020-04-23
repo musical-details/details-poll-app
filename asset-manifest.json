@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/details-poll-app/static/css/main.f692fb95.chunk.css",
+    "main.js": "/details-poll-app/static/js/main.6f374808.chunk.js",
+    "main.js.map": "/details-poll-app/static/js/main.6f374808.chunk.js.map",
+    "runtime-main.js": "/details-poll-app/static/js/runtime-main.e84144b1.js",
+    "runtime-main.js.map": "/details-poll-app/static/js/runtime-main.e84144b1.js.map",
+    "static/js/2.aa37c61b.chunk.js": "/details-poll-app/static/js/2.aa37c61b.chunk.js",
+    "static/js/2.aa37c61b.chunk.js.map": "/details-poll-app/static/js/2.aa37c61b.chunk.js.map",
+    "index.html": "/details-poll-app/index.html",
+    "precache-manifest.2691a757d15b0e965c8d3a8358d5d041.js": "/details-poll-app/precache-manifest.2691a757d15b0e965c8d3a8358d5d041.js",
+    "service-worker.js": "/details-poll-app/service-worker.js",
+    "static/css/main.f692fb95.chunk.css.map": "/details-poll-app/static/css/main.f692fb95.chunk.css.map",
+    "static/js/2.aa37c61b.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.aa37c61b.chunk.js.LICENSE.txt",
+    "static/media/details-main-logo.svg": "/details-poll-app/static/media/details-main-logo.73dcd75b.svg",
+    "static/media/card-sounds.scss": "/details-poll-app/static/media/drums.34b4957a.png",
+    "static/media/heaphones-icon.svg": "/details-poll-app/static/media/heaphones-icon.29b36054.svg",
+    "static/media/search-engine-preview.scss": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png",
+    "static/media/phone.scss": "/details-poll-app/static/media/phone-mock-7.6016e612.png",
+    "static/media/app-background.scss": "/details-poll-app/static/media/rzezba-bg.a4d405c2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e84144b1.js",
+    "static/js/2.aa37c61b.chunk.js",
+    "static/css/main.f692fb95.chunk.css",
+    "static/js/main.6f374808.chunk.js"
+  ]
+}
