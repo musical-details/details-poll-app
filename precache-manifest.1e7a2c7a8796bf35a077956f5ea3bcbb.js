@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a41cc19890d49cae633d936c8db6cdf8",
+    "revision": "060e0a4ea63eed36bca59a4dc5a8da8f",
     "url": "/details-poll-app/index.html"
   },
   {
-    "revision": "d3c552f9ad4fb1378881",
+    "revision": "02d8f68d2977e0d57c92",
     "url": "/details-poll-app/static/css/main.f692fb95.chunk.css"
   },
   {
-    "revision": "56f37546c078db9b2570",
-    "url": "/details-poll-app/static/js/2.aa37c61b.chunk.js"
+    "revision": "25e98ffe878bd8d05544",
+    "url": "/details-poll-app/static/js/2.a32b111e.chunk.js"
   },
   {
-    "revision": "a857e8767947ecbbc4f9bc12f988cfec",
-    "url": "/details-poll-app/static/js/2.aa37c61b.chunk.js.LICENSE.txt"
+    "revision": "c8c3e159f06ee9f886942f7da174a2b7",
+    "url": "/details-poll-app/static/js/2.a32b111e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d3c552f9ad4fb1378881",
-    "url": "/details-poll-app/static/js/main.66f410d4.chunk.js"
+    "revision": "02d8f68d2977e0d57c92",
+    "url": "/details-poll-app/static/js/main.fef75a4e.chunk.js"
   },
   {
     "revision": "bc115273966b8265bc76",
