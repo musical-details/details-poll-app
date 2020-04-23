@@ -389,7 +389,7 @@ class App extends React.Component<AppProps, AppState> {
               </div>
             </div>
             <div>
-              <SearchEnginePreview />
+              <SearchEnginePreview userSelectedGenre={"house"} />
             </div>
           </section>
           <section className="G" ref={this.sectionRefs[8]}>

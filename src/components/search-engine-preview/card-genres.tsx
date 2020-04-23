@@ -3,11 +3,14 @@ import Card, { CardButton } from "./card";
 import musicGenres from "../../assets/data/genres.json";
 import musicSubgenres from "../../assets/data/sub-genres.json";
 import { Elements } from "../phone/phone";
+import { Genre } from "./search-engine-preview";
 
 type CardGenresProps = {
   elements: Elements;
   hidden: boolean;
   onHide: () => void;
+  onSelectGenre?: (genre: Genre) => void;
+  onUnselectGenre?: () => void;
 };
 type CardGenresState = {};
 
@@ -32,12 +35,27 @@ export class CardGenres extends React.Component<
           <div className="card-header">What kind of music?</div>
           <div className="card-buttons">
             <CardButton
-              buttonRef={elements["button_electronic"]}
-              isSelect={false}
+              buttonRef={elements["button_genre_electronic"]}
+              value={{
+                key: "electronic",
+                name: "Electronic",
+                color: "",
+                icon: "",
+              }}
+              onSelect={this.props.onSelectGenre}
             >
               Electronic
             </CardButton>
-            <CardButton buttonRef={elements["button_natural"]} isSelect={false}>
+            <CardButton
+              buttonRef={elements["button_genre_natural"]}
+              value={{
+                key: "natural",
+                name: "Natural",
+                color: "",
+                icon: "",
+              }}
+              onSelect={this.props.onSelectGenre}
+            >
               Natural
             </CardButton>
           </div>
@@ -45,13 +63,14 @@ export class CardGenres extends React.Component<
         <div className="card-part">
           <div className="card-header">What genre?</div>
           <div className="card-buttons fragment">
-            {musicGenres.map((e) => (
+            {musicGenres.map((genre) => (
               <CardButton
-                buttonRef={elements[`button_${e.key}`]}
-                isSelect={false}
+                value={genre}
+                buttonRef={elements[`button_genre_${genre.key}`]}
                 className="mini"
+                onSelect={this.props.onSelectGenre}
               >
-                {e.name}
+                {genre.name}
               </CardButton>
             ))}
           </div>
@@ -59,9 +78,19 @@ export class CardGenres extends React.Component<
         <div className="card-part">
           <div className="card-header">What sub-genre?</div>
           <div className="card-buttons fragment _2">
-            {musicSubgenres.map((e) => (
-              <CardButton isSelect={false} className="mini">
-                {e.name}
+            {musicSubgenres.map((subGenre) => (
+              <CardButton
+                value={{
+                  key: subGenre.key,
+                  name: subGenre.name,
+                  color: "",
+                  icon: "",
+                }}
+                buttonRef={elements[`button_genre_${subGenre.key}`]}
+                className="mini"
+                onSelect={this.props.onSelectGenre}
+              >
+                {subGenre.name}
               </CardButton>
             ))}
           </div>

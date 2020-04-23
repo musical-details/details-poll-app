@@ -1,6 +1,7 @@
 import React from "react";
 import "./phone.scss";
 import PhonePointer from "../phone-pointer/phone-pointer";
+import PhoneAudio, { Song } from "../phone-audio/phone-audio";
 
 export type Elements = { [key: string]: React.RefObject<HTMLDivElement> };
 
@@ -8,14 +9,19 @@ export type PhoneAnimationFrame = {
   position: { x: number; y: number } | { element: string };
   movingDuration?: number;
   standingDuration?: number;
-  eventName: null | "click";
+  eventName: null | "click" | "slideUp" | "slideDown";
 };
 
 type PhoneProps = {
   animationFrames: Array<PhoneAnimationFrame>;
+  animationSpeed?: number;
   elements: Elements;
-  onPointerMoveStart?: () => void;
-  onPointerMoveEnd?: () => void;
+  animate: boolean;
+  song?: Song;
+  songPlay?: boolean;
+  songVolume?: number;
+  onAnimationStart?: () => void;
+  onAnimationEnd?: () => void;
 };
 
 type PhoneState = {
@@ -32,9 +38,15 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { animate } = this.props;
+    if (!animate) return;
+  }
 
-  componentDidUpdate() {}
+  componentDidUpdate(oldProps: PhoneProps) {
+    const { animate } = this.props;
+    if (oldProps.animate === animate || !animate) return;
+  }
 
   handleAnimationFrameEnd = () => {
     const { animationFrames } = this.props;
@@ -58,10 +70,11 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
   render() {
     const {
       animationFrames,
-      onPointerMoveStart,
-      onPointerMoveEnd,
-      elements,
       children,
+      song,
+      songPlay,
+      songVolume,
+      animationSpeed,
     } = this.props;
 
     const { currentFrameIndex } = this.state;
@@ -80,6 +93,12 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
                   phoneInnerRef={this.phoneInnerRef}
                   animationFrame={animationFrames[currentFrameIndex]}
                   onAnimationFrameEnd={this.handleAnimationFrameEnd}
+                  animationSpeed={animationSpeed ? animationSpeed : 1}
+                />
+                <PhoneAudio
+                  currentSong={song}
+                  play={songPlay}
+                  volume={songVolume}
                 />
                 {children}
               </div>

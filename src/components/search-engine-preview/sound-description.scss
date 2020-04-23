@@ -3,9 +3,38 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   & > div {
     width: 100%;
+    height: 100%;
+  }
+
+  .add-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &._hover,
+    &:hover {
+      color: white;
+      background-color: #222;
+    }
+
+    &._selected {
+      background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+      color: white;
+    }
+
+    span,
+    i {
+      font-size: 27px;
+      font-weight: bold;
+    }
   }
 
   .bar-box {
@@ -15,6 +44,15 @@
     display: flex;
     justify-content: center;
 
+    .bar-controls {
+      position: absolute;
+      top: 50%;
+      & > div {
+        width: 2px;
+        height: 2px;
+      }
+    }
+
     .bar {
       width: 20px;
       max-height: 100%;
@@ -22,6 +60,7 @@
       border-radius: 3px;
       position: absolute;
       bottom: 0;
+      transition: height 0.35s ease-out;
     }
   }
 

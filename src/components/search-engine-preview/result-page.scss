@@ -1,0 +1,156 @@
+.result-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  z-index: 200;
+
+  .logo-wrapper {
+    width: 100%;
+    height: 60px;
+    .logo {
+    }
+  }
+
+  .songs {
+    padding: 20px;
+
+    .song {
+      width: 100%;
+      height: 70px;
+      border-radius: 8px;
+      background: #1c1c1c;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .song-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+
+        .song-icon {
+          width: 100%;
+          height: 100%;
+          background-color: #111;
+          padding: 5px;
+          box-sizing: border-box;
+          border-radius: 3px;
+
+          .song-icon-src {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .song-description-wrapper {
+        position: relative;
+        width: calc(100% - 70px);
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+        padding-left: 0px;
+        padding-right: 50px;
+        overflow: hidden;
+
+        .song-button-wrapper {
+          position: absolute;
+          width: 50px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          right: 0;
+
+          .song-button {
+            width: 32px;
+            height: 32px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.like {
+              background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+            }
+
+            i {
+              position: relative;
+              margin-top: 3px;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .song-header-wrapper {
+          .song-author {
+            font-size: 11px;
+            font-weight: bold;
+            color: #999;
+          }
+          .song-title {
+            font-size: 13px;
+          }
+        }
+
+        .song-other-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 10px;
+
+          .song-tag {
+            flex-grow: 0;
+            font-size: 8.5px;
+          }
+        }
+      }
+    }
+  }
+
+  .song-player {
+    width: 100%;
+    height: 150px;
+    background: #1c1c1c;
+    position: absolute;
+    bottom: 0;
+
+    .song-top-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .song-top {
+        width: 85px;
+        height: 85px;
+        margin-top: -42px;
+        background: #111;
+        border-radius: 50%;
+        padding: 5px;
+        box-sizing: border-box;
+
+        .song-cover {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

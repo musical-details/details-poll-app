@@ -1,0 +1,25 @@
+{
+  "house": [
+    {
+      "author": "Tchami",
+      "title": "Adieu",
+      "icon": "https://i1.sndcdn.com/artworks-000206074682-kmqkhc-t500x500.jpg",
+      "audioUrl": "tchami-adieu.mp3",
+      "tags": ["house"]
+    },
+    {
+      "author": "Mercer",
+      "title": "Opium (VIP Mix)",
+      "icon": "https://geo-static.traxsource.com/files/images/aba7fb2eaf680a32dfc71a38081063ab.jpg",
+      "audioUrl": null,
+      "tags": ["house"]
+    },
+    {
+      "author": "Kyle Watson",
+      "title": "Don't talk",
+      "icon": "https://i1.sndcdn.com/artworks-000149079238-sbx3q8-t200x200.jpg",
+      "audioUrl": null,
+      "tags": ["house"]
+    }
+  ]
+}

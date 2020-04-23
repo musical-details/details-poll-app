@@ -124,3 +124,51 @@
     }
   }
 }
+.card-button {
+  background-color: #181818;
+  border-radius: 5px;
+  //font-family: "Bebas Neue";
+  padding: 5px 10px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: 0.4s ease-out;
+  transition-delay: 0.4s;
+
+  &._hover,
+  &:hover {
+    color: white;
+    background-color: #222;
+    opacity: 0.95;
+  }
+
+  &._select {
+    color: white;
+    opacity: 1;
+    background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+    animation: select-card-button 0.5s 1;
+
+    @keyframes select-card-button {
+      0% {
+        transform: scale(1);
+      }
+      35% {
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &.mini {
+    font-size: 10px;
+    padding: 3px 7px;
+  }
+}

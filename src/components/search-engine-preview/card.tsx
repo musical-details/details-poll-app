@@ -61,9 +61,12 @@ export class Card extends React.Component<CardProps, CardState> {
 }
 
 type CardButtonProps = {
-  isSelect: boolean;
+  isSelect?: boolean;
+  value?: any;
   className?: string;
   buttonRef?: React.RefObject<HTMLDivElement>;
+  onSelect?: (value: any | undefined) => void;
+  onUnselect?: (value: any | undefined) => void;
 };
 type CardButtonState = {
   isSelect: boolean;
@@ -81,9 +84,22 @@ export class CardButton extends React.Component<
   }
 
   handleClick = () => {
-    this.setState({
-      isSelect: !this.state.isSelect,
-    });
+    const { onSelect, onUnselect, children, value } = this.props;
+    this.setState(
+      {
+        isSelect: !this.state.isSelect,
+      },
+      () => {
+        if (this.state.isSelect) onSelect && onSelect(value);
+        else onUnselect && onUnselect(value);
+      }
+    );
+  };
+
+  isSelected = () => {
+    if (this.props.isSelect === undefined)
+      return this.state.isSelect ? "_select" : "";
+    else return this.props.isSelect ? "_select" : "";
   };
 
   render() {
@@ -93,7 +109,7 @@ export class CardButton extends React.Component<
       <div
         ref={buttonRef}
         onClick={this.handleClick}
-        className={`card-button ${className} ${isSelect ? "_select" : ""}`}
+        className={`card-button ${className} ${this.isSelected()}`}
       >
         {children}
       </div>

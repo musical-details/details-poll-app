@@ -5,6 +5,7 @@ import { PhoneAnimationFrame } from "../phone/phone";
 type PhonePointerProps = {
   isRunning: boolean;
   animationFrame: PhoneAnimationFrame;
+  animationSpeed: number;
   elementRef: React.RefObject<HTMLDivElement> | null;
   phoneInnerRef: React.RefObject<HTMLDivElement>;
   onAnimationFrameStart?: () => void;
@@ -16,7 +17,7 @@ type PhonePointerProps = {
 };
 type PhonePointerState = {
   previousElement: null | React.RefObject<HTMLDivElement>;
-  currentEvent: null | "click";
+  currentEvent: null | "click" | "slideUp" | "slideDown";
   x: number;
   y: number;
 };
@@ -60,7 +61,13 @@ class PhonePointer extends React.Component<
 
   animate() {
     const { isRunning, onAnimationFrameStart } = this.props;
-    if (!isRunning) return;
+    if (!isRunning) {
+      const { moveEndTimeout, standEndTimeout, eventEndTimeout } = this;
+      clearTimeout(moveEndTimeout);
+      clearTimeout(standEndTimeout);
+      clearTimeout(eventEndTimeout);
+      return;
+    }
     onAnimationFrameStart && onAnimationFrameStart();
     setTimeout(() => {
       this.move();
@@ -90,7 +97,13 @@ class PhonePointer extends React.Component<
     element: React.RefObject<HTMLDivElement> | null
   ): void => {
     const { phoneInnerRef } = this.props;
-    if (element === null || element.current === null) return;
+    if (
+      element === null ||
+      element === undefined ||
+      element.current === undefined ||
+      element.current === null
+    )
+      return;
     if (phoneInnerRef.current === null) return;
 
     const { offsetWidth, offsetHeight } = element.current as HTMLDivElement;
@@ -128,6 +141,7 @@ class PhonePointer extends React.Component<
       elementRef,
       onAnimationFrameMoveStart,
       onAnimationFrameMoveEnd,
+      animationSpeed,
     } = this.props;
     const { position } = animationFrame;
     if (position.hasOwnProperty("x") && position.hasOwnProperty("y")) {
@@ -140,15 +154,10 @@ class PhonePointer extends React.Component<
     onAnimationFrameMoveStart && onAnimationFrameMoveStart();
 
     clearTimeout(this.moveEndTimeout);
-    this.moveEndTimeout = setTimeout(
-      () => {
-        onAnimationFrameMoveEnd && onAnimationFrameMoveEnd();
-        this.stand();
-      },
-      animationFrame.movingDuration
-        ? animationFrame.movingDuration
-        : PhonePointer.defaultMoveDuration
-    );
+    this.moveEndTimeout = setTimeout(() => {
+      onAnimationFrameMoveEnd && onAnimationFrameMoveEnd();
+      this.stand();
+    }, (animationFrame.movingDuration ? animationFrame.movingDuration : PhonePointer.defaultMoveDuration) / animationSpeed);
   }
 
   clickToElement = (element: React.RefObject<HTMLDivElement> | null): void => {
@@ -162,20 +171,16 @@ class PhonePointer extends React.Component<
       onAnimationFrameStandingStart,
       onAnimationFrameStandingEnd,
       animationFrame,
+      animationSpeed,
     } = this.props;
 
     onAnimationFrameStandingStart && onAnimationFrameStandingStart();
 
     clearTimeout(this.standEndTimeout);
-    this.standEndTimeout = setTimeout(
-      () => {
-        onAnimationFrameStandingEnd && onAnimationFrameStandingEnd();
-        this.callEvent();
-      },
-      animationFrame.standingDuration
-        ? animationFrame.standingDuration
-        : PhonePointer.defaultStandDuration
-    );
+    this.standEndTimeout = setTimeout(() => {
+      onAnimationFrameStandingEnd && onAnimationFrameStandingEnd();
+      this.callEvent();
+    }, (animationFrame.standingDuration ? animationFrame.standingDuration : PhonePointer.defaultStandDuration) / animationSpeed);
   }
 
   callEvent() {
@@ -188,10 +193,15 @@ class PhonePointer extends React.Component<
 
     clearTimeout(this.eventEndTimeout);
     switch (this.state.currentEvent) {
+      case "slideUp":
+      case "slideDown":
       case "click":
         this.eventEndTimeout = setTimeout(() => {
           this.clickToElement(elementRef);
           onAnimationFrameEnd && onAnimationFrameEnd();
+          this.setState({
+            currentEvent: null,
+          });
         }, 500);
         break;
       default:

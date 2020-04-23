@@ -14,7 +14,7 @@ type SearchInputProps = {
   placeholder?: string;
   className?: string;
   style?: {};
-  values?: Array<any>;
+  values?: Array<SearchInputValue>;
   inputRef?: React.RefObject<HTMLDivElement>;
   onClick?: () => void;
 };

@@ -6,19 +6,43 @@ import Speedometer from "./speedometer";
 
 import musicGenres from "../../assets/data/genres.json";
 import musicSubgenres from "../../assets/data/sub-genres.json";
+import musicSounds from "../../assets/data/sounds.json";
+
 import animations from "../../assets/data/@search-engine-animations.json";
 
 import CardGenres from "./card-genres";
 import CardMoods from "./card-moods";
 import CardSounds from "./card-sounds";
 import Phone, { PhoneAnimationFrame, Elements } from "../phone/phone";
+import searchEngineResults from "../../assets/data/@search-engine-results.json";
+import ResultPage from "./result-page";
+import { Song } from "../phone-audio/phone-audio";
 
-type SearchEnginePreviewProps = {};
+export type Genre = {
+  key: string;
+  name: string;
+  color: string;
+  icon: string;
+};
+
+export type Sound = {
+  name: string | null;
+  detail: string | null;
+  level: number | null;
+};
+
+type SearchEnginePreviewProps = {
+  userSelectedGenre: string;
+};
 
 type SearchEnginePreviewState = {
+  currentSongIndex: number;
+  selectedGenres: Array<Genre>;
+  selectedSounds: Array<Sound>;
   cardGenresHidden: boolean;
   cardMoodsHidden: boolean;
   cardSoundsHidden: boolean;
+  resultPageHidden: boolean;
 };
 
 class SearchEnginePreview extends React.Component<
@@ -36,13 +60,38 @@ class SearchEnginePreview extends React.Component<
     input_likedby: React.createRef(),
     button_find: React.createRef(),
     button_close_genre_card: React.createRef(),
-    button_electronic: React.createRef(),
-    button_natural: React.createRef(),
+    button_close_moods_card: React.createRef(),
+    button_close_sounds_card: React.createRef(),
+    button_genre_electronic: React.createRef(),
+    button_genre_natural: React.createRef(),
+    button_add_sound_0: React.createRef(),
+    button_up_sound_0: React.createRef(),
+    button_down_sound_0: React.createRef(),
+    button_add_sound_1: React.createRef(),
+    button_up_sound_1: React.createRef(),
+    button_down_sound_1: React.createRef(),
+    button_add_sound_2: React.createRef(),
+    button_up_sound_2: React.createRef(),
+    button_down_sound_2: React.createRef(),
+    result_song_0: React.createRef(),
+    result_song_0_like: React.createRef(),
+    result_song_1: React.createRef(),
+    result_song_1_like: React.createRef(),
+    result_song_2: React.createRef(),
+    result_song_2_like: React.createRef(),
   };
   state: SearchEnginePreviewState = {
+    currentSongIndex: 0,
+    selectedGenres: [],
+    selectedSounds: [
+      { name: null, detail: null, level: null },
+      { name: null, detail: null, level: null },
+      { name: null, detail: null, level: null },
+    ],
     cardGenresHidden: true,
     cardMoodsHidden: true,
     cardSoundsHidden: true,
+    resultPageHidden: true,
   };
 
   constructor(props: SearchEnginePreviewProps) {
@@ -53,23 +102,46 @@ class SearchEnginePreview extends React.Component<
 
   addRefs = () => {
     musicGenres.forEach((musicGenre) => {
-      this.elements[`button_${musicGenre.key}`] = React.createRef();
+      this.elements[`button_genre_${musicGenre.key}`] = React.createRef();
     });
     musicSubgenres.forEach((musicSubgenre) => {
-      this.elements[`button_${musicSubgenre.key}`] = React.createRef();
+      this.elements[`button_genre_${musicSubgenre.key}`] = React.createRef();
     });
-    console.log(this.elements);
+
+    Object.keys(musicSounds).forEach((musicSound) => {
+      this.elements[`button_sound_${musicSound}`] = React.createRef();
+      musicSounds[musicSound as "bass"].details.forEach((musicSoundDetail) => {
+        this.elements[
+          `button_sound_${musicSound}_${musicSoundDetail}`
+        ] = React.createRef();
+      });
+    });
   };
 
   componentDidMount() {}
 
+  getInputGenresValues = () =>
+    this.state.selectedGenres.map((genre: Genre) => ({
+      backgroundColor: "#222222",
+      name: genre.name,
+    }));
+
   render() {
     const { elements } = this;
+    const { userSelectedGenre } = this.props;
+    const { currentSongIndex, selectedSounds } = this.state;
     return (
       <div className="search-engine-preview">
         <Phone
           elements={this.elements}
           animationFrames={animations.house as Array<PhoneAnimationFrame>}
+          animationSpeed={1}
+          animate={true}
+          song={
+            searchEngineResults[userSelectedGenre as "house"][currentSongIndex]
+          }
+          songPlay={true}
+          songVolume={1}
         >
           <div className="search-app">
             <div className="search-body">
@@ -95,10 +167,7 @@ class SearchEnginePreview extends React.Component<
                   });
                 }}
                 icon="bookmark"
-                values={[
-                  { backgroundColor: "#2f2f2f", name: "House" },
-                  { backgroundColor: "#2f2f2f", name: "Techno" },
-                ]}
+                values={this.getInputGenresValues()}
                 inputRef={elements["input_genres"]}
               />
 
@@ -113,6 +182,11 @@ class SearchEnginePreview extends React.Component<
                   { className: "night", name: "Night" },
                 ]}
                 inputRef={elements["input_moods"]}
+                onClick={() => {
+                  this.setState({
+                    cardMoodsHidden: false,
+                  });
+                }}
               />
 
               <SearchInput
@@ -132,6 +206,11 @@ class SearchEnginePreview extends React.Component<
                   },
                 ]}
                 inputRef={elements["input_sounds"]}
+                onClick={() => {
+                  this.setState({
+                    cardSoundsHidden: false,
+                  });
+                }}
               />
               <div className="tempo-vocal-box">
                 <SearchInput
@@ -177,9 +256,67 @@ class SearchEnginePreview extends React.Component<
                   cardGenresHidden: true,
                 });
               }}
+              onSelectGenre={(newGenre) => {
+                this.setState({
+                  selectedGenres: [...this.state.selectedGenres, newGenre],
+                });
+              }}
             />
-            <CardMoods hidden={true} />
-            <CardSounds hidden={true} />
+            <CardMoods
+              elements={this.elements}
+              hidden={this.state.cardMoodsHidden}
+              onHide={() => {
+                this.setState({
+                  cardMoodsHidden: true,
+                });
+              }}
+            />
+            <CardSounds
+              elements={this.elements}
+              hidden={this.state.cardSoundsHidden}
+              selectedSounds={selectedSounds}
+              onSelectedSound={({ index, name, level, detail }) => {
+                this.setState({
+                  selectedSounds: this.state.selectedSounds.map((sound, i) =>
+                    i === index
+                      ? {
+                          ...sound,
+                          name: name,
+                          detail: detail ? detail : "",
+                          level: level ? level : 50,
+                        }
+                      : sound
+                  ),
+                });
+              }}
+              onChangeLvl={(index, newLvl) => {
+                this.setState({
+                  selectedSounds: this.state.selectedSounds.map((sound, i) =>
+                    index === i ? { ...sound, level: newLvl } : sound
+                  ),
+                });
+              }}
+              onHide={() => {
+                this.setState({
+                  cardSoundsHidden: true,
+                });
+              }}
+            />
+            <ResultPage
+              elements={elements}
+              results={searchEngineResults[userSelectedGenre as "house"]}
+              currentSong={
+                searchEngineResults[userSelectedGenre as "house"][
+                  currentSongIndex
+                ]
+              }
+              hidden={this.state.resultPageHidden}
+              onSelectSong={(song, i) => {
+                this.setState({
+                  currentSongIndex: i,
+                });
+              }}
+            />
           </div>
         </Phone>
       </div>

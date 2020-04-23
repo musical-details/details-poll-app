@@ -6,7 +6,6 @@
       "standingDuration": 300,
       "eventName": "click"
     },
-
     {
       "position": { "x": 140, "y": 230 },
       "movingDuration": 400,
@@ -14,7 +13,7 @@
       "eventName": null
     },
     {
-      "position": { "element": "button_electronic" },
+      "position": { "element": "button_genre_electronic" },
       "movingDuration": 600,
       "standingDuration": 300,
       "eventName": "click"
@@ -24,12 +23,126 @@
       "movingDuration": 400,
       "standingDuration": 300,
       "eventName": null
+    },
+    {
+      "position": { "element": "button_genre_house" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_genre_deep_house" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
     },
     {
       "position": { "element": "button_close_genre_card" },
       "movingDuration": 600,
       "standingDuration": 300,
       "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "input_sounds" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_add_sound_0" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_sound_bass" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_sound_bass_groove" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_add_sound_1" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_piano" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_piano_strong" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_add_sound_2" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_drums" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_drums_electronic" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_up_sound_0" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "slideUp"
+    },
+    {
+      "position": { "element": "button_down_sound_1" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "slideDown"
     }
   ]
 }
