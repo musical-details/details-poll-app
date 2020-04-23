@@ -1,6 +1,158 @@
 {
   "house": [
     {
+      "position": { "element": "input_genres" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_genre_electronic" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_genre_house" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_genre_deep_house" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_close_genre_card" },
+      "movingDuration": 600,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "input_sounds" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_add_sound_0" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_sound_bass" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 160, "y": 300 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_sound_bass_groove" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_add_sound_1" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_piano" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_piano_strong" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_add_sound_2" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_drums" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_sound_drums_electronic" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_up_sound_0" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "slideUp"
+    },
+    {
+      "position": { "element": "button_up_sound_0" },
+      "eventName": "slideUp"
+    },
+    {
+      "position": { "element": "button_down_sound_1" },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": "slideDown"
+    },
+    {
+      "position": { "element": "button_close_sounds_card" },
+      "eventName": "click"
+    },
+    {
       "position": { "element": "input_moods" },
       "movingDuration": 100,
       "standingDuration": 300,
@@ -14,6 +166,74 @@
     },
     {
       "position": { "element": "button_mood_power" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_close_moods_card" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_find" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    }
+  ],
+  "trap": [
+    {
+      "position": { "element": "input_moods" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 140, "y": 230 },
+      "movingDuration": 400,
+      "standingDuration": 300,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_mood_power" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_mood_chill" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_mood_deep" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_mood_nostalgic" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_mood_cyber" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_mood_dark" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    },
+    {
+      "position": { "element": "button_close_moods_card" },
       "movingDuration": 100,
       "standingDuration": 300,
       "eventName": "click"

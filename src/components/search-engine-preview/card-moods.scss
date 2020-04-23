@@ -31,6 +31,58 @@
         padding: 5px 0;
         box-sizing: border-box;
 
+        &.red {
+          .mood {
+            &._select {
+              background: #ff4242;
+            }
+          }
+        }
+
+        &.green {
+          .mood {
+            &._select {
+              background: #76ff42;
+              color: black;
+              font-weight: bold;
+            }
+          }
+        }
+
+        &.blue {
+          .mood {
+            &._select {
+              background: #428aff;
+            }
+          }
+        }
+
+        &.yellow {
+          .mood {
+            &._select {
+              background: #ffce34;
+              color: black;
+              font-weight: bold;
+            }
+          }
+        }
+
+        &.pink {
+          .mood {
+            &._select {
+              background: #e7489d;
+            }
+          }
+        }
+
+        &.gray {
+          .mood {
+            &._select {
+              background: #555;
+            }
+          }
+        }
+
         .shadow {
           position: absolute;
           z-index: 100;
@@ -58,7 +110,7 @@
             background-color: #444;
 
             &._select {
-              background: red;
+              opacity: 1;
             }
           }
         }

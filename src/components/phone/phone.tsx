@@ -2,6 +2,7 @@ import React from "react";
 import "./phone.scss";
 import PhonePointer from "../phone-pointer/phone-pointer";
 import PhoneAudio, { Song } from "../phone-audio/phone-audio";
+import SpinnerComponent from "../details-spinner/spinner";
 
 export type Elements = { [key: string]: React.RefObject<HTMLDivElement> };
 
@@ -17,6 +18,9 @@ type PhoneProps = {
   animationSpeed?: number;
   elements: Elements;
   animate: boolean;
+  pending?: boolean;
+  onPendingSwitchPage?: () => void;
+  onPendingDone?: () => void;
   song?: Song;
   songPlay?: boolean;
   songVolume?: number;
@@ -26,12 +30,19 @@ type PhoneProps = {
 
 type PhoneState = {
   currentFrameIndex: number;
+  pendingProgress: number;
 };
 
 class Phone extends React.Component<PhoneProps, PhoneState> {
+  static readonly defaultMoveDuration: number = 900;
+  static readonly defaultStandDuration: number = 500;
+  pendingSwitchPageTimeout: NodeJS.Timeout | any;
+  pendingProgressInterval: NodeJS.Timeout | any;
+  pendingDoneTimeout: NodeJS.Timeout | any;
   phoneInnerRef: React.RefObject<HTMLDivElement> = React.createRef();
   state: PhoneState = {
     currentFrameIndex: 0,
+    pendingProgress: 0,
   };
 
   constructor(props: PhoneProps) {
@@ -44,8 +55,27 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
   }
 
   componentDidUpdate(oldProps: PhoneProps) {
-    const { animate } = this.props;
-    if (oldProps.animate === animate || !animate) return;
+    const { animate, pending, onPendingDone, onPendingSwitchPage } = this.props;
+    if (oldProps.animate === animate && oldProps.pending === pending) return;
+
+    if (!animate) return;
+    if (!pending) return;
+    clearInterval(this.pendingProgressInterval);
+
+    this.pendingProgressInterval = setInterval(() => {
+      const { pendingProgress } = this.state;
+      if (pendingProgress + 2 <= 100) {
+        this.setState({
+          pendingProgress: pendingProgress + 4,
+        });
+      } else {
+        onPendingSwitchPage && onPendingSwitchPage();
+        clearInterval(this.pendingProgressInterval);
+        this.pendingDoneTimeout = setTimeout(() => {
+          onPendingDone && onPendingDone();
+        }, 1000);
+      }
+    }, 80);
   }
 
   handleAnimationFrameEnd = () => {
@@ -75,9 +105,10 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
       songPlay,
       songVolume,
       animationSpeed,
+      pending,
     } = this.props;
 
-    const { currentFrameIndex } = this.state;
+    const { currentFrameIndex, pendingProgress } = this.state;
 
     return (
       <div className="search-engine-preview">
@@ -87,8 +118,16 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
             <div className="phone-safe"></div>
             <div className="phone-inner">
               <div className="phone-inner-body" ref={this.phoneInnerRef}>
+                {pending && (
+                  <div
+                    className="phone-pending-body fadeIn"
+                    style={{ opacity: 1 }}
+                  >
+                    <SpinnerComponent progress={pendingProgress} />
+                  </div>
+                )}
                 <PhonePointer
-                  isRunning={true}
+                  isRunning={this.props.animate}
                   elementRef={this.getElementRef()}
                   phoneInnerRef={this.phoneInnerRef}
                   animationFrame={animationFrames[currentFrameIndex]}
@@ -96,9 +135,12 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
                   animationSpeed={animationSpeed ? animationSpeed : 1}
                 />
                 <PhoneAudio
+                  animationFrames={animationFrames}
                   currentSong={song}
-                  play={songPlay}
+                  play={this.props.animate}
                   volume={songVolume}
+                  defaultMoveDuration={Phone.defaultMoveDuration}
+                  defaultStandDuration={Phone.defaultStandDuration}
                 />
                 {children}
               </div>

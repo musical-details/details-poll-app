@@ -3,11 +3,13 @@ import "./card-moods.scss";
 import Card, { CardButton } from "./card";
 import musicMoods from "../../assets/data/moods.json";
 import { Elements } from "../phone/phone";
+import { Mood } from "./search-engine-preview";
 
 type CardMoodsProps = {
   elements: Elements;
   hidden: boolean;
   onHide: () => void;
+  onSelectMood: (mood: Mood) => void;
 };
 type CardMoodsState = {};
 
@@ -17,11 +19,11 @@ export class CardMoods extends React.Component<CardMoodsProps, CardMoodsState> {
   }
 
   render() {
-    const { hidden, onHide, elements } = this.props;
+    const { hidden, onHide, elements, onSelectMood } = this.props;
     return (
       <Card
         title="Select mood"
-        closeRef={elements["button_close_mood_card"]}
+        closeRef={elements["button_close_moods_card"]}
         hidden={hidden}
         onHide={onHide}
       >
@@ -37,17 +39,21 @@ export class CardMoods extends React.Component<CardMoodsProps, CardMoodsState> {
                     }}
                   ></div>
                 </div>
-                <div className="moods">
+                <div className={`moods ${theme}`}>
                   <div className="shadow"></div>
                   <div className="inner">
                     {musicMoods[theme as "red"].moods.map((mood) => (
                       <CardButton
                         buttonRef={elements[`button_mood_${mood}`]}
                         className="mood"
-                        /*style={{
-                          backgroundColor:
-                            musicMoods[theme as "red"].shadeColor,
-                        }}*/
+                        value={
+                          {
+                            name: mood,
+                            color: musicMoods[theme as "red"].shadeColor,
+                            textColor: musicMoods[theme as "red"].textColor,
+                          } as Mood
+                        }
+                        onSelect={onSelectMood}
                       >
                         {mood}
                       </CardButton>

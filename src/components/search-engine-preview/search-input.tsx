@@ -76,6 +76,7 @@ type SearchButtonProps = {
   inputRef?: React.RefObject<HTMLDivElement>;
   className?: string;
   style?: {};
+  onClick?: () => void;
 };
 type SearchButtonState = {};
 
@@ -88,9 +89,9 @@ export class SearchButton extends React.Component<
   }
 
   render() {
-    const { inputRef, className, style } = this.props;
+    const { inputRef, className, style, onClick } = this.props;
     return (
-      <div className="search-button-box" ref={inputRef}>
+      <div className="search-button-box" ref={inputRef} onClick={onClick}>
         <button className={`search-button ${className}`} style={style}>
           {this.props.children}
         </button>

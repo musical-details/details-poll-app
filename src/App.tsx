@@ -61,7 +61,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 7,
+    currentSection: 5,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -381,7 +381,13 @@ class App extends React.Component<AppProps, AppState> {
               </button>
             </div>
           </section>
-          <section className="F" ref={this.sectionRefs[7]}>
+          <section
+            className="F"
+            ref={this.sectionRefs[7]}
+            onClick={() => {
+              this.handleNextSection();
+            }}
+          >
             <div className="preview-bar">
               <div>
                 <span>Rozbudowana </span>
@@ -389,7 +395,10 @@ class App extends React.Component<AppProps, AppState> {
               </div>
             </div>
             <div>
-              <SearchEnginePreview userSelectedGenre={"house"} />
+              <SearchEnginePreview
+                play={this.state.currentSection === 7}
+                userSelectedGenre={"house"}
+              />
             </div>
           </section>
           <section className="G" ref={this.sectionRefs[8]}>

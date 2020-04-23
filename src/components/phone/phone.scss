@@ -41,6 +41,49 @@
         width: 100%;
         height: 100%;
         position: relative;
+
+        .phone-pending-body {
+          position: absolute;
+          z-index: 1000;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(10, 10, 10, 0.9);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: opacity 0.5s ease-out;
+
+          &.fadeIn {
+            animation: phone-pending-fade-in 0.5s 1;
+            animation-fill-mode: forwards;
+
+            @keyframes phone-pending-fade-in {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+          }
+
+          &.fadeOut {
+            animation: phone-pending-fade-out 0.5s 1;
+            animation-fill-mode: forwards;
+
+            @keyframes phone-pending-fade-out {
+              0% {
+                opacity: 1;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+          }
+        }
       }
     }
 

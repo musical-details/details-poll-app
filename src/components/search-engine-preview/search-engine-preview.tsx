@@ -32,17 +32,26 @@ export type Sound = {
   level: number | null;
 };
 
+export type Mood = {
+  name: string;
+  color: string;
+  textColor: string;
+};
+
 type SearchEnginePreviewProps = {
   userSelectedGenre: string;
+  play: boolean;
 };
 
 type SearchEnginePreviewState = {
   currentSongIndex: number;
   selectedGenres: Array<Genre>;
+  selectedMoods: Array<Mood>;
   selectedSounds: Array<Sound>;
   cardGenresHidden: boolean;
   cardMoodsHidden: boolean;
   cardSoundsHidden: boolean;
+  pending: boolean;
   resultPageHidden: boolean;
 };
 
@@ -50,6 +59,7 @@ class SearchEnginePreview extends React.Component<
   SearchEnginePreviewProps,
   SearchEnginePreviewState
 > {
+  resultTimeout: NodeJS.Timeout | any;
   refCount: number = 9;
   elements: Elements = {
     input_title: React.createRef(),
@@ -84,6 +94,7 @@ class SearchEnginePreview extends React.Component<
   state: SearchEnginePreviewState = {
     currentSongIndex: 0,
     selectedGenres: [],
+    selectedMoods: [],
     selectedSounds: [
       { name: null, detail: null, level: null },
       { name: null, detail: null, level: null },
@@ -92,6 +103,7 @@ class SearchEnginePreview extends React.Component<
     cardGenresHidden: true,
     cardMoodsHidden: true,
     cardSoundsHidden: true,
+    pending: false,
     resultPageHidden: true,
   };
 
@@ -111,7 +123,7 @@ class SearchEnginePreview extends React.Component<
 
     Object.keys(musicMoods).forEach((musicTheme) => {
       musicMoods[musicTheme as "red"].moods.forEach((musicMood) => {
-        this.elements[`button_mood_${musicMood}}`] = React.createRef();
+        this.elements[`button_mood_${musicMood}`] = React.createRef();
       });
     });
 
@@ -133,6 +145,13 @@ class SearchEnginePreview extends React.Component<
       name: genre.name,
     }));
 
+  getInputMoodsValues = () =>
+    this.state.selectedMoods.map((mood: Mood) => ({
+      color: mood.textColor,
+      backgroundColor: mood.color,
+      name: mood.name,
+    }));
+
   getInputSoundsValues = () =>
     this.state.selectedSounds
       .filter((sound: Sound) => sound.name !== null)
@@ -143,20 +162,31 @@ class SearchEnginePreview extends React.Component<
 
   render() {
     const { elements } = this;
-    const { userSelectedGenre } = this.props;
-    const { currentSongIndex, selectedSounds } = this.state;
+    const { userSelectedGenre, play } = this.props;
+    const { currentSongIndex, selectedSounds, pending } = this.state;
     return (
       <div className="search-engine-preview">
         <Phone
           elements={this.elements}
           animationFrames={animations.house as Array<PhoneAnimationFrame>}
           animationSpeed={1}
-          animate={true}
+          animate={play}
           song={
             searchEngineResults[userSelectedGenre as "house"][currentSongIndex]
           }
           songPlay={true}
           songVolume={1}
+          pending={pending}
+          onPendingSwitchPage={() => {
+            this.setState({
+              resultPageHidden: false,
+            });
+          }}
+          onPendingDone={() => {
+            this.setState({
+              pending: false,
+            });
+          }}
         >
           <div className="search-app">
             <div className="search-body">
@@ -191,11 +221,7 @@ class SearchEnginePreview extends React.Component<
                 className="select-mood"
                 placeholder="Select mood..."
                 icon="emo-laugh"
-                values={[
-                  { className: "dark", name: "Dark" },
-                  { className: "hard", name: "Hard" },
-                  { className: "night", name: "Night" },
-                ]}
+                values={this.getInputMoodsValues()}
                 inputRef={elements["input_moods"]}
                 onClick={() => {
                   this.setState({
@@ -248,7 +274,15 @@ class SearchEnginePreview extends React.Component<
                 Test
               </SearchInput>
               <div className="search-button-wrapper">
-                <SearchButton inputId={8} inputRef={elements["button_find"]}>
+                <SearchButton
+                  inputId={8}
+                  inputRef={elements["button_find"]}
+                  onClick={() => {
+                    this.setState({
+                      pending: true,
+                    });
+                  }}
+                >
                   Find!
                 </SearchButton>
               </div>
@@ -270,6 +304,11 @@ class SearchEnginePreview extends React.Component<
             <CardMoods
               elements={this.elements}
               hidden={this.state.cardMoodsHidden}
+              onSelectMood={(mood: Mood) => {
+                this.setState({
+                  selectedMoods: [...this.state.selectedMoods, mood],
+                });
+              }}
               onHide={() => {
                 this.setState({
                   cardMoodsHidden: true,
