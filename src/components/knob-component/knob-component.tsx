@@ -1,7 +1,6 @@
 import React, { useState, MouseEvent, TouchEvent } from "react";
 import CSS from "csstype";
 import "./knob-component.scss";
-import valuesNamesData from "../../assets/data/knob-values-names.json";
 
 type KnobState = {
   deg: number;
@@ -15,6 +14,8 @@ type KnobProps = {
   min: number;
   max: number;
   value: number;
+  valueNames: Array<ValueName>;
+  onNewValue(newValue: number): void;
 };
 
 type pts = {
@@ -22,10 +23,16 @@ type pts = {
   y: number;
 };
 
+type ValueName = {
+  name: string;
+  min: number;
+  max: number;
+};
+
 class Knob extends React.Component<KnobProps, KnobState> {
   state: KnobState = {
-    deg: 0,
-    value: 0,
+    deg: 180,
+    value: 50.5,
   };
 
   fullAngle: number;
@@ -97,6 +104,7 @@ class Knob extends React.Component<KnobProps, KnobState> {
 
     document.addEventListener("mousemove", moveMouseHandler);
     document.addEventListener("mouseup", (e) => {
+      this.props.onNewValue(this.state.value);
       document.removeEventListener("mousemove", moveMouseHandler);
     });
   };
@@ -119,6 +127,7 @@ class Knob extends React.Component<KnobProps, KnobState> {
 
     document.addEventListener("touchmove", moveTouchHandler);
     document.addEventListener("touchend", (e) => {
+      this.props.onNewValue(this.state.value);
       document.removeEventListener("touchmove", moveTouchHandler);
     });
   };
@@ -160,10 +169,6 @@ class Knob extends React.Component<KnobProps, KnobState> {
       transform: `rotate(${this.state.deg}deg)`,
     };
 
-    let valueNamesIterator: number = Math.floor(
-      this.state.value / Math.floor(100 / (valuesNamesData.length - 1))
-    );
-
     return (
       <div className="knob-component-wrapper">
         <div className="knob-wrapper">
@@ -176,7 +181,7 @@ class Knob extends React.Component<KnobProps, KnobState> {
             <div className="knob-hollow"></div>
           </div>
           <div className="knob-value-wrapper">
-            <div className="knob-value">{this.state.value}%</div>
+            <div className="knob-value">{Math.floor(this.state.value)}%</div>
           </div>
           <div className="sticks-rating-wrapper">
             <div className="sticks-rating">
@@ -198,7 +203,13 @@ class Knob extends React.Component<KnobProps, KnobState> {
         </div>
         <div className="value-name-wrapper">
           <div className="value-name">
-            {valuesNamesData[valueNamesIterator]["value-name"]}
+            {
+              this.props.valueNames.find(
+                (valueName) =>
+                  valueName.max >= this.state.value &&
+                  valueName.min <= this.state.value
+              )?.name
+            }
           </div>
         </div>
       </div>

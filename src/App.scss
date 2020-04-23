@@ -60,9 +60,11 @@
   flex-wrap: wrap;
 
   img.logo {
+    position: relative;
+    align-self: center;
     width: 320px;
     color: white;
-    padding: 70px 0 140px 0;
+    margin: 30px 0 20px 0;
     //animation: floating 6s ease-in-out infinite;
   }
 
@@ -74,8 +76,9 @@
 button.main {
   width: 250px;
   height: 50px;
-  margin: 120px 80px 80px 80px;
   border-radius: 25px;
+  position: relative;
+  align-self: center;
 
   outline: none;
   border: none;
@@ -104,17 +107,18 @@ section {
   overflow: hidden;
 
   & > div {
-    width: 100%;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
 
   &.A,
   &.B {
-    & > div {
-      width: 80%;
-    }
     .main {
       margin: 0;
-      margin-top: 50px;
+      margin-top: 1vh;
     }
   }
 
@@ -122,9 +126,6 @@ section {
   }
 
   &.C {
-    & > div {
-      width: 80%;
-    }
   }
 
   &.D,
@@ -138,10 +139,10 @@ section {
 .knob-area {
   display: flex;
   justify-content: center;
+  //margin: 5%;
 }
 
 .question-bar {
-  margin-bottom: 25px;
   font-family: Bebas Neue;
   font-size: 35px;
   color: #ffffff;
@@ -157,6 +158,7 @@ section {
   font-size: 30px;
   letter-spacing: 12px;
   padding-left: 10px;
+  margin-top: 3vh;
 }
 
 .preview-bar {

@@ -1,27 +1,25 @@
 import React, { useEffect, ChangeEvent } from "react";
-import logo from "./assets/svg/details-main-logo.svg";
-import headphones from "./assets/svg/heaphones-icon.svg";
 
 import "./App.scss";
 import "./app-background.scss";
 import "./notification-box.scss";
 import "./ornaments-style.scss";
+import logo from "./assets/svg/details-main-logo.svg";
+import headphones from "./assets/svg/heaphones-icon.svg";
 
 import Knob from "./components/knob-component/knob-component";
 import TileOption from "./components/tile-option/tile-option";
 import { scrollToRef, disableScroll } from "./utils";
 import SVG from "react-inlinesvg";
+//import { motion } from "framer-motion";
 
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
 import GenreOption from "./components/genre-option/genre-option";
 import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
 
-import ornamentsPathsLeft from "./assets/data/ornaments-paths-left.json";
-import ornamentsPathsCenter from "./assets/data/ornaments-paths-center.json";
-import ornamentsPathsRight from "./assets/data/ornaments-paths-right.json";
-
-import ornament3 from "./assets/svg/ornament-circle-dots.svg";
+import ornamentsPaths from "./assets/data/ornaments-paths.json";
+import valueNames from "./assets/data/knob-value-names.json";
 
 export type MusicApplication = {
   name: string;
@@ -61,7 +59,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 7,
+    currentSection: 3,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -152,6 +150,42 @@ class App extends React.Component<AppProps, AppState> {
     this.handleNextSectionButtonClick();
   };
 
+  handleBestAppSongSelection = (newValue: number) => {
+    this.setState({
+      bestApplicationRating: {
+        ...this.state.bestApplicationRating,
+        songSelection: newValue,
+      },
+    });
+  };
+
+  handleOurAppSongSelection = (newValue: number) => {
+    this.setState({
+      ourApplicationRating: {
+        ...this.state.ourApplicationRating,
+        songSelection: newValue,
+      },
+    });
+  };
+
+  handleBestAppSearchEngine = (newValue: number) => {
+    this.setState({
+      bestApplicationRating: {
+        ...this.state.bestApplicationRating,
+        searchEngine: newValue,
+      },
+    });
+  };
+
+  handleOurAppSearchEngine = (newValue: number) => {
+    this.setState({
+      ourApplicationRating: {
+        ...this.state.ourApplicationRating,
+        searchEngine: newValue,
+      },
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -161,23 +195,8 @@ class App extends React.Component<AppProps, AppState> {
             <div className="censored-eyes"></div>
           </div>
           <div className="ornaments">
-            <div className="ornaments-wrapper left">
-              {ornamentsPathsLeft.map((ornament: Ornament) =>
-                this.state.currentSection == ornament.section ? (
-                  <SVG src={ornament.path} />
-                ) : null
-              )}
-            </div>
-
-            <div className="ornaments-wrapper right">
-              {ornamentsPathsRight.map((ornament: Ornament) =>
-                this.state.currentSection == ornament.section ? (
-                  <SVG src={ornament.path} />
-                ) : null
-              )}
-            </div>
             <div className="ornaments-wrapper center">
-              {ornamentsPathsCenter.map((ornament: Ornament) =>
+              {ornamentsPaths.map((ornament: Ornament) =>
                 this.state.currentSection == ornament.section ? (
                   <SVG src={ornament.path} />
                 ) : null
@@ -317,6 +336,8 @@ class App extends React.Component<AppProps, AppState> {
                   min={1}
                   max={100}
                   value={0}
+                  valueNames={valueNames[0][4]}
+                  onNewValue={this.handleBestAppSongSelection}
                 />
               </div>
               <button
@@ -349,6 +370,8 @@ class App extends React.Component<AppProps, AppState> {
                 min={1}
                 max={100}
                 value={0}
+                valueNames={valueNames[0][5]}
+                onNewValue={this.handleOurAppSongSelection}
               />
             </div>
           </section>
@@ -371,6 +394,8 @@ class App extends React.Component<AppProps, AppState> {
                   min={1}
                   max={100}
                   value={0}
+                  valueNames={valueNames[0][6]}
+                  onNewValue={this.handleBestAppSearchEngine}
                 />
               </div>
               <button
@@ -398,6 +423,7 @@ class App extends React.Component<AppProps, AppState> {
           </section>
           <section className="G" ref={this.sectionRefs[8]}>
             <div>
+              <div className="question-count">6/8</div>
               <div className="question-bar">
                 <div>
                   <span>Jak bardzo interesujesz się muzyką?</span>
@@ -405,33 +431,66 @@ class App extends React.Component<AppProps, AppState> {
               </div>
               <div className="knob-area">
                 <div>
-                  <Knob
+                  {/* <Knob
                     size={100}
                     numTicks={40}
                     degrees={270}
                     min={1}
                     max={100}
                     value={0}
-                  />
+                    valueNames={valueNames[0][8]}
+                  /> */}
                 </div>
               </div>
+
+              <button
+                className="main"
+                onClick={this.handleNextSectionButtonClick}
+              >
+                next
+              </button>
+            </div>
+          </section>
+          <section className="H" ref={this.sectionRefs[9]}>
+            <div>
+              <div className="question-count">7/8</div>
               <div className="question-bar">
                 <div>
                   <span>Jak często dzielisz się muzyką z innymi?</span>
                 </div>
               </div>
               <div className="knob-area">
-                <div>Lorem ipsum</div>
+                <div>
+                  {/* <Knob
+                    size={100}
+                    numTicks={40}
+                    degrees={270}
+                    min={1}
+                    max={100}
+                    value={0}
+                    valueNames={valueNames[0][9]}
+                  /> */}
+                </div>
               </div>
+              <button
+                className="main"
+                onClick={this.handleNextSectionButtonClick}
+              >
+                next
+              </button>
+            </div>
+          </section>
+          <section className="I" ref={this.sectionRefs[10]}>
+            <div>
+              <div className="question-count">8/8</div>
               <div className="question-bar">
                 <div>
-                  <span>Czy jesteś otwarty na nowe gatunku muzyczne?</span>
+                  <span>Czy jesteś otwarty na nowe gatunki muzyczne?</span>
                 </div>
               </div>
               <div className="knob-area">
                 <div>Lorem ipsum</div>
               </div>
-              <button className="main">Done!</button>
             </div>
           </section>
         </div>

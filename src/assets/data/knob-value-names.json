@@ -1,0 +1,89 @@
+[
+  {
+    "4": [
+      {
+        "name": "bardzo źle",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "źle",
+        "min": 11,
+        "max": 20
+      },
+      {
+        "name": "średnio",
+        "min": 21,
+        "max": 30
+      },
+      {
+        "name": "ciekawe",
+        "min": 31,
+        "max": 40
+      },
+      {
+        "name": "super!",
+        "min": 41,
+        "max": 55
+      },
+      {
+        "name": "świetne",
+        "min": 56,
+        "max": 70
+      },
+      {
+        "name": "potrzebuję tego!",
+        "min": 71,
+        "max": 80
+      }
+    ],
+    "5": [
+      {
+        "name": "bardzo źle",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "źle",
+        "min": 11,
+        "max": 20
+      }
+    ],
+    "6": [
+      {
+        "name": "bardzo źle",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "źle",
+        "min": 11,
+        "max": 20
+      }
+    ],
+    "8": [
+      {
+        "name": "bardzo źle",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "źle",
+        "min": 11,
+        "max": 20
+      }
+    ],
+    "9": [
+      {
+        "name": "bardzo źle",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "źle",
+        "min": 11,
+        "max": 20
+      }
+    ]
+  }
+]

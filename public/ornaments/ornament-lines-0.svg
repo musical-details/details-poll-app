@@ -14,10 +14,10 @@
         d="M285.4 215.4c15.188 0 27.5-12.312 27.5-27.5s-12.312-27.5-27.5-27.5-27.5 12.312-27.5 27.5 12.312 27.5 27.5 27.5z"
       ></path>
       <path
-        className="stroke-line"
+        className="stroke-line-draw"
         stroke="#fff"
         strokeMiterlimit="10"
-        strokeWidth="0.2"
+        strokeWidth="0.7"
         d="M59.9 512.8l209.8-302.3M3 489.6L326.1 24.1"
       ></path>
       <path

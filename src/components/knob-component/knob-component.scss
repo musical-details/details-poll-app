@@ -1,131 +1,131 @@
 $main-pink-color: #ff557d;
 .knob-component-wrapper {
-    position: relative;
-    width: 40vh;
-    height: 45vh;
-    z-index:100;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $main-pink-color;
-    font-family: 'Quicksand';
-    font-weight: lighter;
-    flex-flow: column;
+  position: relative;
+  width: 38vh;
+  height: 43vh;
+  z-index: 100;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $main-pink-color;
+  font-family: "Quicksand";
+  font-weight: lighter;
+  flex-flow: column;
 }
 
 .knob-wrapper {
-    width: 28vh;
-    height: 28vh;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    color: $main-pink-color;
-    font-family: 'Quicksand';
-    font-weight: lighter;
+  width: 28vh;
+  height: 28vh;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  color: $main-pink-color;
+  font-family: "Quicksand";
+  font-weight: lighter;
 
-    .knob-body {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        background: linear-gradient(0deg,#202020, #0e0e0e);
-        box-shadow: #00000061 -15px -1px 33px;
-        border-radius: 100%;  
-        z-index: 2;
+  .knob-body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(0deg, #202020, #0e0e0e);
+    box-shadow: #00000061 -15px -1px 33px;
+    border-radius: 100%;
+    z-index: 2;
+  }
+
+  .knob-hollow {
+    height: 17%;
+    width: 17%;
+    position: relative;
+    top: 75%;
+    left: 42%;
+    background: linear-gradient(45deg, #080808, #2c2c2c);
+    border-radius: 100%;
+  }
+
+  .knob-value-wrapper {
+    // width: 100%;
+    // height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    align-self: center;
+    z-index: 3;
+
+    .knob-value {
+      width: 100%;
+      height: fit-content;
     }
-    
-    .knob-hollow {
-        height: 17%;
-        width: 17%;
-        position: relative;
-        top: 75%;
-        left: 42%;
-        background: linear-gradient(45deg, #080808, #2c2c2c);
-        border-radius: 100%;
-    }
-    
-    .knob-value-wrapper {
-        // width: 100%;
-        // height: 100%;
-        display: flex;
-        align-items: center;
-        position: absolute;
-        align-self: center;
-        z-index: 3;
-    
-        .knob-value {
-            width: 100%;
-            height: fit-content;
-        }
-    }
+  }
 }
 
 @media (min-width: 320px) {
-    .value-name {
-        font-size: calc(14px + 4 * (100vw - 320px) / 1046);
-    }
-    .knob-value{
-        font-size: calc(28px + 4 * (100vw - 320px) / 1046);
-    }
+  .value-name {
+    font-size: calc(14px + 4 * (100vw - 320px) / 1046);
+  }
+  .knob-value {
+    font-size: calc(28px + 4 * (100vw - 320px) / 1046);
+  }
 }
 @media (min-width: 1366px) {
-    .value-name {
-        font-size: 18px;
-    }
-    .knob-value{
-        font-size: 38px;
-    }
+  .value-name {
+    font-size: 18px;
+  }
+  .knob-value {
+    font-size: 38px;
+  }
 }
 
 .value-name-wrapper {
-    width: 100%;
-    height: 7vh;
-    position: relative;
-    align-items: center;
-    display: flex;
+  width: 100%;
+  height: 7vh;
+  position: relative;
+  align-items: center;
+  display: flex;
 
-    .value-name {
-        width: 100%;
-        position: relative;
-        font-weight: bolder;
-        letter-spacing: 3px;
-    }
+  .value-name {
+    width: 100%;
+    position: relative;
+    font-weight: bolder;
+    letter-spacing: 3px;
+  }
 }
 
 .sticks-rating-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -3px;
+
+  .sticks-rating {
+    position: absolute;
     width: 100%;
     height: 100%;
+    z-index: -2;
+  }
+
+  .tick-box {
     position: absolute;
-    top: 0;
+    box-shadow: inset 0 0 0 0 black;
+    width: 3.5px;
+    transition: box-shadow 0.5s;
+  }
 
-    .sticks-rating {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-    }
+  .tick {
+    position: absolute;
+    background-color: #1d1d1d;
+    box-shadow: inset 0 0 0 0 black;
+    width: 3.2px;
+    height: 15%;
+    transition: box-shadow 0.5s;
+    bottom: 0;
+  }
 
-    .tick-box {
-        position: absolute;
-        box-shadow: inset 0 0 0 0 black;
-        width: 3.5px;
-        transition: box-shadow 0.5s;
-    }
-    
-    .tick {
-        position: absolute;
-        background-color: #1d1d1d;
-        box-shadow: inset 0 0 0 0 black;
-        width: 3.2px;
-        height: 15%;
-        transition: box-shadow 0.5s;
-        bottom: 0;
-    }
-    
-    .tick.active {
-        background-color: $main-pink-color;
-        box-shadow:  0 0 5px 2px #ff557d4f;
-    }
-
+  .tick.active {
+    background-color: $main-pink-color;
+    box-shadow: 0 0 5px 2px #ff557d4f;
+  }
 }
