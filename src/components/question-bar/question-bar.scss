@@ -1,0 +1,24 @@
+.question-bar {
+  font-family: Bebas Neue;
+  font-size: 35px;
+  margin-top: 4px;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 10px;
+  line-height: 1.1;
+
+  & div {
+    overflow: hidden;
+    display: flex;
+  }
+}
+
+.question-count {
+  font-family: Bebas Neue light;
+  color: #ffffff;
+  text-align: justify;
+  font-size: 30px;
+  letter-spacing: 12px;
+  padding-left: 10px;
+  margin-top: 3vh;
+}

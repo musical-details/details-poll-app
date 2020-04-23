@@ -9,15 +9,15 @@ import headphones from "./assets/svg/heaphones-icon.svg";
 
 import Knob from "./components/knob-component/knob-component";
 import TileOption from "./components/tile-option/tile-option";
+import GenreOption from "./components/genre-option/genre-option";
+import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
+import QuestionBar from "./components/question-bar/question-bar";
 import { scrollToRef, disableScroll } from "./utils";
+import { motion } from "framer-motion";
 import SVG from "react-inlinesvg";
-//import { motion } from "framer-motion";
 
 import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
-import GenreOption from "./components/genre-option/genre-option";
-import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
-
 import ornamentsPaths from "./assets/data/ornaments-paths.json";
 import valueNames from "./assets/data/knob-value-names.json";
 
@@ -123,8 +123,10 @@ class App extends React.Component<AppProps, AppState> {
   handleUnselectApplication = (unselectedApplication: MusicApplication) => {
     this.setState({
       selectedApplications: this.state.selectedApplications.filter(
-        (selectedApplication: MusicApplication) =>
-          selectedApplication !== unselectedApplication
+        (selectedApplication: MusicApplication) => {
+          console.log(selectedApplication, unselectedApplication);
+          return selectedApplication.name !== unselectedApplication.name;
+        }
       ),
     });
   };
@@ -209,9 +211,13 @@ class App extends React.Component<AppProps, AppState> {
           <section className="App-header" ref={this.sectionRefs[0]}>
             <div>
               <div className="motto">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 3 }}
+                >
                   new <span>alternative</span> <br /> in music world
-                </div>
+                </motion.div>
               </div>
               <img className="logo" src={logo} alt="details-logo" />
               <div className="notification-box">
@@ -236,11 +242,9 @@ class App extends React.Component<AppProps, AppState> {
           <section className="A" ref={this.sectionRefs[1]}>
             <div>
               <div className="question-count">1/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Gdzie słuchasz muzyki?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 1 && (
+                <QuestionBar question="Gdzie słuchasz muzyki?" />
+              )}
               <div className="options">
                 {musicApplications.map((musicApplication: MusicApplication) => (
                   <TileOption
@@ -273,11 +277,9 @@ class App extends React.Component<AppProps, AppState> {
           <section className="B" ref={this.sectionRefs[2]}>
             <div>
               <div className="question-count">2/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Która z wybranych aplikacji jest najlepsza?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 2 && (
+                <QuestionBar question="Która z wybranych aplikacji jest najlepsza?" />
+              )}
               <div className="options">
                 {this.state.selectedApplications.map(
                   (musicApplication: MusicApplication) => (
@@ -294,11 +296,9 @@ class App extends React.Component<AppProps, AppState> {
           <section className="B" ref={this.sectionRefs[3]}>
             <div>
               <div className="question-count">3/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Jakich gatunków muzycznych słuchasz?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 3 && (
+                <QuestionBar question="Jakich gatunków muzycznych słuchasz?" />
+              )}
               <div className="genres">
                 {musicGenres.map((musicGenre: any) => (
                   <GenreOption
@@ -320,12 +320,14 @@ class App extends React.Component<AppProps, AppState> {
           <section className="C" ref={this.sectionRefs[4]}>
             <div>
               <div className="question-count">4/8</div>
+              {this.state.currentSection == 4 && (
+                <QuestionBar
+                  question={`Jak ${this.state.bestApplication?.name} radzi sobie zdobieraniem utworów dla ciebie?`}
+                />
+              )}
               <div className="question-bar">
                 <div>
-                  <span>
-                    Jak {this.state.bestApplication?.name} radzi sobie z
-                    dobieraniem utworów dla ciebie?
-                  </span>
+                  <span></span>
                 </div>
               </div>
               <div className="knob-area">
@@ -378,14 +380,12 @@ class App extends React.Component<AppProps, AppState> {
           <section className="E" ref={this.sectionRefs[6]}>
             <div>
               <div className="question-count">5/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>
-                    Jak oceniasz wyszukiwarkę w{" "}
-                    {this.state.bestApplication?.name}?
-                  </span>
-                </div>
-              </div>
+              {this.state.currentSection == 6 && (
+                <QuestionBar
+                  question={`Jak oceniasz wyszukiwarkę w 
+                  ${this.state.bestApplication?.name}?`}
+                />
+              )}
               <div className="knob-area">
                 <Knob
                   size={100}
@@ -424,11 +424,9 @@ class App extends React.Component<AppProps, AppState> {
           <section className="G" ref={this.sectionRefs[8]}>
             <div>
               <div className="question-count">6/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Jak bardzo interesujesz się muzyką?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 8 && (
+                <QuestionBar question={`Jak bardzo interesujesz się muzyką?`} />
+              )}
               <div className="knob-area">
                 <div>
                   {/* <Knob
@@ -454,11 +452,11 @@ class App extends React.Component<AppProps, AppState> {
           <section className="H" ref={this.sectionRefs[9]}>
             <div>
               <div className="question-count">7/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Jak często dzielisz się muzyką z innymi?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 9 && (
+                <QuestionBar
+                  question={`Jak często dzielisz się muzyką z innymi?`}
+                />
+              )}
               <div className="knob-area">
                 <div>
                   {/* <Knob
@@ -483,11 +481,9 @@ class App extends React.Component<AppProps, AppState> {
           <section className="I" ref={this.sectionRefs[10]}>
             <div>
               <div className="question-count">8/8</div>
-              <div className="question-bar">
-                <div>
-                  <span>Czy jesteś otwarty na nowe gatunki muzyczne?</span>
-                </div>
-              </div>
+              {this.state.currentSection == 10 && (
+                <QuestionBar question="Czy jesteś otwarty na nowe gatunki muzyczne?" />
+              )}
               <div className="knob-area">
                 <div>Lorem ipsum</div>
               </div>
