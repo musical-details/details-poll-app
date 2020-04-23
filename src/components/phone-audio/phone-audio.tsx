@@ -77,6 +77,7 @@ class PhoneAudio extends React.Component<PhoneAudioProps, PhoneAudioState> {
     this.audio.currentTime = this.countStartAudio();
     this.audio.load();
     this.audio.play();
+    console.log(this.audio);
   }
 
   render() {

@@ -409,8 +409,8 @@ class App extends React.Component<AppProps, AppState> {
           <section
             className="F"
             ref={this.sectionRefs[7]}
-            onClick={() => {
-              this.handleNextSection();
+            onKeyDown={(e) => {
+              if (e.keyCode === 40) this.handleNextSection();
             }}
           >
             <div className="preview-bar">

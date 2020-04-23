@@ -63,7 +63,9 @@ class TileOption extends React.Component<TileOptionProps, TileOptionState> {
           <div className="icon-wrapper">
             <div
               className="icon"
-              style={{ backgroundImage: `url('${image}')` }}
+              style={{
+                backgroundImage: `url('${image}')`,
+              }}
             ></div>
           </div>
           <span>{text}</span>
