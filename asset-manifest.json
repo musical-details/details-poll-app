@@ -1,23 +1,26 @@
 {
   "files": {
     "main.css": "/details-poll-app/static/css/main.6638cc32.chunk.css",
-    "main.js": "/details-poll-app/static/js/main.3468a675.chunk.js",
-    "main.js.map": "/details-poll-app/static/js/main.3468a675.chunk.js.map",
+    "main.js": "/details-poll-app/static/js/main.8360f550.chunk.js",
+    "main.js.map": "/details-poll-app/static/js/main.8360f550.chunk.js.map",
     "runtime-main.js": "/details-poll-app/static/js/runtime-main.e84144b1.js",
     "runtime-main.js.map": "/details-poll-app/static/js/runtime-main.e84144b1.js.map",
-    "static/js/2.3ce3e93a.chunk.js": "/details-poll-app/static/js/2.3ce3e93a.chunk.js",
-    "static/js/2.3ce3e93a.chunk.js.map": "/details-poll-app/static/js/2.3ce3e93a.chunk.js.map",
+    "static/js/2.df571b3d.chunk.js": "/details-poll-app/static/js/2.df571b3d.chunk.js",
+    "static/js/2.df571b3d.chunk.js.map": "/details-poll-app/static/js/2.df571b3d.chunk.js.map",
     "index.html": "/details-poll-app/index.html",
-    "precache-manifest.d7b64076d9de5f189c43866407dc2457.js": "/details-poll-app/precache-manifest.d7b64076d9de5f189c43866407dc2457.js",
+    "precache-manifest.40f69d9fc55c2308b26daf4cbdccb385.js": "/details-poll-app/precache-manifest.40f69d9fc55c2308b26daf4cbdccb385.js",
     "service-worker.js": "/details-poll-app/service-worker.js",
     "static/css/main.6638cc32.chunk.css.map": "/details-poll-app/static/css/main.6638cc32.chunk.css.map",
-    "static/js/2.3ce3e93a.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.3ce3e93a.chunk.js.LICENSE.txt",
+    "static/js/2.df571b3d.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.df571b3d.chunk.js.LICENSE.txt",
+    "static/media/apple-music-icon.png": "/details-poll-app/static/media/apple-music-icon.015a91b3.png",
     "static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.webm": "/details-poll-app/static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.8cf7e307.webm",
+    "static/media/deezer-icon.png": "/details-poll-app/static/media/deezer-icon.867d2457.png",
     "static/media/details-main-logo.svg": "/details-poll-app/static/media/details-main-logo.73dcd75b.svg",
     "static/media/drums.png": "/details-poll-app/static/media/drums.34b4957a.png",
     "static/media/heaphones-icon.svg": "/details-poll-app/static/media/heaphones-icon.29b36054.svg",
     "static/media/logo-details-search-gradient.png": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png",
     "static/media/logo-details.png": "/details-poll-app/static/media/logo-details.002f367f.png",
+    "static/media/mixcloud-icon.png": "/details-poll-app/static/media/mixcloud-icon.fc85fe08.png",
     "static/media/ornament-bubbles-6.svg": "/details-poll-app/static/media/ornament-bubbles-6.c7e781ab.svg",
     "static/media/ornament-bubbles-8.svg": "/details-poll-app/static/media/ornament-bubbles-8.634d8baf.svg",
     "static/media/ornament-circle-dots.svg": "/details-poll-app/static/media/ornament-circle-dots.60a91a48.svg",
@@ -31,12 +34,15 @@
     "static/media/phone-mock-7.png": "/details-poll-app/static/media/phone-mock-7.6016e612.png",
     "static/media/phone-mock.png": "/details-poll-app/static/media/phone-mock.3755126d.png",
     "static/media/rzezba-bg.png": "/details-poll-app/static/media/rzezba-bg.a4d405c2.png",
-    "static/media/shape-3.png": "/details-poll-app/static/media/shape-3.3615b4b2.png"
+    "static/media/shape-3.png": "/details-poll-app/static/media/shape-3.3615b4b2.png",
+    "static/media/soundcloud-icon.png": "/details-poll-app/static/media/soundcloud-icon.9194c13a.png",
+    "static/media/spotify-icon.png": "/details-poll-app/static/media/spotify-icon.d2ab0240.png",
+    "static/media/vk-icon.png": "/details-poll-app/static/media/vk-icon.82d48820.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e84144b1.js",
-    "static/js/2.3ce3e93a.chunk.js",
+    "static/js/2.df571b3d.chunk.js",
     "static/css/main.6638cc32.chunk.css",
-    "static/js/main.3468a675.chunk.js"
+    "static/js/main.8360f550.chunk.js"
   ]
 }
