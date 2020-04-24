@@ -1,28 +1,37 @@
 {
   "files": {
-    "main.css": "/details-poll-app/static/css/main.f692fb95.chunk.css",
-    "main.js": "/details-poll-app/static/js/main.fef75a4e.chunk.js",
-    "main.js.map": "/details-poll-app/static/js/main.fef75a4e.chunk.js.map",
+    "main.css": "/details-poll-app/static/css/main.6638cc32.chunk.css",
+    "main.js": "/details-poll-app/static/js/main.eb8769f5.chunk.js",
+    "main.js.map": "/details-poll-app/static/js/main.eb8769f5.chunk.js.map",
     "runtime-main.js": "/details-poll-app/static/js/runtime-main.e84144b1.js",
     "runtime-main.js.map": "/details-poll-app/static/js/runtime-main.e84144b1.js.map",
-    "static/js/2.a32b111e.chunk.js": "/details-poll-app/static/js/2.a32b111e.chunk.js",
-    "static/js/2.a32b111e.chunk.js.map": "/details-poll-app/static/js/2.a32b111e.chunk.js.map",
+    "static/js/2.2a3f8ccb.chunk.js": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js",
+    "static/js/2.2a3f8ccb.chunk.js.map": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js.map",
     "index.html": "/details-poll-app/index.html",
-    "precache-manifest.1e7a2c7a8796bf35a077956f5ea3bcbb.js": "/details-poll-app/precache-manifest.1e7a2c7a8796bf35a077956f5ea3bcbb.js",
+    "precache-manifest.86167373c2a36e8df63368bc141cb374.js": "/details-poll-app/precache-manifest.86167373c2a36e8df63368bc141cb374.js",
     "service-worker.js": "/details-poll-app/service-worker.js",
-    "static/css/main.f692fb95.chunk.css.map": "/details-poll-app/static/css/main.f692fb95.chunk.css.map",
-    "static/js/2.a32b111e.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.a32b111e.chunk.js.LICENSE.txt",
+    "static/css/main.6638cc32.chunk.css.map": "/details-poll-app/static/css/main.6638cc32.chunk.css.map",
+    "static/js/2.2a3f8ccb.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js.LICENSE.txt",
+    "static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.webm": "/details-poll-app/static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.8cf7e307.webm",
     "static/media/details-main-logo.svg": "/details-poll-app/static/media/details-main-logo.73dcd75b.svg",
-    "static/media/card-sounds.scss": "/details-poll-app/static/media/drums.34b4957a.png",
+    "static/media/drums.png": "/details-poll-app/static/media/drums.34b4957a.png",
     "static/media/heaphones-icon.svg": "/details-poll-app/static/media/heaphones-icon.29b36054.svg",
-    "static/media/search-engine-preview.scss": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png",
-    "static/media/phone.scss": "/details-poll-app/static/media/phone-mock-7.6016e612.png",
-    "static/media/app-background.scss": "/details-poll-app/static/media/rzezba-bg.a4d405c2.png"
+    "static/media/logo-details-search-gradient.png": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png",
+    "static/media/logo-details.png": "/details-poll-app/static/media/logo-details.002f367f.png",
+    "static/media/ornament-lines-0.svg": "/details-poll-app/static/media/ornament-lines-0.94f318cc.svg",
+    "static/media/phone-mock-2.png": "/details-poll-app/static/media/phone-mock-2.094af76d.png",
+    "static/media/phone-mock-4.png": "/details-poll-app/static/media/phone-mock-4.c895b0b6.png",
+    "static/media/phone-mock-5.png": "/details-poll-app/static/media/phone-mock-5.5f06f37b.png",
+    "static/media/phone-mock-6.png": "/details-poll-app/static/media/phone-mock-6.6469efc3.png",
+    "static/media/phone-mock-7.png": "/details-poll-app/static/media/phone-mock-7.6016e612.png",
+    "static/media/phone-mock.png": "/details-poll-app/static/media/phone-mock.3755126d.png",
+    "static/media/rzezba-bg.png": "/details-poll-app/static/media/rzezba-bg.a4d405c2.png",
+    "static/media/shape-3.png": "/details-poll-app/static/media/shape-3.3615b4b2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e84144b1.js",
-    "static/js/2.a32b111e.chunk.js",
-    "static/css/main.f692fb95.chunk.css",
-    "static/js/main.fef75a4e.chunk.js"
+    "static/js/2.2a3f8ccb.chunk.js",
+    "static/css/main.6638cc32.chunk.css",
+    "static/js/main.eb8769f5.chunk.js"
   ]
 }
