@@ -1,24 +1,29 @@
 {
   "files": {
     "main.css": "/details-poll-app/static/css/main.6638cc32.chunk.css",
-    "main.js": "/details-poll-app/static/js/main.eb8769f5.chunk.js",
-    "main.js.map": "/details-poll-app/static/js/main.eb8769f5.chunk.js.map",
+    "main.js": "/details-poll-app/static/js/main.3468a675.chunk.js",
+    "main.js.map": "/details-poll-app/static/js/main.3468a675.chunk.js.map",
     "runtime-main.js": "/details-poll-app/static/js/runtime-main.e84144b1.js",
     "runtime-main.js.map": "/details-poll-app/static/js/runtime-main.e84144b1.js.map",
-    "static/js/2.2a3f8ccb.chunk.js": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js",
-    "static/js/2.2a3f8ccb.chunk.js.map": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js.map",
+    "static/js/2.3ce3e93a.chunk.js": "/details-poll-app/static/js/2.3ce3e93a.chunk.js",
+    "static/js/2.3ce3e93a.chunk.js.map": "/details-poll-app/static/js/2.3ce3e93a.chunk.js.map",
     "index.html": "/details-poll-app/index.html",
-    "precache-manifest.86167373c2a36e8df63368bc141cb374.js": "/details-poll-app/precache-manifest.86167373c2a36e8df63368bc141cb374.js",
+    "precache-manifest.d7b64076d9de5f189c43866407dc2457.js": "/details-poll-app/precache-manifest.d7b64076d9de5f189c43866407dc2457.js",
     "service-worker.js": "/details-poll-app/service-worker.js",
     "static/css/main.6638cc32.chunk.css.map": "/details-poll-app/static/css/main.6638cc32.chunk.css.map",
-    "static/js/2.2a3f8ccb.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js.LICENSE.txt",
+    "static/js/2.3ce3e93a.chunk.js.LICENSE.txt": "/details-poll-app/static/js/2.3ce3e93a.chunk.js.LICENSE.txt",
     "static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.webm": "/details-poll-app/static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.8cf7e307.webm",
     "static/media/details-main-logo.svg": "/details-poll-app/static/media/details-main-logo.73dcd75b.svg",
     "static/media/drums.png": "/details-poll-app/static/media/drums.34b4957a.png",
     "static/media/heaphones-icon.svg": "/details-poll-app/static/media/heaphones-icon.29b36054.svg",
     "static/media/logo-details-search-gradient.png": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png",
     "static/media/logo-details.png": "/details-poll-app/static/media/logo-details.002f367f.png",
+    "static/media/ornament-bubbles-6.svg": "/details-poll-app/static/media/ornament-bubbles-6.c7e781ab.svg",
+    "static/media/ornament-bubbles-8.svg": "/details-poll-app/static/media/ornament-bubbles-8.634d8baf.svg",
+    "static/media/ornament-circle-dots.svg": "/details-poll-app/static/media/ornament-circle-dots.60a91a48.svg",
     "static/media/ornament-lines-0.svg": "/details-poll-app/static/media/ornament-lines-0.94f318cc.svg",
+    "static/media/ornament-lines-1.svg": "/details-poll-app/static/media/ornament-lines-1.8d0d0798.svg",
+    "static/media/ornament-lines-4.svg": "/details-poll-app/static/media/ornament-lines-4.402c2e25.svg",
     "static/media/phone-mock-2.png": "/details-poll-app/static/media/phone-mock-2.094af76d.png",
     "static/media/phone-mock-4.png": "/details-poll-app/static/media/phone-mock-4.c895b0b6.png",
     "static/media/phone-mock-5.png": "/details-poll-app/static/media/phone-mock-5.5f06f37b.png",
@@ -30,8 +35,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e84144b1.js",
-    "static/js/2.2a3f8ccb.chunk.js",
+    "static/js/2.3ce3e93a.chunk.js",
     "static/css/main.6638cc32.chunk.css",
-    "static/js/main.eb8769f5.chunk.js"
+    "static/js/main.3468a675.chunk.js"
   ]
 }

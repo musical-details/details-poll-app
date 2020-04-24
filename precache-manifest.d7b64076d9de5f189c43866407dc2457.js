@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "701dfa4956ba1fa8f4c608979a45cbbc",
+    "revision": "aae4fdc95641cbffa904f9e82a15f43e",
     "url": "/details-poll-app/index.html"
   },
   {
-    "revision": "fcd904ad97cfabde0570",
+    "revision": "a77a014ef77971300f57",
     "url": "/details-poll-app/static/css/main.6638cc32.chunk.css"
   },
   {
-    "revision": "ef5b5fdda3ea59f12d9f",
-    "url": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js"
+    "revision": "5b09c822e017572fa09c",
+    "url": "/details-poll-app/static/js/2.3ce3e93a.chunk.js"
   },
   {
     "revision": "c8c3e159f06ee9f886942f7da174a2b7",
-    "url": "/details-poll-app/static/js/2.2a3f8ccb.chunk.js.LICENSE.txt"
+    "url": "/details-poll-app/static/js/2.3ce3e93a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fcd904ad97cfabde0570",
-    "url": "/details-poll-app/static/js/main.eb8769f5.chunk.js"
+    "revision": "a77a014ef77971300f57",
+    "url": "/details-poll-app/static/js/main.3468a675.chunk.js"
   },
   {
     "revision": "bc115273966b8265bc76",
@@ -48,8 +48,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/details-poll-app/static/media/logo-details.002f367f.png"
   },
   {
+    "revision": "c7e781abf7f1e83d30207c7e27c61ebe",
+    "url": "/details-poll-app/static/media/ornament-bubbles-6.c7e781ab.svg"
+  },
+  {
+    "revision": "634d8baf5b161260eac7fe21327b965b",
+    "url": "/details-poll-app/static/media/ornament-bubbles-8.634d8baf.svg"
+  },
+  {
+    "revision": "60a91a4885c64726c536932ede6475fd",
+    "url": "/details-poll-app/static/media/ornament-circle-dots.60a91a48.svg"
+  },
+  {
     "revision": "94f318ccb5bab56a66902e6fcdf52604",
     "url": "/details-poll-app/static/media/ornament-lines-0.94f318cc.svg"
+  },
+  {
+    "revision": "8d0d07986e5ae907eaf7c138c3cb5e60",
+    "url": "/details-poll-app/static/media/ornament-lines-1.8d0d0798.svg"
+  },
+  {
+    "revision": "402c2e25430f4cf39d7c9577d827e82f",
+    "url": "/details-poll-app/static/media/ornament-lines-4.402c2e25.svg"
   },
   {
     "revision": "094af76dc57cb4f107e867a613cb8d2b",
