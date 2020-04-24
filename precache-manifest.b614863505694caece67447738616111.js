@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16097cad7fc83c4d6a21ed2652509014",
+    "revision": "b7896022c0ae809769558474ac0da157",
     "url": "/details-poll-app/index.html"
   },
   {
-    "revision": "d6c037959088cbd5a67a",
-    "url": "/details-poll-app/static/css/main.6638cc32.chunk.css"
+    "revision": "e34988580f19bff9e1ea",
+    "url": "/details-poll-app/static/css/main.f692fb95.chunk.css"
   },
   {
-    "revision": "e85fd83bcb3f78159169",
-    "url": "/details-poll-app/static/js/2.df571b3d.chunk.js"
+    "revision": "7e676c30a3ce036472b2",
+    "url": "/details-poll-app/static/js/2.ac63f10e.chunk.js"
   },
   {
     "revision": "c8c3e159f06ee9f886942f7da174a2b7",
-    "url": "/details-poll-app/static/js/2.df571b3d.chunk.js.LICENSE.txt"
+    "url": "/details-poll-app/static/js/2.ac63f10e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d6c037959088cbd5a67a",
-    "url": "/details-poll-app/static/js/main.8360f550.chunk.js"
+    "revision": "e34988580f19bff9e1ea",
+    "url": "/details-poll-app/static/js/main.9d5a5268.chunk.js"
   },
   {
     "revision": "bc115273966b8265bc76",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "015a91b31be29ec0b0c6e6aa06f51327",
     "url": "/details-poll-app/static/media/apple-music-icon.015a91b3.png"
-  },
-  {
-    "revision": "8cf7e307cd4eea1750553a0317bf88b7",
-    "url": "/details-poll-app/static/media/c502c0c6-40be-4b46-906a-0d0f44a712e3.8cf7e307.webm"
   },
   {
     "revision": "867d24573ca69917d6a08baa7e1914f4",
@@ -50,10 +46,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2dadaa11f08ee043591d95f601ed8991",
     "url": "/details-poll-app/static/media/logo-details-search-gradient.2dadaa11.png"
-  },
-  {
-    "revision": "002f367fe17c152a1f3b9fdfe7d4b37d",
-    "url": "/details-poll-app/static/media/logo-details.002f367f.png"
   },
   {
     "revision": "fc85fe087307639dc4bad9eaa2cf74f3",
@@ -84,36 +76,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/details-poll-app/static/media/ornament-lines-4.402c2e25.svg"
   },
   {
-    "revision": "094af76dc57cb4f107e867a613cb8d2b",
-    "url": "/details-poll-app/static/media/phone-mock-2.094af76d.png"
-  },
-  {
-    "revision": "c895b0b6f3235d27ae9e6383d70869a0",
-    "url": "/details-poll-app/static/media/phone-mock-4.c895b0b6.png"
-  },
-  {
-    "revision": "5f06f37b5d23d9cdbca433e7452ad2e7",
-    "url": "/details-poll-app/static/media/phone-mock-5.5f06f37b.png"
-  },
-  {
-    "revision": "6469efc32e34a9e328bdcdb520184b3c",
-    "url": "/details-poll-app/static/media/phone-mock-6.6469efc3.png"
-  },
-  {
     "revision": "6016e6125842260a32f9fdf6554b00c0",
     "url": "/details-poll-app/static/media/phone-mock-7.6016e612.png"
   },
   {
-    "revision": "3755126d09763f02793dd57f52c9f797",
-    "url": "/details-poll-app/static/media/phone-mock.3755126d.png"
-  },
-  {
     "revision": "a4d405c2e7ee0d95ff692933e54611c0",
     "url": "/details-poll-app/static/media/rzezba-bg.a4d405c2.png"
-  },
-  {
-    "revision": "3615b4b21cc5ff6a27898336820cba36",
-    "url": "/details-poll-app/static/media/shape-3.3615b4b2.png"
   },
   {
     "revision": "9194c13ab8f333e4f7541992112f29c8",
