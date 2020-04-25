@@ -1,26 +1,26 @@
 [
   {
-    "path": "../ornaments/ornament-lines-0.svg",
+    "path": "ornament-lines-0.svg",
     "section": 6
   },
   {
-    "path": "../ornaments/ornament-lines-1.svg",
+    "path": "ornament-lines-1.svg",
     "section": 1
   },
   {
-    "path": "../ornaments/ornament-circle-dots.svg",
+    "path": "ornament-circle-dots.svg",
     "section": 2
   },
   {
-    "path": "../ornaments/ornament-lines-4.svg",
+    "path": "ornament-lines-4.svg",
     "section": 4
   },
   {
-    "path": "../ornaments/ornament-bubbles-6.svg",
+    "path": "ornament-bubbles-6.svg",
     "section": 0
   },
   {
-    "path": "../ornaments/ornament-bubbles-8.svg",
+    "path": "ornament-bubbles-8.svg",
     "section": 8
   }
 ]

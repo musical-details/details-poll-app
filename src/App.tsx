@@ -200,7 +200,10 @@ class App extends React.Component<AppProps, AppState> {
             <div className="ornaments-wrapper center">
               {ornamentsPaths.map((ornament: Ornament) =>
                 this.state.currentSection == ornament.section ? (
-                  <SVG src={ornament.path} />
+                  <SVG
+                    src={require("../src/assets/svg/ornaments/" +
+                      ornament.path)}
+                  />
                 ) : null
               )}
             </div>
@@ -224,7 +227,7 @@ class App extends React.Component<AppProps, AppState> {
                 <div className="notification">
                   <img className="icon" src={headphones} />
                   <div className="text">
-                    Załóż słuchawki <br /> dla lepszego efektu
+                    {"Załóż słuchawki dla lepszego efektu"}
                   </div>
                 </div>
               </div>
@@ -249,7 +252,8 @@ class App extends React.Component<AppProps, AppState> {
                 {musicApplications.map((musicApplication: MusicApplication) => (
                   <TileOption
                     text={musicApplication.name}
-                    image={musicApplication.logo}
+                    image={require("../src/assets/logotypes/" +
+                      musicApplication.logo)}
                     onSelect={this.handleSelectApplication}
                     onUnselect={this.handleUnselectApplication}
                   />
