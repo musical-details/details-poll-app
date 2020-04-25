@@ -1,0 +1,10 @@
+{
+  "house": [
+    {
+      "position": { "element": "input_genres" },
+      "movingDuration": 100,
+      "standingDuration": 300,
+      "eventName": "click"
+    }
+  ]
+}

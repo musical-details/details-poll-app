@@ -1,0 +1,75 @@
+{
+  "house": [
+    {
+      "app": "SoundCloud",
+      "recent": [
+        {
+          "author": "Smash TV",
+          "title": "Chrystal Moth (Rodriguez Jr. Remix )",
+          "icon": "https://i1.sndcdn.com/artworks-000066375659-qejs8n-t500x500.jpg"
+        },
+        {
+          "author": "CATCHING FLIES",
+          "title": "Silver Linings",
+          "icon": "https://i1.sndcdn.com/artworks-000561881385-xymexs-t500x500.jpg"
+        },
+        {
+          "author": "Smash TV",
+          "title": "Chrystal Moth (Rodriguez Jr. Remix )",
+          "icon": "https://i1.sndcdn.com/artworks-000066375659-qejs8n-t500x500.jpg"
+        },
+        {
+          "author": "Smash TV",
+          "title": "Chrystal Moth (Rodriguez Jr. Remix )",
+          "icon": "https://i1.sndcdn.com/artworks-000066375659-qejs8n-t500x500.jpg"
+        }
+      ],
+      "playlist": [
+        {
+          "name": "Chill",
+          "icon": "https://i1.sndcdn.com/artworks-000555497745-qgblwk-t500x500.jpg"
+        },
+        {
+          "name": "Powerful",
+          "icon": "https://i1.sndcdn.com/artworks-000544312410-855p5r-t500x500.jpg"
+        },
+        {
+          "name": "MorningCheck",
+          "icon": "https://i1.sndcdn.com/artworks-000493134495-bbpg8z-t500x500.jpg"
+        }
+      ]
+    },
+    {
+      "app": "Spotify",
+      "recent": [
+        {
+          "author": "",
+          "title": "",
+          "icon": ""
+        }
+      ],
+      "playlist": [
+        {
+          "name": "",
+          "icon": ""
+        }
+      ]
+    },
+    {
+      "app": "YTMusic",
+      "recent": [
+        {
+          "author": "",
+          "title": "",
+          "icon": ""
+        }
+      ],
+      "playlist": [
+        {
+          "name": "",
+          "icon": ""
+        }
+      ]
+    }
+  ]
+}

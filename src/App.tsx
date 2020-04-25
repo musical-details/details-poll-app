@@ -11,6 +11,7 @@ import Knob from "./components/knob-component/knob-component";
 import TileOption from "./components/tile-option/tile-option";
 import GenreOption from "./components/genre-option/genre-option";
 import SearchEnginePreview from "./components/search-engine-preview/search-engine-preview";
+import MomentsPreview from "./components/moments-preview/moments-preview";
 import QuestionBar from "./components/question-bar/question-bar";
 import { scrollToRef, disableScroll } from "./utils";
 import { motion } from "framer-motion";
@@ -59,7 +60,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 0,
+    currentSection: 9,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -458,33 +459,23 @@ class App extends React.Component<AppProps, AppState> {
               </button>
             </div>
           </section>
-          <section className="H" ref={this.sectionRefs[9]}>
-            <div>
-              <div className="question-count">7/8</div>
-              {this.state.currentSection == 9 && (
-                <QuestionBar
-                  question={`Jak często dzielisz się muzyką z innymi?`}
-                />
-              )}
-              <div className="knob-area">
-                <div>
-                  {/* <Knob
-                    size={100}
-                    numTicks={40}
-                    degrees={270}
-                    min={1}
-                    max={100}
-                    value={0}
-                    valueNames={valueNames[0][9]}
-                  /> */}
-                </div>
+          <section
+            className="H"
+            ref={this.sectionRefs[9]}
+            onKeyDown={(e) => {
+              if (e.keyCode === 40) this.handleNextSection();
+            }}
+          >
+            <div className="preview-bar">
+              <div>
+                <span>Zapisuj ulubione momenty</span>
               </div>
-              <button
-                className="main"
-                onClick={this.handleNextSectionButtonClick}
-              >
-                next
-              </button>
+            </div>
+            <div>
+              <MomentsPreview
+                play={this.state.currentSection === 9}
+                userSelectedGenre={"house"}
+              />
             </div>
           </section>
           <section className="I" ref={this.sectionRefs[10]}>
