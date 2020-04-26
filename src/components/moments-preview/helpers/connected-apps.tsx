@@ -1,11 +1,13 @@
 import React from "react";
 import musicApplications from "../../../assets/data/music-applications.json";
 import "./connected-apps.scss";
+
 import CSS from "csstype";
 
 type ConnectedAppsProps = {
   availableAppNames: Array<string>;
   activeApp: string;
+  appRef: React.RefObject<HTMLDivElement>;
 };
 
 type Application = {
@@ -25,7 +27,11 @@ function ConnectedApps(props: ConnectedAppsProps) {
               musicApplication.name === availableAppName
           );
           return (
-            <div>
+            <div
+              ref={
+                props.activeApp === musicApplication.name ? props.appRef : null
+              }
+            >
               <img
                 className="app-icon"
                 style={

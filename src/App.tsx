@@ -425,10 +425,7 @@ class App extends React.Component<AppProps, AppState> {
               </div>
             </div>
             <div>
-              <SearchEnginePreview
-                play={this.state.currentSection === 7}
-                userSelectedGenre={"house"}
-              />
+              <SearchEnginePreview play={true} userSelectedGenre={"house"} />
             </div>
           </section>
           <section className="G" ref={this.sectionRefs[8]}>

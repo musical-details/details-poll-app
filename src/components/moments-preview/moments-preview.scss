@@ -40,3 +40,70 @@
     }
   }
 }
+
+.url-input {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #454545;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #6f6f6f;
+  padding-bottom: 9px;
+}
+
+.tracks-list-wrapper {
+  width: 100%;
+  height: 110px;
+  margin: 12px 0 25px 0;
+
+  .tracks-list-header {
+    height: 20px;
+    font-size: 21px;
+    font-family: "Bebas Neue";
+    text-align: left;
+    margin-bottom: 8px;
+    color: #e7e7e7;
+    letter-spacing: 0.3px;
+  }
+
+  .tracks-list {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    box-shadow: inset -53px 0px 62px -25px rgba(0, 0, 0, 0.43);
+  }
+}
+
+.rate-button-wrapper {
+  width: 100%;
+  height: 30px;
+
+  .rate-button {
+    width: 80%;
+    height: 100%;
+
+    font-family: "Bebas Neue";
+    outline: none;
+    width: 80%;
+    height: 32px;
+    background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+    color: white;
+    font-size: 15px;
+    border-radius: 16px;
+    border: none;
+    letter-spacing: 4px;
+    transition: 0.5s ease-out;
+    transition-delay: 0.4s;
+    opacity: 0.8;
+
+    &._hover,
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}

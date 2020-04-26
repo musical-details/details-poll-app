@@ -1,0 +1,37 @@
+.track-box-wrapper {
+  position: relative;
+  width: 25%;
+  height: 0;
+  margin-right: 15px;
+
+  & img {
+    width: 100%;
+  }
+
+  .track-box-title,
+  .track-box-name {
+    width: 100%;
+    height: 15px;
+    text-align: left;
+    color: #bfbfbf;
+  }
+
+  .track-box-author {
+    width: 100%;
+    height: 12px;
+    font-size: 6.4px;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .track-box-title {
+    font-size: 8px;
+    margin-top: 2px;
+    font-weight: bolder;
+  }
+
+  .track-box-name {
+    font-size: 7.4px;
+    line-height: 1.2;
+  }
+}

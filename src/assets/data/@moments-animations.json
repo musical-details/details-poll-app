@@ -1,9 +1,15 @@
 {
   "house": [
     {
-      "position": { "element": "input_genres" },
-      "movingDuration": 100,
-      "standingDuration": 300,
+      "position": { "element": "active_app" },
+      "movingDuration": 1200,
+      "standingDuration": 200,
+      "eventName": null
+    },
+    {
+      "position": { "x": 120, "y": 160 },
+      "movingDuration": 1200,
+      "standingDuration": 200,
       "eventName": "click"
     }
   ]
