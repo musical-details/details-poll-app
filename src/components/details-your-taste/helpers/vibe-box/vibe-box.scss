@@ -1,0 +1,374 @@
+.vibe-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .vibe-window {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #161616;
+    border-radius: 15px;
+    overflow: hidden;
+
+    &.active {
+      animation: extend-vibe-window 1s 1;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes extend-vibe-window {
+      0% {
+        background-color: #161616;
+        height: 100%;
+      }
+      20% {
+        background-color: #161616;
+      }
+      100% {
+        background-color: #252525;
+        height: 180%;
+        box-shadow: 0 0 30px 10px #0d0d0d;
+      }
+    }
+
+    .message-box {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      & > div {
+        font-size: 11.5px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+
+    .basic {
+      width: 100%;
+      height: 100%;
+      animation: fade-in 1s 1;
+      animation-fill-mode: forwards;
+
+      .rate-box {
+        width: 100%;
+        height: 125px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 5px;
+        box-sizing: border-box;
+
+        .reaction-box {
+          width: 50px;
+          height: 50px;
+          border: 2px solid #2d2d2d;
+          background: #222;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            color: #666;
+          }
+        }
+
+        .song-cover-static-wrapper {
+          position: relative;
+          width: 100px;
+          height: 100px;
+
+          .song-cover-box {
+            width: 100px;
+            height: 100px;
+            background-color: #101010;
+            border-radius: 50%;
+            padding: 6px;
+            box-sizing: border-box;
+            position: absolute;
+            overflow: hidden;
+
+            &.like_it {
+              animation: translate-cover-to-right 0.8s 1;
+              animation-fill-mode: forwards;
+            }
+
+            &.not_like_it {
+              animation: translate-cover-to-left 0.8s 1;
+              animation-fill-mode: forwards;
+            }
+
+            @keyframes translate-cover-to-left {
+              0% {
+                transform: translateY(0) scale(1);
+              }
+              100% {
+                transform: translateX(-55px) scale(0.8);
+              }
+            }
+
+            @keyframes translate-cover-to-right {
+              0% {
+                transform: translateY(0);
+              }
+              100% {
+                transform: translateX(55px);
+              }
+            }
+
+            .background {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: 10;
+              border-radius: 50%;
+              background: linear-gradient(0deg, #375bbb, #fa1543);
+              animation: rotate-song-background 1.5s infinite;
+              animation-timing-function: linear;
+
+              @keyframes rotate-song-background {
+                0% {
+                  transform: rotate(0);
+                }
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
+            }
+
+            .cover-wrapper {
+              position: relative;
+              z-index: 100;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              border-radius: 50%;
+              padding: 5px;
+              box-sizing: border-box;
+              background: #111;
+
+              .song-cover {
+                position: relative;
+                z-index: 100;
+                width: 100%;
+                height: 100%;
+
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                border-radius: 50%;
+                animation: expand-song-box 0.4s infinite;
+                box-shadow: inset 0 0 10px 1px #101010;
+                background-image: url("https://i1.sndcdn.com/artworks-000337781181-798qqj-t200x200.jpg");
+
+                @keyframes expand-song-box {
+                  0% {
+                    transform: scale(1);
+                  }
+                  30% {
+                    transform: scale(1.1);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .extend {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+      animation: fade-in 1s 1;
+      animation-fill-mode: forwards;
+
+      .stages {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .stage-box {
+          width: 32px;
+          height: 32px;
+          background: #222;
+          color: #aaa;
+          border-radius: 50%;
+          margin: 0 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          transition: 0.3s ease-out;
+
+          &.done {
+            color: white;
+            background: #ea493e;
+          }
+
+          &.current {
+            color: white;
+            border: 3px solid #ea493e;
+            background: #222;
+          }
+        }
+      }
+    }
+
+    .song-description {
+      width: 100%;
+      height: 40px;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.timeline-box-wrapper {
+  width: 100%;
+  height: 120px;
+  padding: 10px 5px;
+  box-sizing: border-box;
+
+  .timeline {
+    width: 100%;
+    height: 100%;
+    background: #131313;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+
+    .tape {
+      width: 200%;
+      height: 100%;
+      position: relative;
+
+      .moment {
+        position: absolute;
+        width: 80px;
+        height: 30px;
+        padding: 5px 0;
+        box-sizing: border-box;
+
+        border-radius: 3px;
+        z-index: 50;
+
+        &.active {
+          z-index: 100;
+        }
+
+        .inner {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3px;
+          background-color: #202020;
+
+          span {
+            text-transform: uppercase;
+            font-size: 11px;
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rate-box-wrapper {
+  width: 100%;
+  height: 60px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .reaction-ranger {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    background: #131313;
+    /* background-image: linear-gradient(45deg, #f84824, #b74fa1); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .ranger-pointer {
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      background: #ea493e;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .inner {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border: 3px solid #ea493e;
+        box-sizing: border-box;
+        background: #131313;
+        border-radius: 50%;
+      }
+    }
+
+    .ranger-icon {
+      position: absolute;
+
+      &.left {
+        left: 12px;
+      }
+
+      &.right {
+        right: 12px;
+      }
+
+      i {
+        font-size: 12px;
+        color: white;
+      }
+    }
+  }
+  .reaction-button {
+    width: 50px;
+    height: 50px;
+    background: #131313;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: #666;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

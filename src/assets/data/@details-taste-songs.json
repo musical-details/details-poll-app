@@ -1,0 +1,54 @@
+{
+  "house": [
+    {
+      "author": "Sem",
+      "title": "Torn",
+      "cover": "https://i1.sndcdn.com/artworks-000337781181-798qqj-t200x200.jpg",
+      "coverTheme": ["#375bbb", "#fa1543"],
+      "audioUrl": "sem-torn.mp3",
+      "basicStartTime": 100,
+      "moods": [{ "name": "love", "level": 2 }],
+      "genres": [
+        { "name": "electronic", "level": 3 },
+        { "name": "edm", "level": 1 },
+        { "name": "edm-trap", "level": 2 }
+      ],
+      "moments": [
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        }
+      ]
+    },
+    {
+      "author": "Chris Lake & Green Velvet",
+      "title": "Deceiver",
+      "cover": "https://i1.sndcdn.com/artworks-000409031355-zsc4g2-t200x200.jpg",
+      "coverTheme": ["#375bbb", "#fa1543"],
+      "audioUrl": "chris-lake-deceiver.mp3",
+      "basicStartTime": 100,
+      "moods": [{ "name": "love", "level": 2 }],
+      "genres": [
+        { "name": "electronic", "level": 3 },
+        { "name": "edm", "level": 1 },
+        { "name": "edm-trap", "level": 2 }
+      ],
+      "moments": [
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        }
+      ]
+    }
+  ]
+}

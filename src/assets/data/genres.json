@@ -6,14 +6,14 @@
     "icon": ""
   },
   {
-    "key": "trap",
-    "name": "Trap",
+    "key": "newschool_rap",
+    "name": "Newschool Rap",
     "color": "",
     "icon": ""
   },
   {
-    "key": "rap",
-    "name": "Rap",
+    "key": "oldschool_rap",
+    "name": "Oldschool Rap",
     "color": "",
     "icon": ""
   },
@@ -24,8 +24,14 @@
     "icon": ""
   },
   {
-    "key": "hip_hop",
-    "name": "Hip Hop",
+    "key": "indie",
+    "name": "Indie",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "key": "edm_trap",
+    "name": "EDM Trap",
     "color": "",
     "icon": ""
   },
@@ -54,6 +60,12 @@
     "icon": ""
   },
   {
+    "key": "drum_and_bass",
+    "name": "Drum & Bass",
+    "color": "",
+    "icon": ""
+  },
+  {
     "key": "trance",
     "name": "Trance",
     "color": "",
@@ -62,6 +74,12 @@
   {
     "key": "disco",
     "name": "Disco",
+    "color": "",
+    "icon": ""
+  },
+  {
+    "key": "midtempo",
+    "name": "Midtempo",
     "color": "",
     "icon": ""
   },

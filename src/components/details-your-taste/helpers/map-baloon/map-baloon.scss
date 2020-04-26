@@ -1,0 +1,41 @@
+.baloon {
+  position: absolute;
+  min-width: 2px;
+  min-height: 2px;
+
+  .baloon-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #d34b6a;
+    animation: float-ballon 2.5s infinite;
+
+    @keyframes float-ballon {
+      0% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translatey(0px);
+      }
+      50% {
+        box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+        transform: translatey(-3px);
+      }
+      100% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translatey(0px);
+      }
+    }
+  }
+
+  .baloon-label {
+    width: 70px;
+    color: #d34b6a;
+    position: absolute;
+    bottom: -20px;
+    word-break: keep-all;
+
+    &.small {
+      font-size: 10px;
+    }
+  }
+}

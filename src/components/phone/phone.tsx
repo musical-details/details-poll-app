@@ -50,14 +50,22 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
   }
 
   componentDidMount() {
-    const { animate } = this.props;
+    const { animate, animationFrames } = this.props;
     if (!animate) return;
+    if (!animationFrames.length) return;
   }
 
   componentDidUpdate(oldProps: PhoneProps) {
-    const { animate, pending, onPendingDone, onPendingSwitchPage } = this.props;
+    const {
+      animate,
+      pending,
+      onPendingDone,
+      onPendingSwitchPage,
+      animationFrames,
+    } = this.props;
     if (oldProps.animate === animate && oldProps.pending === pending) return;
 
+    if (!animationFrames.length) return;
     if (!animate) return;
     if (!pending) return;
     clearInterval(this.pendingProgressInterval);
@@ -91,6 +99,7 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
   getElementRef = (): React.RefObject<HTMLDivElement> | null => {
     const { animationFrames, elements } = this.props;
     const { currentFrameIndex } = this.state;
+    if (!animationFrames.length) return null;
     const currentPosition = animationFrames[currentFrameIndex].position;
     return currentPosition.hasOwnProperty("element")
       ? elements[(currentPosition as { element: string }).element]

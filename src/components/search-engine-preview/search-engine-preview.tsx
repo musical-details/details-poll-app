@@ -39,7 +39,7 @@ export type Mood = {
 };
 
 type SearchEnginePreviewProps = {
-  userSelectedGenre: string;
+  userSelectedGenre: "house" | "trap" | "pop";
   play: boolean;
 };
 

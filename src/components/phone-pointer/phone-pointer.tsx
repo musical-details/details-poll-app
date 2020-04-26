@@ -47,6 +47,8 @@ class PhonePointer extends React.Component<
   }
 
   componentDidMount() {
+    const { isRunning, animationFrame } = this.props;
+    if (animationFrame === undefined) return;
     this.animate();
   }
 
@@ -245,7 +247,7 @@ class PhonePointer extends React.Component<
         className="phone-pointer-wrapper"
         style={{
           transitionDuration: `${
-            animationFrame.movingDuration
+            animationFrame && animationFrame.movingDuration
               ? animationFrame.movingDuration
               : PhonePointer.defaultMoveDuration
           }ms`,

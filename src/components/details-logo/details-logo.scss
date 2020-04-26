@@ -1,0 +1,35 @@
+.details-logo {
+  width: 100%;
+  height: 100%;
+  min-width: 60px;
+  min-height: 30px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+  .logo {
+    width: 100%;
+    height: 100%;
+    min-width: 60px;
+    min-height: 30px;
+    background-image: url("../../assets/images/logo-details.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .module {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .inner {
+      text-transform: uppercase;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+  }
+}

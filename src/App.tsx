@@ -20,6 +20,7 @@ import musicApplications from "./assets/data/music-applications.json";
 import musicGenres from "./assets/data/genres.json";
 import ornamentsPaths from "./assets/data/ornaments-paths.json";
 import valueNames from "./assets/data/knob-value-names.json";
+import DetailsYourTastePreview from "./components/details-your-taste/details-your-taste";
 
 export type MusicApplication = {
   name: string;
@@ -59,7 +60,7 @@ class App extends React.Component<AppProps, AppState> {
   static readonly sectionCount: number = 12;
   sectionRefs: Array<React.RefObject<HTMLElement>> = [];
   state: AppState = {
-    currentSection: 0,
+    currentSection: 5,
     value: 0,
     selectedApplications: [],
     bestApplication: undefined,
@@ -208,9 +209,9 @@ class App extends React.Component<AppProps, AppState> {
         </div>
 
         <div className="content">
-          <section className="App-header" ref={this.sectionRefs[0]}>
-            <div>
-              <div className="motto">
+          <section className="intro" ref={this.sectionRefs[0]}>
+            <div className="inner">
+              <div className="motto-box">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -219,7 +220,10 @@ class App extends React.Component<AppProps, AppState> {
                   new <span>alternative</span> <br /> in music world
                 </motion.div>
               </div>
-              <img className="logo" src={logo} alt="details-logo" />
+              <div className="logo-box">
+                <img className="logo" src={logo} alt="details-logo" />
+              </div>
+
               <div className="notification-box">
                 <div className="notification">
                   <img className="icon" src={headphones} />
@@ -228,7 +232,7 @@ class App extends React.Component<AppProps, AppState> {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="button-box">
                 <button
                   className="main"
                   onClick={this.handleNextSectionButtonClick}
@@ -240,7 +244,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="A" ref={this.sectionRefs[1]}>
-            <div>
+            <div className="inner">
               <div className="question-count">1/8</div>
               {this.state.currentSection == 1 && (
                 <QuestionBar question="Gdzie słuchasz muzyki?" />
@@ -275,7 +279,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="B" ref={this.sectionRefs[2]}>
-            <div>
+            <div className="inner">
               <div className="question-count">2/8</div>
               {this.state.currentSection == 2 && (
                 <QuestionBar question="Która z wybranych aplikacji jest najlepsza?" />
@@ -294,19 +298,21 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="B" ref={this.sectionRefs[3]}>
-            <div>
+            <div className="inner">
               <div className="question-count">3/8</div>
               {this.state.currentSection == 3 && (
                 <QuestionBar question="Jakich gatunków muzycznych słuchasz?" />
               )}
               <div className="genres">
-                {musicGenres.map((musicGenre: any) => (
-                  <GenreOption
-                    genre={musicGenre}
-                    onSelect={this.handleGenreOptionSelect}
-                    onUnselect={this.handleGenreOptionUnselect}
-                  />
-                ))}
+                <div className="genres-inner">
+                  {musicGenres.map((musicGenre: any) => (
+                    <GenreOption
+                      genre={musicGenre}
+                      onSelect={this.handleGenreOptionSelect}
+                      onUnselect={this.handleGenreOptionUnselect}
+                    />
+                  ))}
+                </div>
               </div>
               <button
                 className="main"
@@ -318,11 +324,11 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="C" ref={this.sectionRefs[4]}>
-            <div>
+            <div className="inner">
               <div className="question-count">4/8</div>
               {this.state.currentSection == 4 && (
                 <QuestionBar
-                  question={`Jak ${this.state.bestApplication?.name} radzi sobie zdobieraniem utworów dla ciebie?`}
+                  question={`Jak ${this.state.bestApplication?.name} radzi sobie z dobieraniem utworów dla ciebie?`}
                 />
               )}
               <div className="question-bar">
@@ -350,35 +356,19 @@ class App extends React.Component<AppProps, AppState> {
               </button>
             </div>
           </section>
-          <section
-            className="D"
-            ref={this.sectionRefs[5]}
-            onClick={this.handleNextSectionButtonClick}
-          >
+          <section className="D" ref={this.sectionRefs[5]}>
             <div className="preview-bar">
-              <div>Generator Gustu Muzycznego</div>
+              <div>
+                <span>Mapa </span>
+                <span>Twojegu gustu muzycznego</span>
+              </div>
             </div>
-            <div className="preview-text">
-              Mamy lepszy pomysł! Chcemy wysyłać Ci próbki różnych utworów i
-              umożliwić Ci ich ocenianie. Dzięki temu poznamy jeszcze lepiej
-              twój gust muzyczny! Zobacz preview: ... Jak oceniasz to
-              rozwiązanie?
-            </div>
-            <div>
-              <Knob
-                size={100}
-                numTicks={40}
-                degrees={270}
-                min={1}
-                max={100}
-                value={0}
-                valueNames={valueNames[0][5]}
-                onNewValue={this.handleOurAppSongSelection}
-              />
+            <div className="preview-phone-box">
+              <DetailsYourTastePreview />
             </div>
           </section>
           <section className="E" ref={this.sectionRefs[6]}>
-            <div>
+            <div className="inner">
               <div className="question-count">5/8</div>
               {this.state.currentSection == 6 && (
                 <QuestionBar
@@ -415,11 +405,11 @@ class App extends React.Component<AppProps, AppState> {
           >
             <div className="preview-bar">
               <div>
-                <span>Rozbudowana </span>
+                <span>details </span>
                 <span>wyszukiwarka utworów</span>
               </div>
             </div>
-            <div>
+            <div className="preview-phone-box">
               <SearchEnginePreview
                 play={this.state.currentSection === 7}
                 userSelectedGenre={"house"}
@@ -427,7 +417,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="G" ref={this.sectionRefs[8]}>
-            <div>
+            <div className="inner">
               <div className="question-count">6/8</div>
               {this.state.currentSection == 8 && (
                 <QuestionBar question={`Jak bardzo interesujesz się muzyką?`} />
@@ -455,7 +445,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="H" ref={this.sectionRefs[9]}>
-            <div>
+            <div className="inner">
               <div className="question-count">7/8</div>
               {this.state.currentSection == 9 && (
                 <QuestionBar
@@ -484,7 +474,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
           </section>
           <section className="I" ref={this.sectionRefs[10]}>
-            <div>
+            <div className="inner">
               <div className="question-count">8/8</div>
               {this.state.currentSection == 10 && (
                 <QuestionBar question="Czy jesteś otwarty na nowe gatunki muzyczne?" />

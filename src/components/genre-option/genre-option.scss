@@ -1,16 +1,20 @@
 .genre-wrapper {
-  width: 25%;
-  height: 85px;
-  padding: 5px;
+  width: 15%;
+  flex-grow: 1;
   box-sizing: border-box;
   background: none;
   border: none;
   outline: none;
+  background: #222;
+  opacity: 0.5;
+  transition: 0.3s ease-out;
+  margin: 5px;
 
   &.selected {
+    background-color: #dedede;
+    opacity: 1;
+
     .genre {
-      background-color: #dedede;
-      opacity: 1;
       color: black;
     }
   }
@@ -18,11 +22,10 @@
   .genre {
     width: 100%;
     height: 100%;
-    background: #222;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.5;
+
     transition: 0.3s ease-out;
     text-transform: uppercase;
     font-family: "Bebas Neue", cursive;
