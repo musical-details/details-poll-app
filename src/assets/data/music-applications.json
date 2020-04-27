@@ -1,38 +1,38 @@
 [
   {
     "name": "Spotify",
-    "logo": "../logotypes/spotify-icon.png"
+    "logo": "spotify-icon.png"
   },
   {
     "name": "SoundCloud",
-    "logo": "../logotypes/soundcloud-icon.png"
+    "logo": "soundcloud-icon.png"
   },
   {
     "name": "Apple Music",
-    "logo": "../logotypes/apple-music-icon.png"
+    "logo": "apple-music-icon.png"
   },
   {
     "name": "YouTube",
-    "logo": "../logotypes/youtube-icon.png"
+    "logo": "youtube-icon.png"
   },
   {
     "name": "YT Music",
-    "logo": "../logotypes/ytmusic-icon.png"
+    "logo": "ytmusic-icon.png"
   },
   {
     "name": "Deezer",
-    "logo": "../logotypes/deezer-icon.png"
+    "logo": "deezer-icon.png"
   },
   {
     "name": "Tidal",
-    "logo": "../logotypes/tidal-icon.png"
+    "logo": "tidal-icon.png"
   },
   {
     "name": "MixCloud",
-    "logo": "../logotypes/mixcloud-icon.png"
+    "logo": "mixcloud-icon.png"
   },
   {
     "name": "VK",
-    "logo": "../logotypes/vk-icon.png"
+    "logo": "vk-icon.png"
   }
 ]

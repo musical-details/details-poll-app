@@ -1,0 +1,117 @@
+.moments-preview {
+  width: 100%;
+  display: flex;
+  margin-top: 70px;
+  justify-content: center;
+
+  .moments-app {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    box-shadow: inset 0 0 40px 1px #0b0b0b;
+    color: #aaa;
+    padding: 20px;
+    padding-top: 28px;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    .moments-body {
+      width: 100%;
+      height: 100%;
+
+      .logo-wrapper {
+        width: 100%;
+        height: 90px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        .logo.moments-logo {
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+
+          background-image: url("../../assets/preview-logotypes/logo-details-moments-gradient.png");
+        }
+      }
+    }
+  }
+}
+
+.url-input {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #454545;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #6f6f6f;
+  padding-bottom: 9px;
+}
+
+.tracks-list-wrapper {
+  width: 100%;
+  height: 110px;
+  margin: 12px 0 25px 0;
+
+  .tracks-list-header {
+    height: 20px;
+    font-size: 21px;
+    font-family: "Bebas Neue";
+    text-align: left;
+    margin-bottom: 8px;
+    color: #e7e7e7;
+    letter-spacing: 0.3px;
+  }
+
+  .tracks-list-shadow {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    align-self: auto;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(-90deg, #111111 -17%, rgba(0, 0, 0, 0) 50%);
+  }
+  .tracks-list {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.rate-button-wrapper {
+  width: 100%;
+  height: 30px;
+
+  .rate-button {
+    width: 80%;
+    height: 100%;
+
+    font-family: "Bebas Neue";
+    outline: none;
+    width: 80%;
+    height: 32px;
+    background-image: linear-gradient(-45deg, #fc4c32, #d72375);
+    color: white;
+    font-size: 15px;
+    border-radius: 16px;
+    border: none;
+    letter-spacing: 4px;
+    transition: 0.5s ease-out;
+    transition-delay: 0.4s;
+    opacity: 0.8;
+
+    &._hover,
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}

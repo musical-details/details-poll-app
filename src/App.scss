@@ -148,7 +148,8 @@ section {
   }
 
   &.D,
-  &.F {
+  &.F,
+  &.H {
     background: linear-gradient(0deg, #f84824, #b74fa1);
     animation: 10s animate_background2 infinite;
     color: black;

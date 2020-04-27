@@ -1,0 +1,93 @@
+{
+  "house": [
+    {
+      "app": "SoundCloud",
+      "recent": [
+        {
+          "author": "sura (fka kuiters)",
+          "title": "YAW",
+          "icon": "https://i1.sndcdn.com/artworks-000337840935-dkqryd-t80x80.jpg"
+        },
+        {
+          "author": "samsin",
+          "title": "yuck! (free dl)",
+          "icon": "https://i1.sndcdn.com/artworks-000390433167-1a9ccp-t80x80.jpg"
+        },
+        {
+          "author": "more creativity records",
+          "title": "Playground",
+          "icon": "https://i1.sndcdn.com/artworks-000607269331-ep4jhm-t80x80.jpg"
+        },
+        {
+          "author": "bad banter",
+          "title": "Cantilever",
+          "icon": "https://i1.sndcdn.com/artworks-000665548348-x5ti6y-t80x80.jpg"
+        }
+      ],
+      "playlist": [
+        {
+          "name": "Chill",
+          "icon": "https://i1.sndcdn.com/artworks-000555497745-qgblwk-t80x80.jpg"
+        },
+        {
+          "name": "New Vibes",
+          "icon": "https://i1.sndcdn.com/artworks-000544312410-855p5r-t80x80.jpg"
+        },
+        {
+          "name": "MorningCheck",
+          "icon": "https://i1.sndcdn.com/artworks-000493134495-bbpg8z-t80x80.jpg"
+        },
+        {
+          "name": "Dance",
+          "icon": "https://i1.sndcdn.com/artworks-000672302581-7s4djk-t80x80.jpg"
+        }
+      ]
+    },
+    {
+      "app": "Spotify",
+      "recent": [
+        {
+          "author": "",
+          "title": "",
+          "icon": ""
+        }
+      ],
+      "playlist": [
+        {
+          "name": "",
+          "icon": ""
+        }
+      ],
+      "playlistTracks": [
+        {
+          "author": "sura (fka kuiters)",
+          "title": "YAW",
+          "icon": "https://i1.sndcdn.com/artworks-000337840935-dkqryd-t80x80.jpg"
+        }
+      ]
+    },
+    {
+      "app": "YTMusic",
+      "recent": [
+        {
+          "author": "",
+          "title": "",
+          "icon": ""
+        }
+      ],
+      "playlist": [
+        {
+          "name": "",
+          "icon": ""
+        }
+      ],
+      "playlistTracks": [
+        {
+          "author": "sura (fka kuiters)",
+          "title": "YAW",
+          "icon": "https://i1.sndcdn.com/artworks-000337840935-dkqryd-t80x80.jpg"
+        }
+      ]
+    }
+  ]
+}
