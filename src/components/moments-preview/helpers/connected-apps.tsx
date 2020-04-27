@@ -8,6 +8,7 @@ type ConnectedAppsProps = {
   availableAppNames: Array<string>;
   activeApp: string;
   appRef: React.RefObject<HTMLDivElement>;
+  onClick: (e: EventTarget & HTMLDivElement) => void;
 };
 
 type Application = {
@@ -16,7 +17,9 @@ type Application = {
 };
 
 function ConnectedApps(props: ConnectedAppsProps) {
-  let appIconStyle: CSS.Properties = { borderBottom: "2px solid #2b2b2b" };
+  let appIconStyle: CSS.Properties = {
+    borderBottom: "2px solid rgb(156, 156, 156)",
+  };
   return (
     <div className="connected-apps-wrapper">
       <div className="connected-apps-header">Connected Accounts</div>
@@ -28,9 +31,11 @@ function ConnectedApps(props: ConnectedAppsProps) {
           );
           return (
             <div
-              ref={
-                props.activeApp === musicApplication.name ? props.appRef : null
-              }
+              title={musicApplication.name}
+              onClick={(e) => {
+                props.onClick(e.currentTarget);
+              }}
+              ref={"SoundCloud" === musicApplication.name ? props.appRef : null}
             >
               <img
                 className="app-icon"

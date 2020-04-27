@@ -9,7 +9,7 @@ export type SearchInputValue = {
 };
 
 type SearchInputProps = {
-  inputId: number;
+  inputId?: number;
   icon?: string;
   placeholder?: string;
   className?: string;
@@ -72,7 +72,7 @@ class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
 }
 
 type SearchButtonProps = {
-  inputId: number;
+  inputId?: number;
   inputRef?: React.RefObject<HTMLDivElement>;
   className?: string;
   style?: {};

@@ -144,6 +144,13 @@ $search-input-height: 45px;
 
   .search-button-box {
     position: relative;
+
+    &._hover {
+      .search-button {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
     .search-button {
       font-family: "Bebas Neue";
       outline: none;
@@ -158,12 +165,6 @@ $search-input-height: 45px;
       transition: 0.5s ease-out;
       transition-delay: 0.4s;
       opacity: 0.8;
-
-      &._hover,
-      &:hover {
-        transform: scale(1.1);
-        opacity: 1;
-      }
     }
   }
 }

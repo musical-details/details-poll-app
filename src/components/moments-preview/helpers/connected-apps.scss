@@ -20,10 +20,16 @@
     display: flex;
     justify-content: space-evenly;
 
+    & div._hover {
+      opacity: 0.4;
+      transition: 300ms 0.4s ease;
+    }
+
     .app-icon {
       height: 40px;
       width: 40px;
       padding-bottom: 7px;
+      transition: 120ms;
     }
   }
 }

@@ -1,15 +1,71 @@
 {
   "house": [
     {
+      "position": { "x": 180, "y": 130 },
+      "movingDuration": 400,
+      "standingDuration": 700,
+      "eventName": null
+    },
+    {
       "position": { "element": "active_app" },
-      "movingDuration": 1200,
+      "movingDuration": 600,
+      "standingDuration": 0,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 180, "y": 130 },
+      "movingDuration": 400,
+      "standingDuration": 700,
+      "eventName": null
+    },
+    {
+      "position": { "element": "playlist_select" },
+      "movingDuration": 800,
+      "standingDuration": 600,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 100, "y": 180 },
+      "movingDuration": 400,
+      "standingDuration": 600,
+      "eventName": null
+    },
+    {
+      "position": { "element": "track_select" },
+      "movingDuration": 800,
+      "standingDuration": 600,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 220, "y": 130 },
+      "movingDuration": 600,
       "standingDuration": 200,
       "eventName": null
     },
     {
-      "position": { "x": 120, "y": 160 },
-      "movingDuration": 1200,
+      "position": { "element": "close_playlist_card" },
+      "movingDuration": 800,
+      "standingDuration": 100,
+      "eventName": "click"
+    },
+    {
+      "position": { "x": 50, "y": 330 },
+      "movingDuration": 600,
       "standingDuration": 200,
+      "eventName": null
+    },
+    {
+      "position": { "element": "button_rate" },
+      "movingDuration": 500,
+      "standingDuration": 600,
+      "eventName": "click"
+    }
+  ],
+  "test": [
+    {
+      "position": { "element": "button_record" },
+      "movingDuration": 800,
+      "standingDuration": 100,
       "eventName": "click"
     }
   ]

@@ -1,0 +1,51 @@
+.timeline-wrapper {
+  width: 100%;
+  height: 230px;
+  position: absolute;
+  left: 0;
+  margin-top: 20px;
+
+  .timeline-pointer {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    border-left: 4px solid rgba(251, 251, 251, 0.05);
+  }
+
+  .tape {
+    width: 850px;
+    height: 100%;
+    background: url("../../../assets/svg/timeline-grid.svg");
+    padding: 10px 0px;
+    box-sizing: border-box;
+
+    .tape-inner {
+      width: 100%;
+      height: 100%;
+
+      .recording-wrapper {
+        position: absolute;
+        z-index: 100;
+        background: rgba(240, 24, 24, 0.34);
+        width: 0;
+        height: 100%;
+        transition: 0.25s linear;
+        top: 0;
+      }
+
+      .moment {
+        height: 42px;
+        width: 120px;
+        background: pink;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .timeline-moment {
+    height: 46px;
+    width: 140px;
+    background: #2e5372;
+  }
+}

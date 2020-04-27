@@ -25,6 +25,7 @@ export class Card extends React.Component<CardProps, CardState> {
   }
 
   handleCloseClick = () => {
+    if (this.props.title === "New Vibes") console.log("YEAH");
     this.setState({
       hidding: true,
     });

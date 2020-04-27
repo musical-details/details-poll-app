@@ -470,7 +470,7 @@ class App extends React.Component<AppProps, AppState> {
             </div>
             <div>
               <MomentsPreview
-                play={this.state.currentSection === 9}
+                play={this.state.currentSection == 9}
                 userSelectedGenre={"house"}
               />
             </div>
