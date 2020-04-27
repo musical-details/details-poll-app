@@ -6,7 +6,9 @@
       "cover": "https://i1.sndcdn.com/artworks-000337781181-798qqj-t200x200.jpg",
       "coverTheme": ["#375bbb", "#fa1543"],
       "audioUrl": "sem-torn.mp3",
-      "basicStartTime": 100,
+      "basicStartTime": 130,
+      "basicDropTime": 135,
+      "basicEndTime": 130,
       "moods": [{ "name": "love", "level": 2 }],
       "genres": [
         { "name": "electronic", "level": 3 },
@@ -14,6 +16,42 @@
         { "name": "edm-trap", "level": 2 }
       ],
       "moments": [
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        },
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        },
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        },
+        {
+          "name": "Bass",
+          "color": "",
+          "startTime": 100,
+          "durationTime": 10,
+          "message": "How do you rate this bassline?",
+          "moods": [],
+          "sounds": []
+        },
         {
           "name": "Bass",
           "color": "",
@@ -32,6 +70,8 @@
       "coverTheme": ["#375bbb", "#fa1543"],
       "audioUrl": "chris-lake-deceiver.mp3",
       "basicStartTime": 100,
+      "basicDropTime": 135,
+      "basicEndTime": 130,
       "moods": [{ "name": "love", "level": 2 }],
       "genres": [
         { "name": "electronic", "level": 3 },

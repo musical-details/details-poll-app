@@ -19,6 +19,8 @@ export type Song = {
   coverTheme: Array<string>;
   audioUrl: string | null;
   basicStartTime: number;
+  basicDropTime: number;
+  basicEndTime: number;
   moods: Array<MapBaloon>;
   genres: Array<MapBaloon>;
   moments: Array<SongMoment>;
@@ -36,6 +38,7 @@ export type SongMoment = {
 
 type DetailsYourTastePreviewProps = {};
 type DetailsYourTastePreviewState = {
+  basicRateStatus: boolean | null;
   vibeBoxExtended: boolean;
   currentSongIndex: number;
 };
@@ -49,6 +52,7 @@ class DetailsYourTastePreview extends React.Component<
     button_not_like_it: React.createRef(),
   };
   state: DetailsYourTastePreviewState = {
+    basicRateStatus: null,
     vibeBoxExtended: false,
     currentSongIndex: 0,
   };
@@ -70,6 +74,7 @@ class DetailsYourTastePreview extends React.Component<
     const { vibeBoxExtended, currentSongIndex } = this.state;
     return (
       <Phone
+        initBlur={true}
         animationFrames={
           deatilsTasteAnimations["house"] as Array<PhoneAnimationFrame>
         }
@@ -85,6 +90,7 @@ class DetailsYourTastePreview extends React.Component<
           </div>
           <div className="vibe-box-wrapper">
             <VibeBox
+              basicRateStatus={true}
               elements={this.elements}
               isExtend={vibeBoxExtended}
               onBasicRate={this.handleBasicRate}

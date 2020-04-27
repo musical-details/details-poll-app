@@ -3,6 +3,16 @@
   height: 100%;
   position: relative;
 
+  .audio-player {
+    position: fixed;
+    z-index: 10000;
+    top: 50%;
+    left: 50;
+    background: red;
+    padding: 10px;
+    display: none;
+  }
+
   .vibe-window {
     position: absolute;
     bottom: 0;
@@ -121,15 +131,28 @@
               }
             }
 
+            .controls {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
             .background {
               width: 100%;
               height: 100%;
               position: absolute;
               z-index: 10;
               border-radius: 50%;
-              background: linear-gradient(0deg, #375bbb, #fa1543);
-              animation: rotate-song-background 1.5s infinite;
               animation-timing-function: linear;
+
+              &.drop {
+                animation: rotate-song-background 1.5s infinite;
+              }
 
               @keyframes rotate-song-background {
                 0% {
@@ -162,9 +185,11 @@
                 background-position: center;
                 background-size: contain;
                 border-radius: 50%;
-                animation: expand-song-box 0.4s infinite;
                 box-shadow: inset 0 0 10px 1px #101010;
-                background-image: url("https://i1.sndcdn.com/artworks-000337781181-798qqj-t200x200.jpg");
+
+                &.drop {
+                  animation: expand-song-box 0.4s infinite;
+                }
 
                 @keyframes expand-song-box {
                   0% {

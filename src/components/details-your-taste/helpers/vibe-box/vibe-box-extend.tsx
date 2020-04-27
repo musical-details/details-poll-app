@@ -2,9 +2,12 @@ import React from "react";
 import ReactionRanger from "./reaction-ranger";
 import Timeline from "./timeline";
 import { Elements } from "../../../phone/phone";
+import { Song } from "../../details-your-taste";
 
 type VibeBoxExtendProps = {
+  song: Song;
   elements: Elements;
+  currentMoment: number;
 };
 type VibeBoxExtendState = {};
 
@@ -19,18 +22,22 @@ class VibeBoxExtend extends React.Component<
   }
 
   render() {
-    const { elements } = this.props;
+    const { elements, song, currentMoment } = this.props;
     return (
       <div className="extend">
         <div className="stages">
-          <div className="stage-box done">1</div>
-          <div className="stage-box current">2</div>
-          <div className="stage-box">3</div>
-          <div className="stage-box">4</div>
-          <div className="stage-box">5</div>
+          {song.moments.map((moment, i) => (
+            <div
+              className={`stage-box ${i < currentMoment ? "done" : ""} ${
+                i === currentMoment ? "current" : ""
+              }`}
+            >
+              {i + 1}
+            </div>
+          ))}
         </div>
         <div className="message-box">
-          <div>How do you rate this bassline?</div>
+          <div>{song.moments[currentMoment].message}</div>
         </div>
         <div className="timeline-box-wrapper">
           <Timeline />

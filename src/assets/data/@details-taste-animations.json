@@ -1,15 +1,10 @@
 {
   "house": [
     {
-      "position": { "x": 60, "y": 260 },
-      "movingDuration": 700,
-      "standingDuration": 300
-    },
-    {
       "position": { "element": "button_like_it" },
-      "movingDuration": 300,
-      "standingDuration": 300,
-      "eventName": "click"
+      "movingDuration": 5000,
+      "standingDuration": 800,
+      "eventName": "slideRight"
     }
   ]
 }

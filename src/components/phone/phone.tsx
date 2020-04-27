@@ -6,11 +6,27 @@ import SpinnerComponent from "../details-spinner/spinner";
 
 export type Elements = { [key: string]: React.RefObject<HTMLDivElement> };
 
+export type EventName =
+  | null
+  | "click"
+  | "slideUp"
+  | "slideDown"
+  | "slideLeft"
+  | "slideRight";
+
+export const eventDuration: { [key: string]: number } = {
+  click: 500,
+  slideUp: 1000,
+  slideDown: 1000,
+  slideLeft: 1000,
+  slideRight: 1000,
+};
+
 export type PhoneAnimationFrame = {
   position: { x: number; y: number } | { element: string };
   movingDuration?: number;
   standingDuration?: number;
-  eventName: null | "click" | "slideUp" | "slideDown";
+  eventName: EventName;
 };
 
 type PhoneProps = {
@@ -18,6 +34,7 @@ type PhoneProps = {
   animationSpeed?: number;
   elements: Elements;
   animate: boolean;
+  initBlur?: boolean;
   pending?: boolean;
   onPendingSwitchPage?: () => void;
   onPendingDone?: () => void;
@@ -115,6 +132,7 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
       songVolume,
       animationSpeed,
       pending,
+      initBlur,
     } = this.props;
 
     const { currentFrameIndex, pendingProgress } = this.state;
@@ -125,7 +143,7 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
           <div className="phone-area">
             <div className="phone-outer"></div>
             <div className="phone-safe"></div>
-            <div className="phone-inner">
+            <div className={`phone-inner ${initBlur ? "blur" : ""}`}>
               <div className="phone-inner-body" ref={this.phoneInnerRef}>
                 {pending && (
                   <div

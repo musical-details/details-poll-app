@@ -1,9 +1,12 @@
 import React from "react";
 import { Elements } from "../../../phone/phone";
+import { Song } from "../../details-your-taste";
 
 type VibeBoxBasicProps = {
+  wasDrop: boolean;
   elements: Elements;
   rateStatus: boolean | null;
+  song: Song;
   onRate?: (isLiked: boolean) => void;
 };
 type VibeBoxBasicState = {};
@@ -34,7 +37,7 @@ class VibeBoxBasic extends React.Component<
   };
 
   render() {
-    const { elements, rateStatus } = this.props;
+    const { elements, rateStatus, song, wasDrop } = this.props;
     return (
       <div className="basic">
         <div className="message-box">
@@ -62,9 +65,17 @@ class VibeBoxBasic extends React.Component<
                   onClick={this.handleNotLikeItClick}
                 ></div>
               </div>
-              <div className="background"></div>
+              <div
+                className={`background ${wasDrop ? "drop" : ""}`}
+                style={{
+                  background: `linear-gradient(0deg, ${song.coverTheme[0]}, ${song.coverTheme[1]})`,
+                }}
+              ></div>
               <div className="cover-wrapper">
-                <div className="song-cover"></div>
+                <div
+                  className={`song-cover ${wasDrop ? "drop" : ""}`}
+                  style={{ backgroundImage: `url(${song.cover})` }}
+                ></div>
               </div>
             </div>
           </div>

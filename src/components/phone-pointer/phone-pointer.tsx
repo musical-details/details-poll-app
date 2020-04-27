@@ -1,6 +1,6 @@
 import React from "react";
 import "./phone-pointer.scss";
-import { PhoneAnimationFrame } from "../phone/phone";
+import { PhoneAnimationFrame, EventName, eventDuration } from "../phone/phone";
 
 type PhonePointerProps = {
   isRunning: boolean;
@@ -17,7 +17,7 @@ type PhonePointerProps = {
 };
 type PhonePointerState = {
   previousElementRef: null | React.RefObject<HTMLDivElement>;
-  currentEvent: null | "click" | "slideUp" | "slideDown";
+  currentEvent: EventName;
   x: number;
   y: number;
 };
@@ -202,33 +202,31 @@ class PhonePointer extends React.Component<
   callEvent() {
     const { onAnimationFrameEnd, animationFrame, elementRef } = this.props;
 
-    this.setState({
-      currentEvent: animationFrame.eventName,
-    });
+    this.setState(
+      {
+        currentEvent: animationFrame.eventName,
+      },
+      () => {
+        const { currentEvent } = this.state;
 
-    this.savePreviousElement();
-    clearTimeout(this.eventStartTimeout);
-    clearTimeout(this.eventEndTimeout);
-    let eventDuration: number = 500;
-    switch (this.state.currentEvent) {
-      case "slideUp":
-      case "slideDown":
-        eventDuration = 1000;
-      case "click":
+        this.savePreviousElement();
+        clearTimeout(this.eventStartTimeout);
+        clearTimeout(this.eventEndTimeout);
+
+        if (currentEvent === null)
+          return onAnimationFrameEnd && onAnimationFrameEnd();
+
         this.eventStartTimeout = setTimeout(() => {
           this.clickToElement(elementRef);
-        }, eventDuration / 2);
+        }, eventDuration[currentEvent] / 2);
         this.eventEndTimeout = setTimeout(() => {
           onAnimationFrameEnd && onAnimationFrameEnd();
           this.setState({
             currentEvent: null,
           });
-        }, eventDuration);
-        break;
-      default:
-        onAnimationFrameEnd && onAnimationFrameEnd();
-        break;
-    }
+        }, eventDuration[currentEvent]);
+      }
+    );
   }
 
   savePreviousElement = () => {

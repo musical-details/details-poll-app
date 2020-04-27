@@ -1,12 +1,6 @@
 import React from "react";
 import "./phone-audio.scss";
-import { PhoneAnimationFrame } from "../phone/phone";
-
-const eventDuration = {
-  click: 500,
-  slideUp: 1000,
-  slideDown: 1000,
-};
+import { PhoneAnimationFrame, EventName, eventDuration } from "../phone/phone";
 
 export type seconds = number;
 
@@ -77,7 +71,6 @@ class PhoneAudio extends React.Component<PhoneAudioProps, PhoneAudioState> {
     this.audio.currentTime = this.countStartAudio();
     this.audio.load();
     this.audio.play();
-    console.log(this.audio);
   }
 
   render() {
