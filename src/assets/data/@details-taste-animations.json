@@ -4,7 +4,7 @@
       "position": { "element": "button_like_it" },
       "movingDuration": 5000,
       "standingDuration": 800,
-      "eventName": "slideRight"
+      "eventName": null
     }
   ]
 }

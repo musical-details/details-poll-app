@@ -89,6 +89,10 @@ class App extends React.Component<AppProps, AppState> {
 
   componentDidMount() {
     scrollToRef(this.sectionRefs[this.state.currentSection]);
+
+    window.onkeyup = (e: any) => {
+      if(e.keyCode === 40) this.handleNextSection();
+    };
   }
 
   handleNextSectionButtonClick = () => {

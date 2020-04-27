@@ -1,6 +1,7 @@
 import React from "react";
 import { Elements } from "../../../phone/phone";
 import { Song } from "../../details-your-taste";
+import SongCover from "../song-cover/song-cover";
 
 type VibeBoxBasicProps = {
   wasDrop: boolean;
@@ -47,38 +48,18 @@ class VibeBoxBasic extends React.Component<
           <div className="reaction-box">
             <i className="icon-thumbs-down"></i>
           </div>
-          <div className="song-cover-static-wrapper">
-            <div
-              className={`song-cover-box ${this.getSongCoverClassName(
-                rateStatus
-              )}`}
-            >
-              <div className="controls">
-                <div
-                  className="like_it"
-                  ref={elements["button_like_it"]}
-                  onClick={this.handleLikeItClick}
-                ></div>
-                <div
-                  className="not_like_it"
-                  ref={elements["button_not_like_it"]}
-                  onClick={this.handleNotLikeItClick}
-                ></div>
-              </div>
-              <div
-                className={`background ${wasDrop ? "drop" : ""}`}
-                style={{
-                  background: `linear-gradient(0deg, ${song.coverTheme[0]}, ${song.coverTheme[1]})`,
-                }}
-              ></div>
-              <div className="cover-wrapper">
-                <div
-                  className={`song-cover ${wasDrop ? "drop" : ""}`}
-                  style={{ backgroundImage: `url(${song.cover})` }}
-                ></div>
-              </div>
-            </div>
-          </div>
+          <SongCover
+            coverUrl={song.cover}
+            coverTheme={{
+              firstColor: song.coverTheme[0],
+              secondColor: song.coverTheme[1],
+            }}
+            animateCover={wasDrop}
+            likeItRef={elements["button_like_it"]}
+            notLikeItRef={elements["button_not_like_it"]}
+            onLike={this.handleLikeItClick}
+            onNotLike={this.handleNotLikeItClick}
+          />
 
           <div className="reaction-box">
             <i className="icon-thumbs-up"></i>

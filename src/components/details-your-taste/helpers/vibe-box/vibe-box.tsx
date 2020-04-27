@@ -42,7 +42,6 @@ class VibeBox extends React.Component<VibeBoxProps, VibeBoxState> {
     }, 2000);
   }
 
-
   render() {
     const { elements, onBasicRate, song, basicRateStatus } = this.props;
     const { isExtend, currentMoment, wasDrop } = this.state;
@@ -72,7 +71,7 @@ class VibeBox extends React.Component<VibeBoxProps, VibeBoxState> {
 
           <div className="song-description">
             <AudioPlayer
-              play={true}
+              play={false}
               song={song}
               stage={isExtend ? currentMoment : "basic"}
               onDropTime={() => {
